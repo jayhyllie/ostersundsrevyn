@@ -91,7 +91,13 @@ $gap-nano: calc($base / 4);
   #{$placementX}: $valueX;
 }
 
-@mixin fixed($placementY, $placementX, $valueY: 50%, $valueX: 50%, $translate: -50% -50%) {
+@mixin fixed(
+  $placementY,
+  $placementX,
+  $valueY: 50%,
+  $valueX: 50%,
+  $translate: -50% -50%
+) {
   position: fixed;
   #{$placementY}: $valueY;
   #{$placementX}: $valueX;
