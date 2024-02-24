@@ -7,7 +7,7 @@ provider:
   profile: revydev
   region: eu-north-1
   iam:
-    role: arn:aws:iam::851725656891:user/revydev
+    role: arn:aws:iam::851725656891:role/revyRole
   deploymentMethod: direct
 
 plugins:
