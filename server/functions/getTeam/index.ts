@@ -6,7 +6,7 @@ import { sendResponse } from "../../responses/index";
 export async function handler(): Promise<APIGatewayProxyResult> {
   try {
     const command = new ScanCommand({
-      TableName: "teamdb",
+      TableName: "Team",
     });
     const response = await docClient.send(command);
     return sendResponse(200, { success: true, team: response.Items });
