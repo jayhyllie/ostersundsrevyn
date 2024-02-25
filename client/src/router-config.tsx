@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { LandingPage } from "@revyn/landingpage";
+import { TeamPage } from "@revyn/teampage";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -24,7 +25,13 @@ const landingRoute = createRoute({
   component: () => <LandingPage />,
 });
 
-const routeTree = rootRoute.addChildren([landingRoute]);
+const teamRoute = createRoute({
+  path: "/team",
+  getParentRoute: () => rootRoute,
+  component: TeamPage,
+});
+
+const routeTree = rootRoute.addChildren([landingRoute, teamRoute]);
 
 export const router = createRouter({
   routeTree,

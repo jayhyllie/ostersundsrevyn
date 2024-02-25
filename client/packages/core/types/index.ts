@@ -1,28 +1,12 @@
-export type EnsembleMember = {
+export type Team = {
   id: string;
   name: string;
-  age: number;
-  city: string;
-  years: number;
-  long_bio: string;
-};
-
-export type ProductionMember = {
-  id: string;
-  name: string;
-  role: string;
-};
-
-export type OrchestraMember = {
-  id: string;
-  name: string;
-  instrument: string;
-};
-
-export type Members = {
-  ensemble: EnsembleMember[];
-  orchestra: OrchestraMember[];
-  production: ProductionMember[];
+  memberIn: string;
+  age?: number;
+  city?: string;
+  years?: number;
+  bio?: string;
+  role?: string;
 };
 
 export type Error = {
