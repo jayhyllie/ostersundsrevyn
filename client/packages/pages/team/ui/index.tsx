@@ -8,7 +8,7 @@ export const TeamPage = () => {
     queryKey: ["team"],
     queryFn: getTeam,
   });
-  const team = teamQuery?.data?.team;
+  const team: Team[] | undefined = teamQuery?.data?.team;
 
   const ensemble = team
     ? team.filter((member: Team) => member.memberIn === "ensemble")
