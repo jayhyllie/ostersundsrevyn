@@ -12,13 +12,19 @@ $clrDanger: hsla(355, 89%, 55%, 1);
 $clrWarning: hsla(48, 100%, 53%, 1);
 $clrInfo: hsla(213, 87%, 59%, 1);
 
-$gradientPrimary: linear-gradient(225deg, $clrPrimary 0%, $clrSecondary 100%);
+$gradientPrimary: linear-gradient(225deg, $clrDanger 0%, #ff6f00 100%);
 $gradientSecondary: linear-gradient(225deg, $clrSecondary 0%, #ff6f00 100%);
 $gradientSuccess: linear-gradient(225deg, $clrSuccess 0%, $clrSecondary 100%);
 $gradientDanger: linear-gradient(225deg, $clrDanger 0%, $clrSecondary 100%);
 $gradientWarning: linear-gradient(225deg, $clrWarning 0%, $clrSuccess 100%);
 $gradientInfo: linear-gradient(225deg, #00fcfe 0%, $clrPrimary 100%);
 
+/* BREAKPOINTS */
+$breakpointMobile: 320px;
+$breakpointTablet: 576px;
+$breakpointDesktop: 768px;
+$breakpointLarge: 992px;
+$breakpointHuge: 1200px;
 /* EFFECTS */
 
 $radius: 4px;

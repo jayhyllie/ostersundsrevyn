@@ -1,0 +1,41 @@
+@use "@revyn/styles" as *;
+
+@mixin buttonStyles($style, $color) {
+  transition: all 0.2s ease;
+  padding: $padding $padding-large;
+  color: $color;
+  width: fit-content;
+  &:hover,
+  &:focus-visible {
+    background-color: transparent;
+    color: $grayscaleLight;
+  }
+
+  @if $style == "default" {
+    background: $gradientPrimary;
+  } @else if $style == "round" {
+    border-radius: 50%;
+  } @else if $style == "alert" {
+    background-color: $clrDanger;
+  } @else if $style == "dark" {
+    background-color: $grayscaleDark;
+  }
+}
+
+button {
+  border-radius: $radius;
+  &.button {
+    &__solid {
+      &--default {
+        @include buttonStyles(default, $grayscaleLight);
+      }
+      &--round {
+        @include buttonStyles(round, $grayscaleLight);
+      }
+      &--alert {
+        @include buttonStyles(alert, $grayscaleLight);
+        @include fontH3;
+      }
+    }
+  }
+}
