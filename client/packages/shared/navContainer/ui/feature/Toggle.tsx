@@ -20,7 +20,7 @@ type ToggleProps = {
 export default function MenuToggle({ toggle, isOpen }: ToggleProps) {
   return (
     <button onClick={() => toggle(!isOpen)} className="menu__toggle">
-      <svg width="23" height="23" viewBox="0 0 23 23">
+      <svg width="30" height="30" viewBox="0 0 23 23">
         <Path
           variants={{
             closed: { d: "M 2 2.5 L 20 2.5" },

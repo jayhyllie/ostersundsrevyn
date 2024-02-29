@@ -27,13 +27,13 @@ const landingRoute = createRoute({
 });
 
 const homeRoute = createRoute({
-  path: "/home",
+  path: "/hem",
   getParentRoute: () => rootRoute,
   component: () => <LandingPage />,
 });
 
 const teamRoute = createRoute({
-  path: "/team",
+  path: "/revyganget",
   getParentRoute: () => rootRoute,
   component: TeamPage,
 });

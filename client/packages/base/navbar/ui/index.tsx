@@ -10,11 +10,18 @@ const variants = {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 };
-const itemIds = ["Hem", "Revygänget 2025", "Media", "Historik", "Kontakta oss"];
+const itemIds = [
+  "Hem",
+  "Revygänget",
+  "Information",
+  "Media",
+  "Historik",
+  "Kontakt",
+];
 
 export const Navbar = () => {
   return (
-    <motion.ul variants={variants}>
+    <motion.ul variants={variants} className="menu__list">
       {itemIds.map((text, i) => (
         <NavItem id={i} text={text} key={i} />
       ))}

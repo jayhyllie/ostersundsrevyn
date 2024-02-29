@@ -1,8 +1,8 @@
-import { useRef, useState } from "react";
-import { useDimensions } from "./feature/useDimensions";
-import { motion } from "framer-motion";
 import { Navbar } from "@revyn/navbar";
+import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 import MenuToggle from "./feature/Toggle";
+import { useDimensions } from "./feature/useDimensions";
 import "./style.scss";
 
 export const NavContainer = () => {
@@ -36,9 +36,9 @@ export const NavContainer = () => {
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
-      className={"menu " + isOpen ? "active" : ""}
+      className={"menu " + (isOpen ? "active" : "")}
     >
-      <motion.div className="background" variants={sidebar} />
+      <motion.div className="menu__background" variants={sidebar} />
       <Navbar />
       <MenuToggle toggle={setIsOpen} isOpen={isOpen} />
     </motion.nav>
