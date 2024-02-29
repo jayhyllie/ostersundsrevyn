@@ -1,9 +1,14 @@
 @use "@revyn/styles" as *;
 
+body:has(.splash) {
+  background: $gradientDark;
+}
+
 .splash {
   height: 100vh;
   @include center;
   padding-inline: $padding-huge;
+  perspective: 600;
 
   img {
     width: 310px;

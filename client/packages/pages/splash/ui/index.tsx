@@ -3,9 +3,9 @@ import { AnimatePresence, Variants, motion } from "framer-motion";
 
 export const SplashPage = () => {
   const variants: Variants = {
-    initial: { opacity: 0, y: 100 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 100 },
+    initial: { opacity: 0, y: 500, rotateY: 720 },
+    animate: { opacity: 1, y: 0, rotateY: 0 },
+    exit: { opacity: 0, y: 500 },
   };
   return (
     <main className="splash">

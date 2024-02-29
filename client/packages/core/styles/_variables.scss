@@ -18,6 +18,7 @@ $gradientSuccess: linear-gradient(225deg, $clrSuccess 0%, $clrSecondary 100%);
 $gradientDanger: linear-gradient(225deg, $clrDanger 0%, $clrSecondary 100%);
 $gradientWarning: linear-gradient(225deg, $clrWarning 0%, $clrSuccess 100%);
 $gradientInfo: linear-gradient(225deg, #00fcfe 0%, $clrPrimary 100%);
+$gradientDark: linear-gradient(225deg, $grayscaleBlack 0%, $grayscaleDark 100%);
 
 /* BREAKPOINTS */
 $breakpointMobile: 320px;
