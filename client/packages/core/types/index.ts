@@ -29,3 +29,8 @@ export enum Style {
   "WARNING" = "warning",
   "INFO" = "info",
 }
+
+export enum Btn {
+  "SOLID" = "solid",
+  "OUTLINE" = "outline",
+}
