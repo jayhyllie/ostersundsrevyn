@@ -52,6 +52,7 @@
   meter {
     background: none;
     -webkit-appearance: none;
+    appearance: none;
   }
 
   ::-moz-meter-bar {
@@ -227,6 +228,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeSpeed;
+  background: linear-gradient(
+    225deg,
+    hsla(0, 0%, 10%, 1) 0%,
+    hsla(202, 43%, 15%, 1) 100%
+  );
+  color: hsla(214, 47%, 97%, 1);
 }
 /* Box sizing normalization */
 *,
@@ -299,10 +306,12 @@ input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 }
 
 input[type="search"] {
   -webkit-appearance: none;
+  appearance: none;
   -moz-appearance: none;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -396,6 +405,7 @@ html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
+  appearance: button;
   cursor: pointer;
   border: 0;
   background: transparent;
@@ -430,6 +440,7 @@ input[type="radio"] {
 
 input[type="search"] {
   -webkit-appearance: textfield;
+  appearance: textfield;
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
@@ -598,6 +609,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 /**
@@ -652,6 +664,7 @@ progress {
      */
 [type="search"] {
   -webkit-appearance: textfield;
+  appearance: textfield;
   /* 1 */
   outline-offset: -2px;
   /* 2 */

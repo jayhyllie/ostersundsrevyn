@@ -1,0 +1,16 @@
+@use "@revyn/styles" as *;
+
+nav,
+.background {
+  @include absolute(top, left, 0, 0);
+  bottom: 0;
+  width: calc($base * 20);
+}
+.background {
+  background: transparent;
+  border: 1px solid $grayscaleLight;
+}
+.first {
+  height: 50%;
+  margin: auto;
+}

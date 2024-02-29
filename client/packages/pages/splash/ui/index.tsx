@@ -1,5 +1,6 @@
-import "./style.scss";
+import { useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, Variants, motion } from "framer-motion";
+import "./style.scss";
 
 export const SplashPage = () => {
   const variants: Variants = {
@@ -7,6 +8,12 @@ export const SplashPage = () => {
     animate: { opacity: 1, y: 0, rotateY: 0 },
     exit: { opacity: 0, y: 500 },
   };
+
+  const navigate = useNavigate();
+  setTimeout(() => {
+    navigate({ to: "/home" });
+  }, 4000);
+
   return (
     <main className="splash">
       <AnimatePresence mode="wait">
