@@ -1,9 +1,5 @@
 @use "@revyn/styles" as *;
 
-body:has(.splash) {
-  background: $gradientDark;
-}
-
 .splash {
   height: 100vh;
   @include center;

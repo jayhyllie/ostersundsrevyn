@@ -21,11 +21,13 @@ $gradientInfo: linear-gradient(225deg, #00fcfe 0%, $clrPrimary 100%);
 $gradientDark: linear-gradient(225deg, $grayscaleBlack 0%, $grayscaleDark 100%);
 
 /* BREAKPOINTS */
-$breakpointMobile: 320px;
+$breakpointMobile: 420px;
 $breakpointTablet: 576px;
-$breakpointDesktop: 768px;
-$breakpointLarge: 992px;
-$breakpointHuge: 1200px;
+$breakpointTabletLarge: 768px;
+$breakpointDesktop: 992px;
+$breakpointLarge: 1200px;
+$breakpointHuge: 1440px;
+$breakpointGigantic: 1600px;
 /* EFFECTS */
 
 $radius: 4px;
