@@ -1,1 +1,25 @@
 @use "@revyn/styles" as *;
+
+.ensemble {
+  @include grid(repeat(3, 1fr));
+  gap: $gap;
+
+  &__card {
+    padding: $padding;
+    @include grid(100%);
+    justify-items: center;
+    background: $gradientPrimary;
+    & > * {
+      @include fontIngress;
+    }
+    img {
+      margin-bottom: $margin;
+    }
+    h2 {
+      font-family: $ffHeading;
+    }
+    p {
+      font-family: $ffParagraph;
+    }
+  }
+}

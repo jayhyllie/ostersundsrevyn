@@ -9,6 +9,7 @@ import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { LandingPage } from "@revyn/landingpage";
 import { TeamPage } from "@revyn/teampage";
 import { SplashPage } from "@revyn/splash";
+import { TeamContainer } from "@revyn/teamcontainer";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -32,13 +33,22 @@ const homeRoute = createRoute({
   component: () => <LandingPage />,
 });
 
-const teamRoute = createRoute({
+const teamContainerRoute = createRoute({
   path: "/revyganget",
   getParentRoute: () => rootRoute,
-  component: TeamPage,
+  component: () => <TeamContainer />,
+});
+const teamRoute = createRoute({
+  path: "/ensemble",
+  getParentRoute: () => teamContainerRoute,
+  component: () => <TeamPage />,
 });
 
-const routeTree = rootRoute.addChildren([landingRoute, homeRoute, teamRoute]);
+const routeTree = rootRoute.addChildren([
+  landingRoute,
+  homeRoute,
+  teamContainerRoute.addChildren([teamRoute]),
+]);
 
 export const router = createRouter({
   routeTree,
