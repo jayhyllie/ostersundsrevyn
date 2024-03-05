@@ -9,6 +9,7 @@ import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { LandingPage } from "@revyn/landingpage";
 import { TeamPage } from "@revyn/teampage";
 import { SplashPage } from "@revyn/splash";
+import { TeamContainer } from "@revyn/teamcontainer";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -32,13 +33,22 @@ const homeRoute = createRoute({
   component: () => <LandingPage />,
 });
 
-const teamRoute = createRoute({
+const teamContainerRoute = createRoute({
   path: "/revyganget",
   getParentRoute: () => rootRoute,
+  component: () => <TeamContainer />,
+});
+const ensembleRoute = createRoute({
+  path: "/ensemble",
+  getParentRoute: () => teamContainerRoute,
   component: TeamPage,
 });
 
-const routeTree = rootRoute.addChildren([landingRoute, homeRoute, teamRoute]);
+const routeTree = rootRoute.addChildren([
+  landingRoute,
+  homeRoute,
+  teamContainerRoute.addChildren([ensembleRoute]),
+]);
 
 export const router = createRouter({
   routeTree,
@@ -46,3 +56,9 @@ export const router = createRouter({
   defaultErrorComponent: ({ error }) => <div>Error: {error.message}</div>,
   defaultPreload: "intent",
 });
+
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}

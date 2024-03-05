@@ -12,6 +12,8 @@ $clrDanger: hsla(355, 89%, 55%, 1);
 $clrWarning: hsla(48, 100%, 53%, 1);
 $clrInfo: hsla(213, 87%, 59%, 1);
 
+$clrRevyPrimary: hsla(26, 100%, 50%, 1);
+
 $gradientPrimary: linear-gradient(225deg, $clrDanger 0%, #ff6f00 100%);
 $gradientSecondary: linear-gradient(225deg, $clrSecondary 0%, #ff6f00 100%);
 $gradientSuccess: linear-gradient(225deg, $clrSuccess 0%, $clrSecondary 100%);
@@ -32,7 +34,8 @@ $breakpointGigantic: 1600px;
 
 $radius: 4px;
 
-$shadow: 0px 0px 16px 0px hsla(0, 0%, 0%, 0.08);
+$shadow: 0px 0px 16px 0px hsla(0, 0%, 100%, 0.08);
+$shadowHover: 0px 0px 16px 0px $clrRevyPrimary;
 
 $duration: 0.2s;
 

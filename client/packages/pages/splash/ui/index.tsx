@@ -11,7 +11,7 @@ export const SplashPage = () => {
 
   const navigate = useNavigate();
   setTimeout(() => {
-    navigate({ to: "/home" });
+    navigate({ to: "/hem" });
   }, 4000);
 
   return (

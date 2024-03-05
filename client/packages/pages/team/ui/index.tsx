@@ -1,6 +1,7 @@
 import { Team } from "@revyn/types";
 import { useQuery } from "@tanstack/react-query";
 import { getTeam } from "..";
+import { Ensemble } from "./feature/Ensemble";
 import "./style.scss";
 
 export const TeamPage = () => {
@@ -8,7 +9,7 @@ export const TeamPage = () => {
     queryKey: ["team"],
     queryFn: getTeam,
   });
-  const team: Team[] | undefined = teamQuery?.data?.team;
+  const team: Team[] | undefined = teamQuery?.data?.team ?? [];
 
   const ensemble = team
     ? team.filter((member: Team) => member.memberIn === "ensemble")
@@ -20,13 +21,9 @@ export const TeamPage = () => {
       ) : teamQuery.isError ? (
         <div>Error</div>
       ) : (
-        ensemble &&
-        ensemble.map((member: Team) => (
-          <div key={member.id} className="member">
-            <h3>{member.name}</h3>
-            <p>{member.city}</p>
-          </div>
-        ))
+        <>
+          <Ensemble ensemble={ensemble} />
+        </>
       )}
     </>
   );

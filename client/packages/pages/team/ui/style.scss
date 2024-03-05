@@ -1,1 +1,32 @@
 @use "@revyn/styles" as *;
+
+.ensemble {
+  @include grid(repeat(3, 1fr));
+  gap: $gap;
+
+  &__card {
+    padding: $padding;
+    @include grid(100%);
+    justify-items: center;
+    box-shadow: inset $shadow;
+    transition: box-shadow 0.5s ease-in;
+    &:hover {
+      box-shadow: inset $shadowHover;
+    }
+    & > * {
+      @include fontIngress;
+    }
+    img {
+      margin-bottom: $margin;
+    }
+    &--name {
+      font-family: $ffHeading;
+    }
+    &--years {
+      font-family: $ffParagraph;
+    }
+    &--city {
+      @include fontSmall;
+    }
+  }
+}
