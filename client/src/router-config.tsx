@@ -44,10 +44,22 @@ const ensembleRoute = createRoute({
   component: TeamPage,
 });
 
+const bandRoute = createRoute({
+  path: "/band",
+  getParentRoute: () => teamContainerRoute,
+  component: TeamPage,
+});
+
+const productionRoute = createRoute({
+  path: "/production",
+  getParentRoute: () => teamContainerRoute,
+  component: TeamPage,
+});
+
 const routeTree = rootRoute.addChildren([
   landingRoute,
   homeRoute,
-  teamContainerRoute.addChildren([ensembleRoute]),
+  teamContainerRoute.addChildren([ensembleRoute, bandRoute, productionRoute]),
 ]);
 
 export const router = createRouter({

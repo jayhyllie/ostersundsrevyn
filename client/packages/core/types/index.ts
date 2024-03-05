@@ -7,6 +7,7 @@ export type Team = {
   years?: number;
   bio?: string;
   role?: string;
+  sortPosition?: number;
 };
 
 export type Error = {
