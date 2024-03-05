@@ -1,25 +1,29 @@
 import { Team } from "@revyn/types";
-import { useQuery } from "@tanstack/react-query";
-import { getImages } from "../..";
 
-export const Ensemble = ({ ensemble }: { ensemble: Team[] }) => {
-  const imageQuery = useQuery({
+export const Ensemble = ({
+  role,
+  images,
+}: {
+  role: Team[];
+  images: string[] | undefined;
+}) => {
+  /* const imageQuery = useQuery({
     queryKey: ["images"],
     queryFn: getImages,
   });
-  const images = imageQuery?.data?.images ?? [];
+  const images = imageQuery?.data?.images ?? []; 
   const filteredImages = images.filter((image: string) =>
     image.includes("Ensemble")
-  );
+  );*/
   const imageMap = new Map();
-  filteredImages?.forEach((image) => {
+  images?.forEach((image) => {
     const imageName = image.split("/").pop();
-    const memberId = imageName.split(".")[0];
+    const memberId = imageName?.split(".")[0];
     imageMap.set(memberId, image);
   });
   return (
     <section className="ensemble">
-      {ensemble.map((member) => (
+      {role.map((member) => (
         <article key={member.id} className={`ensemble__card ${member.id}`}>
           {imageMap.has(member.id) && (
             <img

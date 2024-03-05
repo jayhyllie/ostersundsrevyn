@@ -1,9 +1,19 @@
 @use "@revyn/styles" as *;
 
-.ensemble {
-  @include grid(repeat(3, 1fr));
+.ensemble,
+.production {
+  @include grid(100%);
   gap: $gap;
 
+  @media screen and (min-width: $breakpointTablet) {
+    @include grid(repeat(2, 1fr));
+  }
+  @media screen and (min-width: $breakpointDesktop) {
+    @include grid(repeat(3, 1fr));
+  }
+}
+
+.ensemble {
   &__card {
     padding: $padding;
     @include grid(100%);
@@ -28,5 +38,25 @@
     &--city {
       @include fontSmall;
     }
+  }
+}
+
+.band {
+  @include grid(100%);
+  text-align: center;
+  gap: $gap;
+
+  @media screen and (min-width: $breakpointTablet) {
+    @include grid(repeat(2, 1fr));
+  }
+
+  article {
+    @include flex(column, center, center);
+    gap: $gap;
+  }
+
+  h2 {
+    @include fontH3;
+    font-family: $ffHeading;
   }
 }
