@@ -1,31 +1,45 @@
 import { Link, Outlet } from "@tanstack/react-router";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
 import "./style.scss";
+import { NavContainer } from "@revyn/navcontainer";
+
+function MyTabs() {
+  const currentTab = window.location.pathname;
+  return (
+    <Tabs value={currentTab}>
+      <Tab
+        label="Ensemble"
+        value="/revyganget/ensemble"
+        component={Link}
+        to="/revyganget/ensemble"
+      />
+      <Tab
+        label="Orkester"
+        value="/revyganget/band"
+        component={Link}
+        to="/revyganget/band"
+      />
+      <Tab
+        label="Produktion"
+        value="/revyganget/production"
+        component={Link}
+        to="/revyganget/production"
+      />
+    </Tabs>
+  );
+}
 
 export const TeamContainer = () => {
   return (
-    <main className="team">
-      <section className="team__tabs">
-        {(
-          [
-            ["/revyganget", "Ensemble", true],
-            ["/band", "Orkester"],
-            ["/production", "Produktion"],
-          ] as const
-        ).map(([to, label, exact]) => {
-          return (
-            <Link
-              key={to}
-              to={to}
-              activeOptions={{ exact }}
-              className={`team__tabs--tab ${exact ? "active" : ""}`}
-            >
-              {label}
-            </Link>
-          );
-        })}
-      </section>
-      <hr />
-      <Outlet />
-    </main>
+    <>
+      <NavContainer />
+      <main className="team">
+        <section className="team__tabs">
+          <MyTabs />
+        </section>
+        <Outlet />
+      </main>
+    </>
   );
 };

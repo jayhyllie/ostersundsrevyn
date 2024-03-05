@@ -1,1 +1,18 @@
 @use "@revyn/styles" as *;
+
+.team {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  [role="tablist"] {
+    padding-block: $padding;
+    justify-content: center;
+
+    a {
+      color: $grayscaleLight;
+    }
+  }
+  .css-1aquho2-MuiTabs-indicator {
+    bottom: $base;
+  }
+}

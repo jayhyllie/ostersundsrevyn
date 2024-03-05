@@ -30,6 +30,7 @@ export const Ensemble = ({ ensemble }: { ensemble: Team[] }) => {
           )}
           <h2 className="ensemble__card--name">{member.name}</h2>
           <p className="ensemble__card--years">{member.years} revyer</p>
+          <p className="ensemble__card--city">Bor i: {member.city}</p>
         </article>
       ))}
     </section>

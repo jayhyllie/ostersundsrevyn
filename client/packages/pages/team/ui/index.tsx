@@ -1,8 +1,8 @@
 import { Team } from "@revyn/types";
 import { useQuery } from "@tanstack/react-query";
 import { getTeam } from "..";
-import "./style.scss";
 import { Ensemble } from "./feature/Ensemble";
+import "./style.scss";
 
 export const TeamPage = () => {
   const teamQuery = useQuery({

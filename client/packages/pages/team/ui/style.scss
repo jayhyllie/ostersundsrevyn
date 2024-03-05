@@ -8,18 +8,25 @@
     padding: $padding;
     @include grid(100%);
     justify-items: center;
-    background: $gradientPrimary;
+    box-shadow: inset $shadow;
+    transition: box-shadow 0.5s ease-in;
+    &:hover {
+      box-shadow: inset $shadowHover;
+    }
     & > * {
       @include fontIngress;
     }
     img {
       margin-bottom: $margin;
     }
-    h2 {
+    &--name {
       font-family: $ffHeading;
     }
-    p {
+    &--years {
       font-family: $ffParagraph;
+    }
+    &--city {
+      @include fontSmall;
     }
   }
 }

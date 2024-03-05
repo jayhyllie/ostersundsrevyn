@@ -38,16 +38,16 @@ const teamContainerRoute = createRoute({
   getParentRoute: () => rootRoute,
   component: () => <TeamContainer />,
 });
-const teamRoute = createRoute({
+const ensembleRoute = createRoute({
   path: "/ensemble",
   getParentRoute: () => teamContainerRoute,
-  component: () => <TeamPage />,
+  component: TeamPage,
 });
 
 const routeTree = rootRoute.addChildren([
   landingRoute,
   homeRoute,
-  teamContainerRoute.addChildren([teamRoute]),
+  teamContainerRoute.addChildren([ensembleRoute]),
 ]);
 
 export const router = createRouter({
@@ -56,3 +56,9 @@ export const router = createRouter({
   defaultErrorComponent: ({ error }) => <div>Error: {error.message}</div>,
   defaultPreload: "intent",
 });
+
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
+}
