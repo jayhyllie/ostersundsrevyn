@@ -25,9 +25,11 @@ export const NavContainer = () => {
         <NavMobile />
       ) : (
         <header className="nav">
-          <figure className="nav__logo">
-            <img src="./logo.png" alt="Revyn Logo" />
-          </figure>
+          <a href="/hem" className="nav__logo">
+            <figure>
+              <img src="./logo.png" alt="Revyn Logo" />
+            </figure>
+          </a>
           <NavbarGlass />
           <Button
             type={Btn.SOLID}

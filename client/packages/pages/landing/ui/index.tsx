@@ -1,7 +1,7 @@
 import "./style.scss";
 import { NavContainer } from "@revyn/navcontainer";
-import { Button } from "@revyn/button";
-import { Btn, Style } from "@revyn/types";
+/* import { Button } from "@revyn/button";
+import { Btn, Style } from "@revyn/types"; */
 
 export const LandingPage = () => {
   const screenWidth = window.innerWidth;
@@ -13,7 +13,7 @@ export const LandingPage = () => {
           <figure className="home__hero--image"></figure>
           <section className="home__hero--title">
             <h1>Östersunds{screenWidth < 430 ? <br></br> : null}revyn</h1>
-            <section className="home__hero--title-actions">
+            {/* <section className="home__hero--title-actions">
               <Button
                 onClick={() => console.log("")}
                 type={Btn.SOLID}
@@ -28,7 +28,7 @@ export const LandingPage = () => {
               >
                 Mer information
               </Button>
-            </section>
+            </section> */}
           </section>
         </section>
       </main>

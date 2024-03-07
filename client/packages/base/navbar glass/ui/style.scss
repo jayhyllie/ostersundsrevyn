@@ -1,7 +1,7 @@
 @use "@revyn/styles" as *;
 
 .nav {
-  @include grid(repeat(8, 1fr));
+  @include grid(repeat(12, 1fr));
   @include absolute(top, left, $base, 50%);
   transform: translateX(-50%);
   @include glassMorph($grayscaleGlass);
@@ -11,11 +11,11 @@
 
   &__logo {
     @include fixedRatio(calc($base * 2), 1);
-    grid-column: span 2;
+    grid-column: span 3;
   }
   &__list {
     @include flex(row, space-between, center);
-    grid-column: span 4;
+    grid-column: span 6;
     @include fontIngress;
     font-weight: $fwBold;
     font-family: $ffHeading;
@@ -30,7 +30,7 @@
     }
   }
   button {
-    grid-column: span 2;
+    grid-column: span 3;
     justify-self: end;
   }
 }
