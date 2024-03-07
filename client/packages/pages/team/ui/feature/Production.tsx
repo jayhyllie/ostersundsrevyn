@@ -22,7 +22,7 @@ export const Production = ({
         <article key={member.id} className={`production__card ${member.id}`}>
           {imageMap.has(member.id) && (
             <img
-              src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Produktion/${member.id}.jpg`}
+              src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Produktion/${member.id}.png`}
               alt={member.name}
               className="production__card--image"
             />

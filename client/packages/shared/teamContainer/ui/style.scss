@@ -2,7 +2,8 @@
 
 .team {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
+  padding-block: calc($padding-huge * 4);
 
   [role="tablist"] {
     padding-block: $padding;
@@ -13,6 +14,6 @@
     }
   }
   .css-1aquho2-MuiTabs-indicator {
-    bottom: $base;
+    display: none;
   }
 }

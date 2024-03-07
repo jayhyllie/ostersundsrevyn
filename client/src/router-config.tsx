@@ -10,6 +10,7 @@ import { LandingPage } from "@revyn/landingpage";
 import { TeamPage } from "@revyn/teampage";
 import { SplashPage } from "@revyn/splash";
 import { TeamContainer } from "@revyn/teamcontainer";
+import { InfoPage } from "@revyn/infopage";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -56,10 +57,17 @@ const productionRoute = createRoute({
   component: TeamPage,
 });
 
+const infoPage = createRoute({
+  path: "/information",
+  getParentRoute: () => rootRoute,
+  component: InfoPage,
+});
+
 const routeTree = rootRoute.addChildren([
   landingRoute,
   homeRoute,
   teamContainerRoute.addChildren([ensembleRoute, bandRoute, productionRoute]),
+  infoPage,
 ]);
 
 export const router = createRouter({

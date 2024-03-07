@@ -1,46 +1,43 @@
-import { Navbar } from "@revyn/navbar";
+/* import { Navbar } from "@revyn/navbar";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import MenuToggle from "./feature/Toggle";
-import { useDimensions } from "./feature/useDimensions";
+import { useDimensions } from "./feature/useDimensions"; */
 import "./style.scss";
+import { NavbarGlass } from "@revyn/navbarglass";
+import { NavMobile } from "./feature/NavMobile";
+import { useEffect } from "react";
+import { Button } from "@revyn/button";
+import { Btn, Style } from "@revyn/types";
 
 export const NavContainer = () => {
-  const sidebar = {
-    open: (height = 1000) => ({
-      clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
-      transition: {
-        type: "spring",
-        stiffness: 20,
-        restDelta: 2,
-      },
-    }),
-    closed: {
-      clipPath: "circle(30px at 40px 40px)",
-      transition: {
-        delay: 0.5,
-        type: "spring",
-        stiffness: 400,
-        damping: 40,
-      },
-    },
-  };
+  const screenWidth = window.innerWidth;
 
-  const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef(null);
-  const { height } = useDimensions(containerRef);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      window.location.reload();
+    });
+  }, []);
 
   return (
-    <motion.nav
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
-      custom={height}
-      ref={containerRef}
-      className={"menu " + (isOpen ? "active" : "")}
-    >
-      <motion.div className="menu__background" variants={sidebar} />
-      <Navbar />
-      <MenuToggle toggle={setIsOpen} isOpen={isOpen} />
-    </motion.nav>
+    <>
+      {screenWidth < 1100 ? (
+        <NavMobile />
+      ) : (
+        <header className="nav">
+          <figure className="nav__logo">
+            <img src="./logo.png" alt="Revyn Logo" />
+          </figure>
+          <NavbarGlass />
+          <Button
+            type={Btn.SOLID}
+            style={Style.DEFAULT}
+            onClick={() => console.log("biljetter")}
+          >
+            Biljetter
+          </Button>
+        </header>
+      )}
+    </>
   );
 };
