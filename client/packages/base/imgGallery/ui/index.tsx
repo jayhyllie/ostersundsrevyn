@@ -21,7 +21,7 @@ export const ImageGallery = () => {
         <div>Error</div>
       ) : (
         <section className="gallery__items">
-          {galleryImages?.map((image: string, i: number) => (
+          {galleryImages?.map((image, i) => (
             <img
               key={i}
               src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Galleri/${year}/${image}`}

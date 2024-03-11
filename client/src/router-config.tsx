@@ -12,7 +12,7 @@ import { SplashPage } from "@revyn/splash";
 import { TeamContainer } from "@revyn/teamcontainer";
 import { InfoPage } from "@revyn/infopage";
 import { MediaContainer } from "@revyn/mediacontainer";
-import { GalleryPage } from "@revyn/gallery";
+import { GalleryPage } from "@revyn/media";
 import { ImageGallery } from "@revyn/imagegallery";
 
 const rootRoute = createRootRoute({

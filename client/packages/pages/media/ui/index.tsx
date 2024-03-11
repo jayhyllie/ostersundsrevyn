@@ -1,9 +1,8 @@
-import "./style.scss";
-import { useQuery } from "@tanstack/react-query";
-import { getAllImages } from "../../team/data";
 import { Tab, Tabs } from "@mui/material";
-import { Outlet } from "@tanstack/react-router";
-import { Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { Link, Outlet } from "@tanstack/react-router";
+import { getAllImages } from "../../team/data";
+import "./style.scss";
 
 export const GalleryPage = () => {
   const currentPage = window.location.pathname;
