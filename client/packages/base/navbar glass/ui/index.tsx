@@ -19,6 +19,8 @@ export const NavbarGlass = () => {
                     .toLowerCase()
                     .replace(/å|ä/, "a")
                     .replace("ö", "o")}/ensemble`
+                : text === "Media"
+                ? `/${text.toLowerCase()}/images`
                 : `/${text.toLowerCase()}`
             }
           >

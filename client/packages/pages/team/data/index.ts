@@ -9,12 +9,6 @@ export function getTeam(): Promise<Team> {
   return axios.get(api_team).then((response) => response.data);
 }
 
-export function getImages() {
-  return axios
-    .get(api_images, {
-      headers: {
-        "Content-Type": "application/xml",
-      },
-    })
-    .then((response) => response.data);
+export function getAllImages() {
+  return axios.get(api_images).then((response) => response.data);
 }

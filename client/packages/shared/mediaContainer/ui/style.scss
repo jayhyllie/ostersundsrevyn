@@ -1,0 +1,12 @@
+@use "@revyn/styles" as *;
+
+.media {
+  padding: calc($padding-huge * 4);
+  @include grid(100%);
+  justify-items: center;
+  &__tabs {
+    a {
+      color: $grayscaleLight;
+    }
+  }
+}

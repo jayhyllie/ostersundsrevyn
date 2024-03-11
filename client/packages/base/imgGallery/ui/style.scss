@@ -1,0 +1,13 @@
+@use "@revyn/styles" as *;
+
+.gallery__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $gap;
+
+  &--item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
