@@ -2,10 +2,8 @@
 
 .nav {
   @include grid(repeat(12, 1fr));
-  @include absolute(top, left, $base, 50%);
-  transform: translateX(-50%);
-  @include glassMorph($grayscaleGlass);
-  width: 60%;
+  background-color: transparent;
+  width: 100%;
   padding: $padding $padding-large;
   z-index: 100;
 

@@ -1,7 +1,7 @@
 @use "@revyn/styles" as *;
 
 .media {
-  padding: calc($padding-huge * 4);
+  padding: $padding-large;
   @include grid(100%);
   justify-items: center;
   &__tabs {
