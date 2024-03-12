@@ -1,0 +1,79 @@
+@use "@revyn/styles" as *;
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  &__image {
+    @include fixedRatio(calc($base * 20), 1);
+    position: absolute;
+    &:nth-of-type(1) {
+      top: calc($base * 4);
+      left: calc($base * 4);
+      transform: rotate(-15deg);
+    }
+    &:nth-of-type(2) {
+      bottom: calc($base * 4);
+      left: calc($base * 4);
+      transform: rotate(15deg);
+    }
+    &:nth-of-type(3) {
+      top: calc($base * 4);
+      right: calc($base * 4);
+      transform: rotate(15deg);
+    }
+    &:nth-of-type(4) {
+      bottom: calc($base * 4);
+      right: calc($base * 4);
+      transform: rotate(-15deg);
+    }
+  }
+  .info {
+    @include flex(column, center, center);
+    gap: $gap-large;
+    text-align: center;
+    &__top {
+      @include flex(column, center, center);
+      gap: $gap-large;
+      padding-inline: $padding-huge;
+      h1 {
+        @include fontH1;
+        font-size: calc($fsBase * 6);
+        font-family: $ffHeading;
+        span {
+          color: $clrRevyPrimary;
+        }
+      }
+      h2 {
+        @include fontH2;
+        font-size: calc($fsBase * 2);
+        font-family: $ffHeading;
+        padding-inline: calc($padding-huge * 4);
+      }
+      h3 {
+        @include fontIngress;
+        font-family: $ffHeading;
+        padding-inline: calc($padding-huge * 4);
+      }
+      p {
+        @include fontParagraph;
+        font-size: $fsBase;
+        padding-inline: calc($padding-huge * 2);
+      }
+    }
+
+    &__bottom {
+      @include flex(column, center, center);
+      gap: $gap-large;
+      padding-inline: $padding-huge;
+    }
+
+    &__tickets {
+      @include grid(repeat(3, 1fr));
+      gap: $gap-large;
+      padding: $padding-large;
+      &--card {
+        @include flex(column, center, center);
+      }
+    }
+  }
+}

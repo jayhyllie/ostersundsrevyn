@@ -10,6 +10,10 @@ import { LandingPage } from "@revyn/landingpage";
 import { TeamPage } from "@revyn/teampage";
 import { SplashPage } from "@revyn/splash";
 import { TeamContainer } from "@revyn/teamcontainer";
+import { InfoPage } from "@revyn/infopage";
+import { MediaContainer } from "@revyn/mediacontainer";
+import { GalleryPage } from "@revyn/media";
+import { ImageGallery } from "@revyn/imagegallery";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -33,6 +37,7 @@ const homeRoute = createRoute({
   component: () => <LandingPage />,
 });
 
+/* ---- TEAM ----- */
 const teamContainerRoute = createRoute({
   path: "/revyganget",
   getParentRoute: () => rootRoute,
@@ -55,11 +60,40 @@ const productionRoute = createRoute({
   getParentRoute: () => teamContainerRoute,
   component: TeamPage,
 });
+/* -------- */
+
+const infoPage = createRoute({
+  path: "/information",
+  getParentRoute: () => rootRoute,
+  component: InfoPage,
+});
+
+/* ---- MEDIA ---- */
+const mediaContainerRoute = createRoute({
+  path: "/media",
+  getParentRoute: () => rootRoute,
+  component: () => <MediaContainer />,
+});
+const galleryRoute = createRoute({
+  path: "/images",
+  getParentRoute: () => mediaContainerRoute,
+  component: GalleryPage,
+});
+const imageGalleryRoute = createRoute({
+  path: "$year",
+  getParentRoute: () => galleryRoute,
+  component: () => <ImageGallery />,
+});
+/* -------- */
 
 const routeTree = rootRoute.addChildren([
   landingRoute,
   homeRoute,
   teamContainerRoute.addChildren([ensembleRoute, bandRoute, productionRoute]),
+  infoPage,
+  mediaContainerRoute.addChildren([
+    galleryRoute.addChildren([imageGalleryRoute]),
+  ]),
 ]);
 
 export const router = createRouter({

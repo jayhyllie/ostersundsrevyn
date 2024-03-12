@@ -1,0 +1,20 @@
+@use "@revyn/styles" as *;
+
+.gallery {
+  @include grid(100%);
+  justify-items: center;
+  &__tabs {
+    a {
+      color: $grayscaleLight;
+      &:hover,
+      &:focus,
+      &:active {
+        color: $clrRevyPrimary;
+      }
+    }
+  }
+}
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: $clrRevyPrimary !important;
+}

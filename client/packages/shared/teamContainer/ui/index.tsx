@@ -4,7 +4,7 @@ import Tab from "@mui/material/Tab";
 import "./style.scss";
 import { NavContainer } from "@revyn/navcontainer";
 
-function MyTabs() {
+function TeamTabs() {
   const currentTab = window.location.pathname;
   return (
     <Tabs value={currentTab}>
@@ -36,7 +36,7 @@ export const TeamContainer = () => {
       <NavContainer />
       <main className="team">
         <section className="team__tabs">
-          <MyTabs />
+          <TeamTabs />
         </section>
         <Outlet />
       </main>

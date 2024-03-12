@@ -4,6 +4,7 @@ $grayscaleSlate: hsla(210, 13%, 50%, 1);
 $grayscaleGray: hsla(214, 45%, 90%, 1);
 $grayscaleLight: hsla(214, 47%, 97%, 1);
 $grayscaleWhite: hsla(0, 0%, 100%, 1);
+$grayscaleGlass: hsla(0, 0%, 100%, 0.1);
 
 $clrPrimary: hsla(227, 89%, 55%, 1);
 $clrSecondary: hsla(329, 89%, 55%, 1);
@@ -36,6 +37,7 @@ $radius: 4px;
 
 $shadow: 0px 0px 16px 0px hsla(0, 0%, 100%, 0.08);
 $shadowHover: 0px 0px 16px 0px $clrRevyPrimary;
+$shadowGlass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 
 $duration: 0.2s;
 
@@ -114,4 +116,13 @@ $gap-nano: calc($base / 4);
   #{$placementY}: $valueY;
   #{$placementX}: $valueX;
   translate: $translate;
+}
+
+@mixin glassMorph($background) {
+  background: $background;
+  box-shadow: $shadowGlass;
+  backdrop-filter: blur(calc($base * 0.75));
+  -webkit-backdrop-filter: blur(calc($base * 0.75));
+  border-radius: calc($radius * 2.5);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }

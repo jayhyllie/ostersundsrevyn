@@ -48,10 +48,14 @@ export default function NavItem({ id, text }: { id: number; text: string }) {
         ></div>
         <div className="text" style={style as React.CSSProperties}>
           <a
-            href={`/${text
-              .toLowerCase()
-              .replace(/å|ä/, "a")
-              .replace("ö", "o")}`}
+            href={
+              text === "Revygänget"
+                ? `/${text
+                    .toLowerCase()
+                    .replace(/å|ä/, "a")
+                    .replace("ö", "o")}/ensemble`
+                : `/${text.toLowerCase()}`
+            }
           >
             {text}
           </a>

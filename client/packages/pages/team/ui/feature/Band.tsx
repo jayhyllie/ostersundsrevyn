@@ -19,7 +19,7 @@ export const Band = ({
         <article key={member.id} className={`band__card ${member.id}`}>
           {imageMap.has(member.id) && (
             <img
-              src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Band/${member.id}.jpg`}
+              src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Orkester/${member.id}.png`}
               alt={member.name}
               className="band__card--image"
             />

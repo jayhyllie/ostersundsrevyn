@@ -1,0 +1,34 @@
+@use "@revyn/styles" as *;
+
+.nav {
+  @include grid(repeat(12, 1fr));
+  background-color: transparent;
+  width: 100%;
+  padding: $padding $padding-large;
+  z-index: 100;
+
+  &__logo {
+    @include fixedRatio(calc($base * 2), 1);
+    grid-column: span 3;
+  }
+  &__list {
+    @include flex(row, space-between, center);
+    grid-column: span 6;
+    @include fontIngress;
+    font-weight: $fwBold;
+    font-family: $ffHeading;
+    & > * {
+      padding: $padding-sml $padding;
+      border-radius: $radius;
+      letter-spacing: 1.5px;
+      transition: background 0.6s ease-in-out;
+      &:hover {
+        background-color: $clrRevyPrimary;
+      }
+    }
+  }
+  button {
+    grid-column: span 3;
+    justify-self: end;
+  }
+}

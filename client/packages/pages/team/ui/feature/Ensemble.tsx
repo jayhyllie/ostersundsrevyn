@@ -7,14 +7,6 @@ export const Ensemble = ({
   role: Team[];
   images: string[] | undefined;
 }) => {
-  /* const imageQuery = useQuery({
-    queryKey: ["images"],
-    queryFn: getImages,
-  });
-  const images = imageQuery?.data?.images ?? []; 
-  const filteredImages = images.filter((image: string) =>
-    image.includes("Ensemble")
-  );*/
   const imageMap = new Map();
   images?.forEach((image) => {
     const imageName = image.split("/").pop();
@@ -27,7 +19,7 @@ export const Ensemble = ({
         <article key={member.id} className={`ensemble__card ${member.id}`}>
           {imageMap.has(member.id) && (
             <img
-              src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Ensemble/${member.id}.jpg`}
+              src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Ensemble/${member.id}.png`}
               alt={member.name}
               className="ensemble__card--image"
             />

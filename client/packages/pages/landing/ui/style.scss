@@ -1,36 +1,39 @@
 @use "@revyn/styles" as *;
 
+body:has(#home) {
+  @include fixedRatio(100%, 0.35);
+  @include bgGroup("./opening.jpg", cover, top center);
+  background-color: #2803f9;
+  background-blend-mode: darken, multiply;
+  @media screen and (min-width: $breakpointMobile) {
+    aspect-ratio: 0.45;
+  }
+  @media screen and (min-width: $breakpointTablet) {
+    aspect-ratio: 0.6;
+  }
+  @media screen and (min-width: $breakpointTabletLarge) {
+    aspect-ratio: 0.8;
+  }
+  @media screen and (min-width: $breakpointDesktop) {
+    aspect-ratio: 1.1;
+  }
+  @media screen and (min-width: $breakpointLarge) {
+    aspect-ratio: 1.3;
+  }
+  @media screen and (min-width: $breakpointHuge) {
+    aspect-ratio: 1.5;
+  }
+  @media screen and (min-width: $breakpointGigantic) {
+    aspect-ratio: 1.8;
+  }
+}
+
 #home,
 .home {
+  height: 100vh;
+  @include center;
   &__hero {
     position: relative;
-    &--image {
-      @include fixedRatio(100%, 0.35);
-      @include bgGroup("./opening.jpg", cover, top center);
-      background-color: #2803f9;
-      background-blend-mode: darken, multiply;
-      @media screen and (min-width: $breakpointMobile) {
-        aspect-ratio: 0.45;
-      }
-      @media screen and (min-width: $breakpointTablet) {
-        aspect-ratio: 0.6;
-      }
-      @media screen and (min-width: $breakpointTabletLarge) {
-        aspect-ratio: 0.8;
-      }
-      @media screen and (min-width: $breakpointDesktop) {
-        aspect-ratio: 1.1;
-      }
-      @media screen and (min-width: $breakpointLarge) {
-        aspect-ratio: 1.3;
-      }
-      @media screen and (min-width: $breakpointHuge) {
-        aspect-ratio: 1.5;
-      }
-      @media screen and (min-width: $breakpointGigantic) {
-        aspect-ratio: 1.8;
-      }
-    }
     &--title {
       @include absolute(top, left, 50%, 50%);
       transform: translate(-50%, -50%);
