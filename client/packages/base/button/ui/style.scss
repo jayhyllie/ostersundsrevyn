@@ -5,6 +5,7 @@
   padding: $padding $padding-large;
   color: $color;
   width: fit-content;
+  box-shadow: $shadowHover;
   &:hover,
   &:focus-visible {
     background-color: transparent;

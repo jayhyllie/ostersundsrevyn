@@ -12,19 +12,9 @@
       transform: rotate(-15deg);
     }
     &:nth-of-type(2) {
-      bottom: calc($base * 4);
-      left: calc($base * 4);
-      transform: rotate(15deg);
-    }
-    &:nth-of-type(3) {
       top: calc($base * 4);
       right: calc($base * 4);
       transform: rotate(15deg);
-    }
-    &:nth-of-type(4) {
-      bottom: calc($base * 4);
-      right: calc($base * 4);
-      transform: rotate(-15deg);
     }
   }
   .info {
@@ -41,6 +31,7 @@
         font-family: $ffHeading;
         span {
           color: $clrRevyPrimary;
+          text-shadow: 1px 1px 2px maroon, 0 0 1em orange, 0 0 0.2em orange;
         }
       }
       h2 {
@@ -72,7 +63,33 @@
       gap: $gap-large;
       padding: $padding-large;
       &--card {
-        @include flex(column, center, center);
+        @include fixedRatio(calc($base * 20), 1);
+        padding: $padding;
+        @include flex(column, space-around, center);
+        box-shadow: $shadow;
+
+        &-type {
+          @include fontH3;
+          font-size: calc($fsBase * 3);
+          font-family: $ffIngress;
+          color: $clrRevyPrimary;
+          text-shadow: 1px 1px 2px maroon, 0 0 1em orange, 0 0 0.2em orange;
+        }
+        &-price {
+          @include fontParagraph;
+          font-size: calc($fsBase * 4);
+          font-family: $ffHeading;
+          padding-inline: calc($padding-huge * 2);
+          text-shadow: 1px 1px 2px rgb(255, 255, 255),
+            0 0 1em rgb(252, 251, 250), 0 0 0.1em rgb(254, 254, 253);
+        }
+        &-service,
+        &-limit {
+          font-family: $ffIngress;
+        }
+        &-limit {
+          min-height: calc($base * 2);
+        }
       }
     }
   }
