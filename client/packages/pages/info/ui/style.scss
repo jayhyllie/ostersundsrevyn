@@ -3,6 +3,9 @@
 .wrapper {
   min-height: 100vh;
   position: relative;
+  @media screen and (max-width: $breakpointTablet) {
+    padding: 4em 0.5em;
+  }
   &__image {
     @include fixedRatio(calc($base * 20), 1);
     position: absolute;
@@ -24,7 +27,9 @@
     &__top {
       @include flex(column, center, center);
       gap: $gap-large;
-      padding-inline: $padding-huge;
+      @media screen and (min-width: $breakpointTablet) {
+        padding-inline: $padding-huge;
+      }
       h1 {
         @include fontH1;
         font-size: calc($fsBase * 6);
@@ -38,28 +43,39 @@
         @include fontH2;
         font-size: calc($fsBase * 2);
         font-family: $ffHeading;
-        padding-inline: calc($padding-huge * 4);
+        @media screen and (min-width: $breakpointTablet) {
+          padding-inline: calc($padding-huge * 4);
+        }
       }
       h3 {
         @include fontIngress;
         font-family: $ffHeading;
-        padding-inline: calc($padding-huge * 4);
+        @media screen and (min-width: $breakpointTablet) {
+          padding-inline: calc($padding-huge * 4);
+        }
       }
       p {
         @include fontParagraph;
         font-size: $fsBase;
-        padding-inline: calc($padding-huge * 2);
+        @media screen and (min-width: $breakpointTablet) {
+          padding-inline: calc($padding-huge * 2);
+        }
       }
     }
 
     &__bottom {
       @include flex(column, center, center);
       gap: $gap-large;
-      padding-inline: $padding-huge;
+      @media screen and (min-width: $breakpointTablet) {
+        padding-inline: $padding-huge;
+      }
     }
 
     &__tickets {
       @include grid(repeat(3, 1fr));
+      @media screen and (max-width: $breakpointTablet) {
+        grid-template-columns: 100%;
+      }
       gap: $gap-large;
       padding: $padding-large;
       &--card {
@@ -91,6 +107,11 @@
           min-height: calc($base * 2);
         }
       }
+    }
+    &__general {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      gap: $gap;
     }
   }
 }

@@ -126,3 +126,7 @@ $gap-nano: calc($base / 4);
   border-radius: calc($radius * 2.5);
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
+@mixin textShadow($first, $second) {
+  text-shadow: 1px 1px 2px $first, 0 0 1em $second, 0 0 0.2em $second;
+}

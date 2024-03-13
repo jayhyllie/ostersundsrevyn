@@ -15,6 +15,12 @@ export type Error = {
   message: string;
 };
 
+export type GeneralInfo = {
+  title: string;
+  text: string;
+  obs?: string;
+};
+
 export enum Member {
   Ensemble = "ensemble",
   Orchestra = "orchestra",
