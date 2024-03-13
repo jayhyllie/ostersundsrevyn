@@ -5,12 +5,7 @@ import { Variants, motion } from "framer-motion";
 import "./style.scss";
 
 export const InfoPage = () => {
-  const images = [
-    "./Allakvinnor.jpg",
-    "./patrik&marit.jpg",
-    "./Ryggen.jpg",
-    "./Pojkarna.jpg",
-  ];
+  const images = ["./Allakvinnor.jpg", "./Pojkarna.jpg"];
   const imageVariants: Variants = {
     initial: { opacity: 0, y: 50 },
     animate: { opacity: 1, y: 0 },
