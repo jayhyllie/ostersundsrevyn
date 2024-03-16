@@ -1,0 +1,19 @@
+@use "@revyn/styles" as *;
+
+.modal {
+  position: relative;
+  padding: $padding calc($padding-huge * 2);
+  text-align: center;
+  h2 {
+    @include fontH2;
+  }
+  p {
+    @include fontParagraph;
+    font-size: $fsBase;
+  }
+
+  #close {
+    @include absolute(top, right, $gap-nano, $gap-nano);
+    cursor: pointer;
+  }
+}
