@@ -1,0 +1,59 @@
+@use "@revyn/styles" as *;
+
+@mixin cardStyles($type, $background, $color, $width: 100%, $height: auto) {
+  width: $width;
+  height: $height;
+  padding: $padding;
+  @include grid(100%);
+  gap: $gap;
+  box-shadow: $shadow;
+  transition: all 0.5s ease-in;
+  position: relative;
+  color: $color;
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 0%;
+    background: $background;
+    @include absolute(top, left, 0, 0);
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+    border-radius: $radius;
+  }
+  &:hover {
+    @if $type == "ensemble" {
+      &:before {
+        height: 100%;
+      }
+    }
+  }
+  @if $type == "band" {
+    background: $background;
+  } @else if $type == "ensemble" {
+    @media screen and (min-width: $breakpointDesktop) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+article {
+  border-radius: $radius;
+  &.card {
+    &__ensemble {
+      @include cardStyles(ensemble, $gradientPrimary, $grayscaleLight);
+      button {
+        @include fontIngress;
+        font-family: $ffIngress;
+        font-size: $fsBase;
+        background: $gradientPrimary;
+        color: $grayscaleLight;
+        @include absolute(bottom, right);
+        padding: $padding-sml;
+      }
+    }
+    &__band {
+      @include cardStyles(band, $gradientPrimary, $grayscaleDark);
+    }
+  }
+}

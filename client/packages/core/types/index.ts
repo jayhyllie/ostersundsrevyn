@@ -41,3 +41,11 @@ export enum Btn {
   "SOLID" = "solid",
   "OUTLINE" = "outline",
 }
+
+export enum Card {
+  "DEFAULT" = "default",
+  "ENSEMBLE" = "ensemble",
+  "BAND" = "band",
+  "PRODUCTION" = "production",
+  "BIO" = "bio",
+}

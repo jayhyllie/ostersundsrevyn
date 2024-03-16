@@ -1,7 +1,7 @@
 import { Team } from "@revyn/types";
 import { useQueries } from "@tanstack/react-query";
 import { getAllImages, getTeam } from "..";
-import { Ensemble } from "./feature/Ensemble";
+import { Ensemble } from "./feature/ensemble/Ensemble";
 import { Band } from "./feature/Band";
 import { Production } from "./feature/Production";
 import "./style.scss";

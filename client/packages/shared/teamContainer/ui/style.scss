@@ -3,7 +3,11 @@
 .team {
   max-width: 1200px;
   margin: auto;
-  padding-block: $padding-large;
+  padding: $padding-large 0;
+
+  @media screen and (max-width: $breakpointDesktop) {
+    padding: $padding-huge $padding-large;
+  }
 
   [role="tablist"] {
     padding-block: $padding;
