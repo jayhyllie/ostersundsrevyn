@@ -17,6 +17,7 @@ export const Band = ({
     <section className="band">
       {role.map((member) => (
         <article key={member.id} className={`band__card ${member.id}`}>
+          <h2>{member.role}</h2>
           {imageMap.has(member.id) && (
             <img
               src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Orkester/${member.id}.png`}
@@ -24,7 +25,7 @@ export const Band = ({
               className="band__card--image"
             />
           )}
-          <h2>{member.name}</h2>
+          <h3>{member.name}</h3>
         </article>
       ))}
     </section>

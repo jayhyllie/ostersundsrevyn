@@ -1,14 +1,9 @@
-/* import { Navbar } from "@revyn/navbar";
-import { motion } from "framer-motion";
-import { useRef, useState } from "react";
-import MenuToggle from "./feature/Toggle";
-import { useDimensions } from "./feature/useDimensions"; */
-import "./style.scss";
-import { NavbarGlass } from "@revyn/navbarglass";
-import { NavMobile } from "./feature/NavMobile";
-import { useEffect } from "react";
 import { Button } from "@revyn/button";
+import { NavbarGlass } from "@revyn/navbarglass";
 import { Btn, Style } from "@revyn/types";
+import { useEffect } from "react";
+import { NavMobile } from "./feature/NavMobile";
+import "./style.scss";
 
 export const NavContainer = () => {
   const screenWidth = window.innerWidth;
@@ -27,7 +22,7 @@ export const NavContainer = () => {
         <header className="nav">
           <a href="/hem" className="nav__logo">
             <figure>
-              <img src="./logo.png" alt="Revyn Logo" />
+              <img src="./logo.png" alt="logo" />
             </figure>
           </a>
           <NavbarGlass />
