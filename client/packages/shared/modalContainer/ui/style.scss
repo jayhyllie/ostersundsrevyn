@@ -1,13 +1,15 @@
 @use "@revyn/styles" as *;
 
 .modalContainer {
-  @include absolute(top, left, 50%, 50%);
-  transform: translate(-50%, -50%);
+  @include fixed(top, left);
   width: 90%;
   height: auto;
   background: $gradientPrimary;
   box-shadow: $shadow;
   @media screen and (min-width: $breakpointDesktop) {
     width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

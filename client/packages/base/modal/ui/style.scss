@@ -4,6 +4,10 @@
   position: relative;
   padding: $padding calc($padding-huge * 2);
   text-align: center;
+  @media screen and (max-width: $breakpointTablet) {
+    padding: $padding $padding-large;
+  }
+
   h2 {
     @include fontH2;
   }
@@ -13,7 +17,7 @@
   }
 
   #close {
-    @include absolute(top, right, $gap-nano, $gap-nano);
+    @include absolute(top, right, $gap-sml, $gap-sml);
     cursor: pointer;
   }
 }

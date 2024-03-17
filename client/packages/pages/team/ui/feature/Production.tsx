@@ -18,8 +18,8 @@ export const Production = ({
   );
   return (
     <section className="production">
-      {sortedRole.map((member) => (
-        <article key={member.id} className={`production__card ${member.id}`}>
+      {sortedRole.map((member, index) => (
+        <article key={index} className={`production__card ${member.id}`}>
           {imageMap.has(member.id) && (
             <img
               src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Produktion/${member.id}.png`}
@@ -27,8 +27,10 @@ export const Production = ({
               className="production__card--image"
             />
           )}
-          <h2 className="production__card--name">{member.name}</h2>
-          <p className="production__card--city">{member.role}</p>
+          <section className="production__card--info">
+            <h2 className="production__card--info-name">{member.name}</h2>
+            <p className="production__card--info-city">{member.role}</p>
+          </section>
         </article>
       ))}
     </section>
