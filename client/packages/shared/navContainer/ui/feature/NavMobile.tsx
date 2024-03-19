@@ -16,7 +16,7 @@ export const NavMobile = () => {
       },
     }),
     closed: {
-      clipPath: "circle(30px at calc(100% - 40px) 40px)",
+      clipPath: "circle(0px at calc(100% - 40px) 40px)",
       transition: {
         delay: 0.5,
         type: "spring",
