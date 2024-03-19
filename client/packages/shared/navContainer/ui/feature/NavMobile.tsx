@@ -31,16 +31,18 @@ export const NavMobile = () => {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
   return (
-    <motion.nav
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
-      custom={height}
-      ref={containerRef}
-      className={"menu " + (isOpen ? "active" : "")}
-    >
-      <motion.div className="menu__background" variants={sidebar} />
-      <Navbar />
+    <>
       <MenuToggle toggle={setIsOpen} isOpen={isOpen} />
-    </motion.nav>
+      <motion.nav
+        initial={false}
+        animate={isOpen ? "open" : "closed"}
+        custom={height}
+        ref={containerRef}
+        className={"menu " + (isOpen ? "active" : "")}
+      >
+        <motion.div className="menu__background" variants={sidebar} />
+        <Navbar />
+      </motion.nav>
+    </>
   );
 };

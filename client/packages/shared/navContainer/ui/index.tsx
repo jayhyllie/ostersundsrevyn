@@ -17,7 +17,19 @@ export const NavContainer = () => {
   return (
     <>
       {screenWidth < 1100 ? (
-        <NavMobile />
+        <header className="nav mobile">
+          <a href="/hem" className="nav__logo">
+            <img src="./logo.png" alt="logo" />
+          </a>
+          <Button
+            type={Btn.SOLID}
+            style={Style.DEFAULT}
+            onClick={() => console.log("biljetter")}
+          >
+            Biljetter
+          </Button>
+          <NavMobile />
+        </header>
       ) : (
         <header className="nav">
           <a href="/hem" className="nav__logo">
