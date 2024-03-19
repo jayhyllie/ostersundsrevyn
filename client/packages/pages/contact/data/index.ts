@@ -5,14 +5,17 @@ type sendEmail = {
   e: React.FormEvent<HTMLFormElement>;
   form: React.RefObject<HTMLFormElement>;
 };
+const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID;
+const templateID = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
 
 export const useSendEmail = ({ e, form }: sendEmail) => {
   e.preventDefault();
 
   if (form.current) {
     emailjs
-      .sendForm("service_dajcntq", "template_eo4zuxf", form.current, {
-        publicKey: "igef5KBl7Ie-yyxuc",
+      .sendForm(serviceID, templateID, form.current, {
+        publicKey: publicKey,
       })
       .then(
         () => {

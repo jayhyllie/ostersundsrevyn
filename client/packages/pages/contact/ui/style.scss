@@ -56,4 +56,9 @@
       justify-self: end;
     }
   }
+  &__map {
+    @media screen and (min-width: $breakpointDesktop) {
+      grid-column: span 2;
+    }
+  }
 }

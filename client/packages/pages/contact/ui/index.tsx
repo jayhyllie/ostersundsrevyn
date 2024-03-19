@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { NavContainer } from "@revyn/navcontainer";
 import { useRef } from "react";
 import { useSendEmail } from "../data";
@@ -5,6 +6,7 @@ import { FormContent } from "./feature/FormContent";
 import "./style.scss";
 
 export const ContactPage = () => {
+  const mapurl = import.meta.env.VITE_MAP_URL;
   const form = useRef<HTMLFormElement>(null);
   return (
     <>
@@ -26,6 +28,11 @@ export const ContactPage = () => {
         >
           <FormContent />
         </form>
+        <section className="contact__map">
+          <a href={mapurl} target="_blank" rel="noopener noreferrer">
+            <img src="./map.png" alt="map" className="contact__map--image" />
+          </a>
+        </section>
       </main>
     </>
   );
