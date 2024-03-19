@@ -1,0 +1,59 @@
+@use "@revyn/styles" as *;
+
+.contact {
+  min-height: 100vh;
+  @include grid(100%);
+  place-content: center;
+  gap: $gap;
+  @media screen and (min-width: $breakpointDesktop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  &__info {
+    @include flex(column, flex-start, start);
+    gap: $gap;
+    h1 {
+      @include fontH1;
+      font-size: calc($fsBase * 4);
+      font-family: $ffHeading;
+      color: $clrRevyPrimary;
+      @media screen and (min-width: $breakpointDesktop) {
+        font-size: calc($fsBase * 6);
+      }
+    }
+    p {
+      @include fontIngress;
+    }
+  }
+  &__form {
+    background: $gradientDark;
+    padding: $padding-large;
+    @include grid(100%);
+    gap: $gap;
+    box-shadow: $shadow;
+    input {
+      color: $grayscaleLight;
+      flex: 1;
+      background-color: transparent;
+      border-bottom: 1px solid $clrRevyPrimary;
+      padding-block: $padding;
+    }
+    textarea {
+      color: $grayscaleLight;
+      flex: 1;
+      background-color: transparent;
+      border: none;
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: $grayscaleLight;
+      opacity: 0.5;
+    }
+    input:focus-visible::placeholder,
+    textarea:focus-visible::placeholder {
+      color: transparent;
+    }
+    button {
+      justify-self: end;
+    }
+  }
+}

@@ -40,6 +40,7 @@ export enum Style {
 export enum Btn {
   "SOLID" = "solid",
   "OUTLINE" = "outline",
+  "SUBMIT" = "submit",
 }
 
 export enum Card {

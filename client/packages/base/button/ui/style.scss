@@ -38,5 +38,10 @@ button {
         @include fontH3;
       }
     }
+    &__submit {
+      &--default {
+        @include buttonStyles(default, $grayscaleLight);
+      }
+    }
   }
 }

@@ -27,8 +27,12 @@
       }
     }
   }
-  button {
+  button:not(.menu__toggle) {
     grid-column: span 3;
     justify-self: end;
+    @media screen and (max-width: $breakpointDesktop) {
+      grid-column: 6 / 8;
+      justify-self: center;
+    }
   }
 }
