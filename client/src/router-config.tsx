@@ -11,10 +11,11 @@ import { TeamPage } from "@revyn/teampage";
 import { SplashPage } from "@revyn/splash";
 import { TeamContainer } from "@revyn/teamcontainer";
 import { InfoPage } from "@revyn/infopage";
-import { MediaContainer } from "@revyn/mediacontainer";
-import { GalleryPage } from "@revyn/media";
+import { MediaPage } from "@revyn/media";
 import { ImageGallery } from "@revyn/imagegallery";
 import { ContactPage } from "@revyn/contactpage";
+import { ImageContainer } from "@revyn/imagecontainer";
+import { VideoContainer } from "@revyn/videocontainer";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -73,12 +74,17 @@ const infoPage = createRoute({
 const mediaContainerRoute = createRoute({
   path: "/media",
   getParentRoute: () => rootRoute,
-  component: () => <MediaContainer />,
+  component: MediaPage,
+});
+const videoRoute = createRoute({
+  path: "/videos",
+  getParentRoute: () => mediaContainerRoute,
+  component: () => <VideoContainer />,
 });
 const galleryRoute = createRoute({
   path: "/images",
   getParentRoute: () => mediaContainerRoute,
-  component: GalleryPage,
+  component: () => <ImageContainer />,
 });
 const imageGalleryRoute = createRoute({
   path: "$year",
@@ -100,6 +106,7 @@ const routeTree = rootRoute.addChildren([
   infoPage,
   mediaContainerRoute.addChildren([
     galleryRoute.addChildren([imageGalleryRoute]),
+    videoRoute,
   ]),
   contactPage,
 ]);

@@ -5,6 +5,7 @@
   background-color: transparent;
   width: 100%;
   padding: $padding $padding-large;
+  position: relative;
   z-index: 100;
 
   &__logo {
