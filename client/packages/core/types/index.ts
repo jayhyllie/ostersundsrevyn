@@ -22,6 +22,21 @@ export type Ticket = {
   service: string;
 };
 
+export type Video = {
+  id: string;
+  snippet: {
+    title: string;
+    thumbnails: {
+      medium: {
+        url: string;
+      };
+    };
+    resourceId: {
+      videoId: string;
+    };
+  };
+};
+
 export type GeneralInfo = {
   title: string;
   text: string;

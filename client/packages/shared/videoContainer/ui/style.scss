@@ -9,4 +9,43 @@
       color: $grayscaleLight;
     }
   }
+  &__link {
+    margin: $margin-large;
+    h2 {
+      @include fontH2;
+      font-family: $ffIngress;
+      strong {
+        color: $clrRevyPrimary;
+        text-transform: uppercase;
+        text-decoration: underline;
+      }
+    }
+  }
+  &__videos {
+    margin: $margin-large;
+    max-width: 1200px;
+    @include grid(100%);
+    gap: $gap;
+
+    article {
+      justify-items: center !important;
+      color: $grayscaleLight;
+      @media screen and (min-width: $breakpointDesktop) {
+        justify-items: start !important;
+      }
+      h2 {
+        font-size: calc($fsBase * 1.25);
+        line-height: normal;
+        font-weight: $fwBold;
+        font-family: $ffIngress;
+      }
+      p {
+        font-weight: $fwBold;
+      }
+    }
+
+    @media screen and (min-width: $breakpointDesktop) {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+  }
 }
