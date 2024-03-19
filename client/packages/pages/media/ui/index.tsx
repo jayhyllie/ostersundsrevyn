@@ -1,55 +1,38 @@
 import { Tab, Tabs } from "@mui/material";
-import { useQuery } from "@tanstack/react-query";
+import { NavContainer } from "@revyn/navcontainer";
 import { Link, Outlet } from "@tanstack/react-router";
-import { getAllImages } from "../../team/data";
 import "./style.scss";
 
-export const GalleryPage = () => {
-  const currentPage = window.location.pathname;
-  const galleryQuery = useQuery({
-    queryKey: ["gallery"],
-    queryFn: getAllImages,
-  });
-  const images: string[] | undefined =
-    (galleryQuery.data?.images as string[]) ?? [];
-  const gallery = images?.filter((image: string) => image.includes("Galleri"));
-  const foldersSet = new Set(
-    gallery?.map((folder: string) => folder.split("/")[1])
+function MediaTabs() {
+  const currentTab = window.location.pathname;
+  return (
+    <Tabs value={currentTab}>
+      <Tab
+        label="Bilder"
+        component={Link}
+        to="/media/images"
+        value="/media/images"
+      />
+      <Tab
+        label="Filmer"
+        component={Link}
+        to="/media/videos"
+        value="/media/videos"
+      />
+    </Tabs>
   );
-  const folders = Array.from(foldersSet).filter(Boolean);
+}
 
+export const MediaPage = () => {
   return (
     <>
-      {
-        <section className="gallery">
-          {galleryQuery.isLoading ? (
-            <div>Loading...</div>
-          ) : galleryQuery.isError ? (
-            <div>Error</div>
-          ) : (
-            <>
-              <section className="gallery__tabs">
-                <Tabs value={currentPage}>
-                  {folders?.map((year: string, i) => {
-                    const url = `/media/images/${year}`;
-                    return (
-                      <Tab
-                        key={i}
-                        className="gallery__tabs--tab"
-                        label={year}
-                        value={url}
-                        component={Link}
-                        to={url}
-                      />
-                    );
-                  })}
-                </Tabs>
-              </section>
-              <Outlet />
-            </>
-          )}
+      <NavContainer />
+      <main className="media">
+        <section className="media__tabs">
+          <MediaTabs />
         </section>
-      }
+        <Outlet />
+      </main>
     </>
   );
 };

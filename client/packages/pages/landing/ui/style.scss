@@ -1,6 +1,6 @@
 @use "@revyn/styles" as *;
 
-body:has(#home) {
+/* body:has(#home) {
   @include fixedRatio(100%, 0.35);
   @include bgGroup("./opening.jpg", cover, top center);
   background-color: #2803f9;
@@ -26,12 +26,23 @@ body:has(#home) {
   @media screen and (min-width: $breakpointGigantic) {
     aspect-ratio: 1.8;
   }
+} */
+body:has(#home) {
+  position: relative;
+  video {
+    @include absolute(top, left, 0, 0);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.1;
+  }
 }
-
 #home,
 .home {
   height: 100vh;
   @include center;
+  z-index: 100;
   &__hero {
     position: relative;
     &--title {

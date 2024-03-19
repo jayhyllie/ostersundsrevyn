@@ -15,6 +15,13 @@ export type Error = {
   message: string;
 };
 
+export type Ticket = {
+  type: string;
+  limit: string;
+  price: number;
+  service: string;
+};
+
 export type GeneralInfo = {
   title: string;
   text: string;
