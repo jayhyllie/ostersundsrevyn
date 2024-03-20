@@ -1,18 +1,11 @@
 import { Button } from "@revyn/button";
 import { NavbarGlass } from "@revyn/navbarglass";
 import { Btn, Style } from "@revyn/types";
-import { useEffect } from "react";
 import { NavMobile } from "./feature/NavMobile";
 import "./style.scss";
 
 export const NavContainer = () => {
   const screenWidth = window.innerWidth;
-
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      window.location.reload();
-    });
-  }, []);
 
   return (
     <>

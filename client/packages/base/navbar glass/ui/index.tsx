@@ -1,6 +1,7 @@
 import "./style.scss";
 
 export const NavbarGlass = () => {
+  const location = window.location.pathname.split("/")[1];
   const navItems = [
     "Revygänget",
     "Information",
@@ -11,7 +12,15 @@ export const NavbarGlass = () => {
   return (
     <ul className="nav__list">
       {navItems.map((text, i) => (
-        <li key={i} className="nav__list--item">
+        <li
+          key={i}
+          className={`nav__list--item ${
+            location ===
+            text.toLowerCase().replace(/å|ä/, "a").replace("ö", "o")
+              ? "active"
+              : ""
+          }`}
+        >
           <a
             href={
               text === "Revygänget"
