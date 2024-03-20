@@ -29,7 +29,7 @@ export const NavbarGlass = () => {
                     .replace(/å|ä/, "a")
                     .replace("ö", "o")}/ensemble`
                 : text === "Media"
-                ? `/${text.toLowerCase()}/images`
+                ? `/${text.toLowerCase()}/images/2024`
                 : `/${text.toLowerCase()}`
             }
           >
