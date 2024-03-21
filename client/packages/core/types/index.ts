@@ -37,6 +37,11 @@ export type Video = {
   };
 };
 
+export type History = {
+  title: string;
+  content: string;
+};
+
 export type GeneralInfo = {
   title: string;
   text: string;

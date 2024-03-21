@@ -1,0 +1,67 @@
+@use "@revyn/styles" as *;
+
+.history {
+  max-width: 1200px;
+  margin: $base auto;
+  @include grid(100%);
+
+  &__info {
+    --margin: calc(#{$base} * -7);
+    @include grid(100%);
+    gap: $gap-huge;
+    padding: $padding-huge;
+    box-shadow: $shadow;
+    &--item {
+      @include flex(column, center, center);
+      gap: $gap;
+      padding: $padding-huge;
+
+      @media screen and (min-width: $breakpointDesktop) {
+        flex-direction: row;
+      }
+      &-image {
+        width: calc($base * 20);
+        height: auto;
+        box-shadow: $shadow;
+      }
+      &-content {
+        @include fontParagraph;
+        line-height: 180%;
+        font-size: calc($fsBase * 1.2);
+        font-family: $ffIngress;
+
+        &.highlight {
+          @include fontH2;
+          font-family: $ffHeading;
+          color: $clrRevyPrimary;
+          letter-spacing: 1.4px;
+          @media screen and (max-width: $breakpointDesktop) {
+            text-align: center;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        @media screen and (min-width: $breakpointDesktop) {
+          flex-direction: row-reverse;
+          img {
+            margin-right: var(--margin);
+          }
+        }
+      }
+      &:nth-child(odd) {
+        @media screen and (min-width: $breakpointDesktop) {
+          img {
+            margin-right: var(--margin);
+          }
+        }
+      }
+    }
+    &--item:not(:last-of-type) {
+      border: 1px solid $grayscaleGray;
+    }
+    &--item:last-of-type {
+      padding: unset;
+    }
+  }
+}

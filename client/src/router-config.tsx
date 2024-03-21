@@ -16,6 +16,7 @@ import { ImageGallery } from "@revyn/imagegallery";
 import { ContactPage } from "@revyn/contactpage";
 import { ImageContainer } from "@revyn/imagecontainer";
 import { VideoContainer } from "@revyn/videocontainer";
+import { HistoryPage } from "@revyn/historypage";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -99,6 +100,12 @@ const contactPage = createRoute({
   component: ContactPage,
 });
 
+const historyPage = createRoute({
+  path: "/historik",
+  getParentRoute: () => rootRoute,
+  component: HistoryPage,
+});
+
 const routeTree = rootRoute.addChildren([
   landingRoute,
   homeRoute,
@@ -109,6 +116,7 @@ const routeTree = rootRoute.addChildren([
     videoRoute,
   ]),
   contactPage,
+  historyPage,
 ]);
 
 export const router = createRouter({
