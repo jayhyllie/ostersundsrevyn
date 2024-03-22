@@ -50,6 +50,7 @@ article {
         color: $grayscaleLight;
         @include absolute(bottom, right);
         padding: $padding-sml;
+        z-index: 1000;
       }
     }
     &__band {

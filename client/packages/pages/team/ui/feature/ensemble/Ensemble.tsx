@@ -29,6 +29,10 @@ export const Ensemble = ({
     setModalOpen(true);
     setSelectedMember(role.find((member) => member.id === id) ?? null);
   };
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedMember(null);
+  };
 
   const imageMap = new Map();
   images?.forEach((image) => {
@@ -59,9 +63,9 @@ export const Ensemble = ({
           />
         </CardItem>
       ))}
-      {modalOpen && (
+      {modalOpen && selectedMember && (
         <ModalContainer>
-          <Modal prop={selectedMember} closeModal={() => setModalOpen(false)} />
+          <Modal prop={selectedMember} closeModal={handleCloseModal} />
         </ModalContainer>
       )}
     </section>

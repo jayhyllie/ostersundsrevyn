@@ -4,6 +4,16 @@
   max-width: 1200px;
   margin: auto;
   padding: $padding-large 0;
+  .outlet {
+    width: 100%;
+    & > * {
+      width: 100%;
+    }
+  }
+  &__tabs {
+    position: relative;
+    z-index: 10000;
+  }
 
   @media screen and (max-width: $breakpointDesktop) {
     padding: $padding-huge $padding-large;

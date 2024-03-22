@@ -6,10 +6,10 @@
   height: auto;
   background: $gradientPrimary;
   box-shadow: $shadow;
+  z-index: 1000;
+  border-radius: $radius;
   @media screen and (min-width: $breakpointDesktop) {
     width: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: $padding-large;
   }
 }

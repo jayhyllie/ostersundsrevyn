@@ -1,9 +1,9 @@
 import {
-  Outlet,
   ScrollRestoration,
   createRootRoute,
   createRoute,
   createRouter,
+  Outlet,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { LandingPage } from "@revyn/landingpage";
@@ -17,12 +17,15 @@ import { ContactPage } from "@revyn/contactpage";
 import { ImageContainer } from "@revyn/imagecontainer";
 import { VideoContainer } from "@revyn/videocontainer";
 import { HistoryPage } from "@revyn/historypage";
+import { AnimatedOutletWrapper } from "@revyn/animatedoutlet";
 
 const rootRoute = createRootRoute({
   component: () => (
     <>
       <ScrollRestoration />
-      <Outlet />
+      <AnimatedOutletWrapper>
+        <Outlet />
+      </AnimatedOutletWrapper>
       <TanStackRouterDevtools />
     </>
   ),

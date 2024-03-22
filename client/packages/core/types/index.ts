@@ -48,6 +48,8 @@ export type GeneralInfo = {
   obs?: string;
 };
 
+export type Direction = "left" | "right" | "up" | "down";
+
 export enum Member {
   Ensemble = "ensemble",
   Orchestra = "orchestra",
