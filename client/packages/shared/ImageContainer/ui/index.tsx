@@ -1,10 +1,23 @@
-import { Tab, Tabs } from "@mui/material";
-import { Link, Outlet } from "@tanstack/react-router";
+import { Outlet, useNavigate } from "@tanstack/react-router";
 import { useImageGallery } from "@revyn/media";
+import { useEffect, useState } from "react";
+import { BasicSelect } from "@revyn/dropdown";
 
 export const ImageContainer = () => {
-  const currentPage = window.location.pathname;
+  const navigate = useNavigate();
   const { galleryQuery, folders } = useImageGallery();
+  const [year, setYear] = useState<string>(
+    localStorage.getItem("year") ?? "2024"
+  );
+
+  const handleSetYear = (year: string) => {
+    setYear(year);
+    localStorage.setItem("year", year);
+  };
+
+  useEffect(() => {
+    navigate({ to: "/media/images/$year", params: { year: year } });
+  }, [year, navigate]);
 
   return (
     <>
@@ -17,23 +30,13 @@ export const ImageContainer = () => {
           ) : (
             <>
               <section className="gallery__tabs">
-                <Tabs value={currentPage}>
-                  {folders?.map((year: string, i) => {
-                    const url = `/media/images/${year}`;
-                    return (
-                      <Tab
-                        key={i}
-                        className="gallery__tabs--tab"
-                        label={year}
-                        value={url}
-                        component={Link}
-                        to={url}
-                      />
-                    );
-                  })}
-                </Tabs>
+                <BasicSelect
+                  value={year ?? ""}
+                  handleChange={handleSetYear}
+                  options={folders ?? []}
+                />
               </section>
-              <Outlet />
+              {year && <Outlet />}
             </>
           )}
         </section>

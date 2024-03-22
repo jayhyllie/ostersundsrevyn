@@ -244,6 +244,13 @@ body {
   );
   color: hsla(214, 47%, 97%, 1);
 }
+.outlet {
+  width: 100vw;
+  & > * {
+    width: 100vw;
+    margin: 0 auto;
+  }
+}
 /* Box sizing normalization */
 *,
 ::after,

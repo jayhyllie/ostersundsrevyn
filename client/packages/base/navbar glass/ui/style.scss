@@ -6,7 +6,7 @@
   width: 100%;
   padding: $padding $padding-large;
   position: relative;
-  z-index: 100;
+  z-index: 10000;
 
   &__logo {
     @include fixedRatio(calc($base * 2), 1);

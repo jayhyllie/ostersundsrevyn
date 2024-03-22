@@ -2,8 +2,10 @@ import { NavContainer } from "@revyn/navcontainer";
 import "./style.scss";
 import { useHistoryData } from "../data";
 import { History } from "@revyn/types";
+import { PosterSlider } from "./feature/PosterSlider";
 
 export const HistoryPage = () => {
+  const screenWidth = window.innerWidth;
   const { historyQuery, data, historyImages, imageQuery } = useHistoryData();
   const sortedImages = historyImages
     ? historyImages.sort((a, b) => {
@@ -17,6 +19,7 @@ export const HistoryPage = () => {
   return (
     <>
       <NavContainer />
+      {screenWidth > 768 ? <PosterSlider /> : null}
       <main className="history">
         <section className="history__info">
           {historyQuery.isLoading && imageQuery.isLoading ? (
