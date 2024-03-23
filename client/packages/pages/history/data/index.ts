@@ -26,12 +26,22 @@ export const useHistoryData = () => {
   const historyImages: string[] = imageQuery.data?.images?.filter(
     (image: string) => image.includes("History")
   );
+  const sortedImages = historyImages
+    ? historyImages.sort((a, b) => {
+        const matchA = a.match(/\d+/);
+        const matchB = b.match(/\d+/);
+        const numA = matchA ? parseInt(matchA[0]) : 0; // Extract numeric part
+        const numB = matchB ? parseInt(matchB[0]) : 0; // Extract numeric part
+        return numA - numB;
+      })
+    : [];
 
   return {
     historyQuery,
     data,
     historyImages,
     imageQuery,
+    sortedImages,
   };
 };
 

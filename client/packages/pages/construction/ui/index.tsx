@@ -1,6 +1,7 @@
 import { Btn, Style } from "@revyn/types";
 import "./style.scss";
 import { Button } from "@revyn/button";
+import React from "react";
 
 export const ConstructionPage = () => {
   return (

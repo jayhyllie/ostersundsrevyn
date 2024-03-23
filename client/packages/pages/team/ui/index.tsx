@@ -1,5 +1,5 @@
 import { Team } from "@revyn/types";
-import { useTeamAndImageQuery } from "..";
+import { useTeamAndImageQuery, roles } from "..";
 import { Ensemble } from "./feature/ensemble/Ensemble";
 import { Band } from "./feature/Band";
 import { Production } from "./feature/Production";
@@ -15,12 +15,6 @@ export const TeamPage = () => {
 
   const getImagesByRole = (roleKeyword: string) =>
     images?.filter((image: string) => image.includes(roleKeyword)) || [];
-
-  const roles = {
-    ensemble: "Ensemble",
-    band: "Orkester",
-    production: "Produktion",
-  };
 
   const renderComponent = () => {
     if (teamQuery.isLoading) return <div>Loading...</div>;

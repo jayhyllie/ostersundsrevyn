@@ -4,18 +4,21 @@
   min-height: 100vh;
   position: relative;
   @media screen and (max-width: $breakpointTablet) {
-    padding: 4em 0.5em;
+    padding: calc($padding-huge * 2) $padding-sml;
   }
   &__image {
     @include fixedRatio(calc($base * 20), 1);
     position: absolute;
+    top: calc($base * 4);
+    @media screen and (max-width: $breakpointGigantic) {
+      z-index: -1;
+      opacity: 0.3;
+    }
     &:nth-of-type(1) {
-      top: calc($base * 4);
       left: calc($base * 4);
       transform: rotate(-15deg);
     }
     &:nth-of-type(2) {
-      top: calc($base * 4);
       right: calc($base * 4);
       transform: rotate(15deg);
     }

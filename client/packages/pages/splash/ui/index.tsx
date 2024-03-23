@@ -1,5 +1,6 @@
 import { useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, Variants, motion } from "framer-motion";
+import Logo from "../../../../public/logo.png";
 import "./style.scss";
 
 export const SplashPage = () => {
@@ -18,7 +19,7 @@ export const SplashPage = () => {
     <main className="splash">
       <AnimatePresence mode="wait">
         <motion.img
-          src="./logo.png"
+          src={Logo}
           variants={variants}
           initial="initial"
           animate="animate"

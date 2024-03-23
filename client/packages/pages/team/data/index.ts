@@ -25,3 +25,9 @@ export const useTeamAndImageQuery = () => {
 
   return { team, images, teamQuery, imageQuery };
 };
+
+export const roles = {
+  ensemble: "Ensemble",
+  band: "Orkester",
+  production: "Produktion",
+};
