@@ -1,5 +1,5 @@
-import "./style.scss";
 import { NavContainer } from "@revyn/navcontainer";
+import "./style.scss";
 
 export const LandingPage = () => {
   const screenWidth = window.innerWidth;

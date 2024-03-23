@@ -19,10 +19,7 @@ export const Dropdown: React.FC<SelectProps> = ({
   return (
     <Box sx={{ minWidth: 250 }}>
       <FormControl sx={{ m: 1, minWidth: 250 }} size="small">
-        <InputLabel
-          id="select-label"
-          sx={{ color: "white", borderColor: "white" }}
-        >
+        <InputLabel id="select-label" sx={{ color: "white" }}>
           År
         </InputLabel>
         <Select
@@ -31,7 +28,7 @@ export const Dropdown: React.FC<SelectProps> = ({
           value={value}
           label="Age"
           onChange={(event) => handleChange(event.target.value as string)}
-          sx={{ color: "white", borderColor: "white" }}
+          sx={{ color: "white" }}
         >
           {options.map((option) => (
             <MenuItem key={option} value={option} sx={{}}>

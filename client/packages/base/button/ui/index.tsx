@@ -1,7 +1,6 @@
+import { Btn, Style } from "@revyn/types";
+import { MouseEvent, ReactNode } from "react";
 import "./style.scss";
-import { ReactNode } from "react";
-import { Style, Btn } from "@revyn/types";
-import { MouseEvent } from "react";
 
 type ButtonProps = {
   children: ReactNode | ReactNode[];

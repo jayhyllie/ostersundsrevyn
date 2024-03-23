@@ -15,8 +15,8 @@ export const VideoContainer = () => {
       ) : (
         <>
           <section className="media__videos">
-            {videos.map((video: Video) => (
-              <RenderVideo {...video} />
+            {videos.map((video: Video, i: number) => (
+              <RenderVideo key={i} {...video} />
             ))}
           </section>
           <a href={playListURL} className="media__link" target="_blank">
