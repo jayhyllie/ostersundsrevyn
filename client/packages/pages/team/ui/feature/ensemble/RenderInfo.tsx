@@ -7,17 +7,18 @@ type RenderInfoProps = {
     member: Team;
     isHovered: boolean;
     hoveredId: string | null;
+    imageUrl: string;
   };
   openModalWithID: (value: string) => void;
 };
 
 export const RenderInfo = ({ props, openModalWithID }: RenderInfoProps) => {
-  const { imageMap, member, isHovered, hoveredId } = props;
+  const { imageMap, member, isHovered, hoveredId, imageUrl } = props;
   return (
     <>
       {imageMap.has(member.id) && (
         <img
-          src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Ensemble/${
+          src={`${imageUrl}Ensemble/${
             isHovered && hoveredId === member.id
               ? `${member.id}__hover.png`
               : `${member.id}.png`

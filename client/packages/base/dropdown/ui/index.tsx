@@ -11,7 +11,7 @@ type SelectProps = {
   options: string[];
 };
 
-export const BasicSelect: React.FC<SelectProps> = ({
+export const Dropdown: React.FC<SelectProps> = ({
   value,
   handleChange,
   options,

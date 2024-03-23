@@ -5,6 +5,7 @@ import "./style.scss";
 export const ImageGallery = () => {
   const { year }: { year: string } = useParams({ strict: false });
   const { galleryQuery, galleryImages } = useGalleryQuery(year);
+  const imageUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
 
   return (
     <>
@@ -17,7 +18,7 @@ export const ImageGallery = () => {
           {galleryImages?.map((image, i) => (
             <img
               key={i}
-              src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Galleri/${year}/${image}`}
+              src={`${imageUrl}Galleri/${year}/${image}`}
               alt={`gallery__items--item ${year}`}
               className="gallery__items--item"
             />

@@ -1,3 +1,7 @@
+export type TeamMembers = {
+  team: Team[];
+};
+
 export type Team = {
   id: string;
   name: string;

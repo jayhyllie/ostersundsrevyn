@@ -1,21 +1,14 @@
 import { Team } from "@revyn/types";
-import { useQueries } from "@tanstack/react-query";
-import { getAllImages, getTeam } from "..";
+import { useTeamAndImageQuery } from "..";
 import { Ensemble } from "./feature/ensemble/Ensemble";
 import { Band } from "./feature/Band";
 import { Production } from "./feature/Production";
 import "./style.scss";
 
 export const TeamPage = () => {
+  const imageUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
   const location = window.location.pathname;
-  const [teamQuery, imageQuery] = useQueries({
-    queries: [
-      { queryKey: ["team"], queryFn: getTeam },
-      { queryKey: ["images"], queryFn: getAllImages },
-    ],
-  });
-  const team: Team[] | undefined = teamQuery?.data?.team ?? [];
-  const images: string[] | undefined = imageQuery?.data?.images ?? [];
+  const { team, images, teamQuery } = useTeamAndImageQuery();
 
   const getMembersByRole = (role: string) =>
     team?.filter((member: Team) => member.memberIn === role) || [];
@@ -39,6 +32,7 @@ export const TeamPage = () => {
           <Ensemble
             role={getMembersByRole("ensemble")}
             images={getImagesByRole(roles.ensemble)}
+            imageUrl={imageUrl}
           />
         );
       case "/revyganget/band":
@@ -46,6 +40,7 @@ export const TeamPage = () => {
           <Band
             role={getMembersByRole("orkester")}
             images={getImagesByRole(roles.band)}
+            imageUrl={imageUrl}
           />
         );
       case "/revyganget/production":
@@ -53,6 +48,7 @@ export const TeamPage = () => {
           <Production
             role={getMembersByRole("produktion")}
             images={getImagesByRole(roles.production)}
+            imageUrl={imageUrl}
           />
         );
       default:
