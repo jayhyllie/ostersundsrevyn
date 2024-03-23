@@ -48,6 +48,10 @@ export type GeneralInfo = {
   obs?: string;
 };
 
+export type Images = {
+  images: string[];
+};
+
 export type Direction = "left" | "right" | "up" | "down";
 
 export enum Member {

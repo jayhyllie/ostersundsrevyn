@@ -3,6 +3,7 @@ import { NavbarGlass } from "@revyn/navbarglass";
 import { Btn, Style } from "@revyn/types";
 import { NavMobile } from "./feature/NavMobile";
 import "./style.scss";
+import Logo from "../../../../public/logo.png";
 
 export const NavContainer = () => {
   const screenWidth = window.innerWidth;
@@ -12,7 +13,7 @@ export const NavContainer = () => {
       {screenWidth < 1100 ? (
         <header className="nav mobile">
           <a href="/hem" className="nav__logo">
-            <img src="./logo.png" alt="logo" />
+            <img src={Logo} alt="logo" />
           </a>
           <Button
             type={Btn.SOLID}
@@ -27,7 +28,7 @@ export const NavContainer = () => {
         <header className="nav">
           <a href="/hem" className="nav__logo">
             <figure>
-              <img src="./logo.png" alt="logo" />
+              <img src={Logo} alt="logo" />
             </figure>
           </a>
           <NavbarGlass />

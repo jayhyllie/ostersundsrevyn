@@ -1,21 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "@tanstack/react-router";
-import { getImages } from "..";
+import { useGalleryQuery } from "..";
 import "./style.scss";
 
 export const ImageGallery = () => {
-  const { year } = useParams({ strict: false });
-  const galleryQuery = useQuery({
-    queryKey: ["images", year],
-    queryFn: () => getImages(year),
-  });
-  const images = galleryQuery?.data?.images ?? [];
-  const imageSet = new Set(images?.map((image: string) => image.split("/")[1]));
-  const galleryImages = Array.from(imageSet).filter(Boolean);
+  const { year }: { year: string } = useParams({ strict: false });
+  const { galleryQuery, galleryImages } = useGalleryQuery(year);
 
   return (
     <>
-      {galleryQuery.isLoading ? (
+      {galleryQuery.isLoading && galleryQuery.isFetching ? (
         <div>Loading...</div>
       ) : galleryQuery.isError ? (
         <div>Error</div>
