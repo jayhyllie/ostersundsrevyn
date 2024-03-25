@@ -1,8 +1,7 @@
+import { GeneralInfo, GeneralInfoType } from "@revyn/generalinfo";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { generalInfo } from "../../data";
-import { GeneralInfo } from "@revyn/generalinfo";
-import { useScroll, motion, useTransform } from "framer-motion";
-import { GeneralInfoType } from "@revyn/generalinfo";
 
 const AnimatedGeneralInfo = (info: GeneralInfoType) => {
   const ref = useRef(null);

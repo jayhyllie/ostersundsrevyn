@@ -1,11 +1,12 @@
+import { Images } from "@revyn/types";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const api_images =
-  "https://jtxm3bst4j.execute-api.eu-north-1.amazonaws.com/images";
+const api_images = import.meta.env.VITE_API_URL + "images";
 
-export function getImages(year: string): Promise<string[] | string> {
+export async function getImages(year: string): Promise<Images> {
   const new_api_images = `${api_images}?year=${year}`;
-  return axios
+  return await axios
     .get(new_api_images, {
       headers: {
         "Content-Type": "application/xml",
@@ -13,3 +14,15 @@ export function getImages(year: string): Promise<string[] | string> {
     })
     .then((response) => response.data);
 }
+
+export const useGalleryQuery = (year: string) => {
+  const galleryQuery = useQuery({
+    queryKey: ["images", year],
+    queryFn: () => getImages(year),
+  });
+  const images = galleryQuery?.data?.images ?? [];
+  const imageSet = new Set(images?.map((image: string) => image.split("/")[1]));
+  const galleryImages = Array.from(imageSet).filter(Boolean);
+
+  return { galleryQuery, galleryImages };
+};

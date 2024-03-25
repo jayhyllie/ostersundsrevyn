@@ -5,17 +5,9 @@ import { History } from "@revyn/types";
 import { PosterSlider } from "./feature/PosterSlider";
 
 export const HistoryPage = () => {
+  const imgUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
   const screenWidth = window.innerWidth;
-  const { historyQuery, data, historyImages, imageQuery } = useHistoryData();
-  const sortedImages = historyImages
-    ? historyImages.sort((a, b) => {
-        const matchA = a.match(/\d+/);
-        const matchB = b.match(/\d+/);
-        const numA = matchA ? parseInt(matchA[0]) : 0; // Extract numeric part
-        const numB = matchB ? parseInt(matchB[0]) : 0; // Extract numeric part
-        return numA - numB;
-      })
-    : [];
+  const { historyQuery, data, sortedImages, imageQuery } = useHistoryData();
   return (
     <>
       <NavContainer />
@@ -31,9 +23,7 @@ export const HistoryPage = () => {
               <section key={i} className="history__info--item">
                 {sortedImages && (
                   <img
-                    src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/${
-                      sortedImages[i + 1]
-                    }`}
+                    src={`${imgUrl}${sortedImages[i + 1]}`}
                     alt={`Image ${i}`}
                     className="history__info--item-image"
                   />

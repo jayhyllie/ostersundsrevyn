@@ -1,3 +1,7 @@
+export type TeamMembers = {
+  team: Team[];
+};
+
 export type Team = {
   id: string;
   name: string;
@@ -46,6 +50,10 @@ export type GeneralInfo = {
   title: string;
   text: string;
   obs?: string;
+};
+
+export type Images = {
+  images: string[];
 };
 
 export type Direction = "left" | "right" | "up" | "down";

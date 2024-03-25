@@ -1,8 +1,8 @@
-import { usePosterData } from "../../data";
 import { SliderItem } from "@revyn/slider";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import { usePosterData } from "../../data";
 
 export const PosterSlider = () => {
   const { posterQuery, posterImages } = usePosterData();

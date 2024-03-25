@@ -1,5 +1,5 @@
+import { Card, Style } from "@revyn/types";
 import React, { FC, MouseEvent } from "react";
-import { Style, Card } from "@revyn/types";
 import "./style.scss";
 
 type CardItemProps = {

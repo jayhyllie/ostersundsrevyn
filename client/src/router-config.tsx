@@ -74,6 +74,18 @@ const infoPage = createRoute({
   component: InfoPage,
 });
 
+const contactPage = createRoute({
+  path: "/kontakt",
+  getParentRoute: () => rootRoute,
+  component: ContactPage,
+});
+
+const historyPage = createRoute({
+  path: "/historik",
+  getParentRoute: () => rootRoute,
+  component: HistoryPage,
+});
+
 /* ---- MEDIA ---- */
 const mediaContainerRoute = createRoute({
   path: "/media",
@@ -96,18 +108,6 @@ const imageGalleryRoute = createRoute({
   component: () => <ImageGallery />,
 });
 /* -------- */
-
-const contactPage = createRoute({
-  path: "/kontakt",
-  getParentRoute: () => rootRoute,
-  component: ContactPage,
-});
-
-const historyPage = createRoute({
-  path: "/historik",
-  getParentRoute: () => rootRoute,
-  component: HistoryPage,
-});
 
 const routeTree = rootRoute.addChildren([
   landingRoute,

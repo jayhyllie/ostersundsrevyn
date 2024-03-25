@@ -1,6 +1,7 @@
-import { SVGMotionProps, Variants, motion } from "framer-motion";
+import { SVGMotionProps, motion } from "framer-motion";
 import { RefAttributes } from "react";
 import { JSX } from "react/jsx-runtime";
+import { variantsFirst, variantsSecond } from "../../data";
 
 const Path = (
   props: JSX.IntrinsicAttributes &
@@ -16,18 +17,6 @@ const Path = (
       {...props}
     />
   );
-};
-
-const variantsFirst: Variants = {
-  initial: { d: "M 2 2.5 L 20 2.5" },
-  animate: { d: "M 3 16.5 L 17 2.5" },
-  exit: { d: "M 2 2.5 L 20 2.5" },
-};
-
-const variantsSecond: Variants = {
-  initial: { d: "M 2 16.346 L 20 16.346" },
-  animate: { d: "M 2 2.5 L 17 16.346" },
-  exit: { d: "M 2 16.346 L 20 16.346" },
 };
 
 type ToggleProps = {

@@ -1,21 +1,15 @@
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "@tanstack/react-router";
-import { getImages } from "..";
+import { useGalleryQuery } from "..";
 import "./style.scss";
 
 export const ImageGallery = () => {
-  const { year } = useParams({ strict: false });
-  const galleryQuery = useQuery({
-    queryKey: ["images", year],
-    queryFn: () => getImages(year),
-  });
-  const images = galleryQuery?.data?.images ?? [];
-  const imageSet = new Set(images?.map((image: string) => image.split("/")[1]));
-  const galleryImages = Array.from(imageSet).filter(Boolean);
+  const { year }: { year: string } = useParams({ strict: false });
+  const { galleryQuery, galleryImages } = useGalleryQuery(year);
+  const imageUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
 
   return (
     <>
-      {galleryQuery.isLoading ? (
+      {galleryQuery.isLoading && galleryQuery.isFetching ? (
         <div>Loading...</div>
       ) : galleryQuery.isError ? (
         <div>Error</div>
@@ -24,7 +18,7 @@ export const ImageGallery = () => {
           {galleryImages?.map((image, i) => (
             <img
               key={i}
-              src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Galleri/${year}/${image}`}
+              src={`${imageUrl}Galleri/${year}/${image}`}
               alt={`gallery__items--item ${year}`}
               className="gallery__items--item"
             />

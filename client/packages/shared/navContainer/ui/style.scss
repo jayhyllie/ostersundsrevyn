@@ -1,8 +1,9 @@
 @use "@revyn/styles" as *;
 
 .menu {
+  --radius: 50%;
   @include center;
-  height: 100vh;
+  height: 0vh;
   z-index: -1;
 
   &__background {
@@ -24,12 +25,12 @@
       transition: all 0.5s;
 
       .first {
-        height: 50%;
+        height: --var(--radius);
         margin: auto;
       }
       .icon {
         @include fixedRatio(calc($base * 2.5), 1);
-        border-radius: 50%;
+        border-radius: --var(--radius);
         flex: calc($base * 2.5) 0;
         margin-right: $padding-large;
       }
@@ -43,23 +44,24 @@
   &__toggle {
     outline: none;
     border: none;
-    border-radius: 50%;
+    border-radius: --var(--radius);
     cursor: pointer;
     @include absolute(top, right, calc($base * 1.1), $base);
     @include fixedRatio(calc($base * 3), 1);
     background: transparent;
-    z-index: 1000;
+    z-index: 10001;
   }
-}
-.menu.active {
-  z-index: 100;
 }
 .menu,
 .menu__background {
-  height: 100vh;
   @include absolute(top, right, 0, 0);
   bottom: 0;
   width: calc($base * 20);
+}
+.menu.active {
+  height: 100vh;
+  z-index: 1000;
+  overflow: hidden;
 }
 
 .refresh {

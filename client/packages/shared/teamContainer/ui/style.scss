@@ -12,22 +12,20 @@
   }
   &__tabs {
     position: relative;
-    z-index: 10000;
+    @include flex(row, center, center);
+    gap: $gap;
+    padding-block: $padding-huge;
+
+    &--link {
+      @include fontIngress;
+      font-family: $ffIngress;
+      &.active {
+        border-bottom: 1px dotted $clrRevyPrimary;
+      }
+    }
   }
 
   @media screen and (max-width: $breakpointDesktop) {
     padding: $padding-huge $padding-large;
-  }
-
-  [role="tablist"] {
-    padding-block: $padding;
-    justify-content: center;
-
-    a {
-      color: $grayscaleLight;
-    }
-  }
-  .css-1aquho2-MuiTabs-indicator {
-    display: none;
   }
 }

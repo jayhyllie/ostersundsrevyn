@@ -15,35 +15,32 @@
   }
 }
 
-.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-  color: $clrRevyPrimary !important;
+.media {
+  &__tabs {
+    position: relative;
+    @include flex(row, center, center);
+    gap: $gap;
+    padding-block: $padding-huge;
+
+    &--link {
+      @include fontIngress;
+      font-family: $ffIngress;
+      &.active {
+        border-bottom: 1px dotted $clrRevyPrimary;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: $breakpointTablet) {
   .media {
     max-width: 100%;
-    &__tabs {
-      position: relative;
-      z-index: 100000;
-    }
     .gallery {
       max-width: 100%;
       overflow-x: scroll;
       &__tabs {
         max-width: 100%;
       }
-    }
-  }
-
-  .css-heg063-MuiTabs-flexContainer {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    position: relative;
-    z-index: 100000;
-    &::-webkit-scrollbar {
-      display: none;
     }
   }
 }

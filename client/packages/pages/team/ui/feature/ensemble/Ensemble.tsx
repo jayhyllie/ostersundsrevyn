@@ -8,9 +8,11 @@ import { ModalContainer } from "@revyn/modalcontainer";
 export const Ensemble = ({
   role,
   images,
+  imageUrl,
 }: {
   role: Team[];
   images: string[] | undefined;
+  imageUrl: string;
 }) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
@@ -58,6 +60,7 @@ export const Ensemble = ({
               member,
               isHovered,
               hoveredId,
+              imageUrl,
             }}
             openModalWithID={handleOpenModal}
           />

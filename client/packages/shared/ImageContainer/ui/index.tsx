@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "@tanstack/react-router";
 import { useImageGallery } from "@revyn/media";
 import { useEffect, useState } from "react";
-import { BasicSelect } from "@revyn/dropdown";
+import { Dropdown } from "@revyn/dropdown";
 
 export const ImageContainer = () => {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ export const ImageContainer = () => {
           ) : (
             <>
               <section className="gallery__tabs">
-                <BasicSelect
+                <Dropdown
                   value={year ?? ""}
                   handleChange={handleSetYear}
                   options={folders ?? []}

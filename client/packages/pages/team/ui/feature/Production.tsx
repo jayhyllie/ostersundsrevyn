@@ -3,9 +3,11 @@ import { Team } from "@revyn/types";
 export const Production = ({
   role,
   images,
+  imageUrl,
 }: {
   role: Team[];
   images: string[] | undefined;
+  imageUrl: string;
 }) => {
   const imageMap = new Map();
   images?.forEach((image) => {
@@ -22,7 +24,7 @@ export const Production = ({
         <article key={index} className={`production__card ${member.id}`}>
           {imageMap.has(member.id) && (
             <img
-              src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Produktion/${member.id}.png`}
+              src={`${imageUrl}Produktion/${member.id}.png`}
               alt={member.name}
               className="production__card--image"
             />

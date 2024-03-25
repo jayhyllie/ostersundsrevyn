@@ -3,9 +3,11 @@ import { Team } from "@revyn/types";
 export const Band = ({
   role,
   images,
+  imageUrl,
 }: {
   role: Team[];
   images: string[] | undefined;
+  imageUrl: string;
 }) => {
   const imageMap = new Map();
   images?.forEach((image) => {
@@ -20,7 +22,7 @@ export const Band = ({
           <h2>{member.role}</h2>
           {imageMap.has(member.id) && (
             <img
-              src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/Orkester/${member.id}.png`}
+              src={`${imageUrl}Orkester/${member.id}.png`}
               alt={member.name}
               className="band__card--image"
             />
