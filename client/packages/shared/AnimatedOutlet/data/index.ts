@@ -7,14 +7,12 @@ const OFFSET: Record<Direction, 1 | -1> = {
   up: 1,
   down: -1,
 };
-
 const AXIS: Record<Direction, "x" | "y"> = {
   left: "x",
   right: "x",
   up: "y",
   down: "y",
 };
-
 export const RouteTransitionVariants: Variants = {
   initial: (direction: Direction = "up") => ({
     [AXIS[direction]]: `${OFFSET[direction] * 100}vh`,
@@ -29,3 +27,20 @@ export const RouteTransitionVariants: Variants = {
     opacity: 0,
   }),
 };
+
+export const TransitionProps = {
+  variants: RouteTransitionVariants,
+  initial: "initial",
+  animate: "animate",
+  exit: "exit",
+  transition: {
+    type: "spring",
+    bounce: 0.2,
+    duration: 2,
+  },
+  style: {
+    display: "grid",
+    alignSelf: "stretch",
+    justifySelf: "stretch",
+  },
+} as const;

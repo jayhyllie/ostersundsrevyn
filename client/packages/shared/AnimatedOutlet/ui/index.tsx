@@ -13,28 +13,11 @@ import {
 } from "framer-motion";
 import { cloneDeep } from "lodash-es";
 import { forwardRef, useContext, useRef } from "react";
-import { RouteTransitionVariants } from "../data";
+import { TransitionProps } from "../data";
 
 type AnimatedOutletProps = MotionProps & {
   direction?: Direction;
 };
-
-export const TransitionProps = {
-  variants: RouteTransitionVariants,
-  initial: "initial",
-  animate: "animate",
-  exit: "exit",
-  transition: {
-    type: "spring",
-    bounce: 0.2,
-    duration: 2,
-  },
-  style: {
-    display: "grid",
-    alignSelf: "stretch",
-    justifySelf: "stretch",
-  },
-} as const;
 
 const AnimatedOutlet = forwardRef<HTMLDivElement, AnimatedOutletProps>(
   ({ direction, ...props }, ref) => {

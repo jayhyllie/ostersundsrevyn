@@ -1,27 +1,13 @@
 import React from "react";
 import "./style.scss";
-import { Variants, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { variants } from "../data";
 
 export const ModalContainer = ({
   children,
 }: {
   children: React.ReactNode | React.ReactNode[];
 }) => {
-  const variants: Variants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.5,
-      y: 100,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-      },
-    },
-  };
   return (
     <motion.section
       variants={variants}
