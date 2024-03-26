@@ -40,7 +40,18 @@ export const HistoryPage = () => {
                     ))}
                   </section>
                 ) : (
-                  <p className="history__info--item-content">{item.content}</p>
+                  <section className="history__info--item-content">
+                    <h2
+                      className="history__info--item-content_title"
+                      data-attribute={i + 1 < 10 ? "0" + (i + 1) : i + 1}
+                    >
+                      {item.title.charAt(0).toUpperCase() +
+                        item.title.slice(1).toLowerCase().split("_").join(" ")}
+                    </h2>
+                    <p className="history__info--item-content_text">
+                      {item.content}
+                    </p>
+                  </section>
                 )}
               </section>
             ))

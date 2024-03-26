@@ -19,7 +19,7 @@ export const PosterSlider = () => {
   };
 
   return (
-    <>
+    <section className="hero">
       {posterQuery.isLoading ? (
         <div>Loading...</div>
       ) : posterQuery.isError ? (
@@ -32,6 +32,6 @@ export const PosterSlider = () => {
             ))}
         </Slider>
       )}
-    </>
+    </section>
   );
 };

@@ -10,7 +10,7 @@ export const NavbarGlass = () => {
     "Kontakt",
   ];
   return (
-    <ul className="nav__list">
+    <ul className={"nav__list " + (location === "historik" ? "absolute" : "")}>
       {navItems.map((text, i) => (
         <li
           key={i}
