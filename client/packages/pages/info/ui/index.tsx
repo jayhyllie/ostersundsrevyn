@@ -1,4 +1,3 @@
-import { NavContainer } from "@revyn/navcontainer";
 import { YearInfo } from "./feature/YearInfo";
 import { TicketPrice } from "./feature/TicketPrice";
 import { GeneralInfoWrapper } from "./feature/GeneralInfo";
@@ -15,7 +14,6 @@ export const InfoPage = () => {
   };
   return (
     <>
-      <NavContainer />
       <div className="wrapper">
         <main className="info container">
           <YearInfo />

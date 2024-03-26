@@ -11,6 +11,7 @@
   }
 }
 .slick-slider {
+  max-width: 100%;
   padding-block: $padding;
   box-shadow: $shadow;
   @include absolute(top, left, 50%, 50%);

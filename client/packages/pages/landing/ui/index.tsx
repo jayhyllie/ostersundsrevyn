@@ -1,11 +1,9 @@
-import { NavContainer } from "@revyn/navcontainer";
 import "./style.scss";
 
 export const LandingPage = () => {
   const screenWidth = window.innerWidth;
   return (
     <>
-      <NavContainer />
       <main id="home" className="home">
         <video
           src="./Revytrailer2024.mp4"

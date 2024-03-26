@@ -1,5 +1,3 @@
-import "./style.scss";
-
 export const SliderItem = ({
   image,
   className,

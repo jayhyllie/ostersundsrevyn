@@ -1,8 +1,7 @@
-import { NavContainer } from "@revyn/navcontainer";
-import "./style.scss";
-import { useHistoryData } from "../data";
 import { History } from "@revyn/types";
+import { useHistoryData } from "../data";
 import { PosterSlider } from "./feature/PosterSlider";
+import "./style.scss";
 
 export const HistoryPage = () => {
   const imgUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
@@ -10,7 +9,6 @@ export const HistoryPage = () => {
   const { historyQuery, data, sortedImages, imageQuery } = useHistoryData();
   return (
     <>
-      <NavContainer />
       {screenWidth > 768 ? <PosterSlider /> : null}
       <main className="history">
         <section className="history__info">

@@ -35,8 +35,8 @@ export const TransitionProps = {
   exit: "exit",
   transition: {
     type: "spring",
-    bounce: 0.2,
-    duration: 2,
+    bounce: 0.15,
+    duration: 1.3,
   },
   style: {
     display: "grid",

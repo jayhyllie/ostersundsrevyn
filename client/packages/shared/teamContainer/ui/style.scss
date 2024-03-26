@@ -19,7 +19,7 @@
     &--link {
       @include fontIngress;
       font-family: $ffIngress;
-      &.active {
+      &[data-status="active"] {
         border-bottom: 1px dotted $clrRevyPrimary;
       }
     }

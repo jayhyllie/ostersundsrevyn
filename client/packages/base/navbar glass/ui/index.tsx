@@ -2,6 +2,7 @@ import "./style.scss";
 
 export const NavbarGlass = () => {
   const location = window.location.pathname.split("/")[1];
+  const absoluteLocation = "historik" || "hem";
   const navItems = [
     "Revygänget",
     "Information",
@@ -10,7 +11,11 @@ export const NavbarGlass = () => {
     "Kontakt",
   ];
   return (
-    <ul className={"nav__list " + (location === "historik" ? "absolute" : "")}>
+    <ul
+      className={
+        "nav__list " + (location === absoluteLocation ? "absolute" : "")
+      }
+    >
       {navItems.map((text, i) => (
         <li
           key={i}
