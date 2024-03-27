@@ -3,9 +3,13 @@
 */
 .container {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px !important;
   margin: 0 auto;
   padding: 1em 2em;
+
+  @media screen and (max-width: 768px) {
+    padding: 1em;
+  }
 }
 /**
  * Reset Mixing

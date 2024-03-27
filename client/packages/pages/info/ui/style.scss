@@ -3,9 +3,6 @@
 .wrapper {
   min-height: 100vh;
   position: relative;
-  @media screen and (max-width: $breakpointTablet) {
-    padding: calc($padding-huge * 2) $padding-sml;
-  }
   &__image {
     @include fixedRatio(calc($base * 20), 1);
     position: absolute;
@@ -27,6 +24,12 @@
     @include flex(column, center, center);
     gap: $gap-large;
     text-align: center;
+    & > * {
+      max-width: 100%;
+      & > * {
+        max-width: 100%;
+      }
+    }
     &__top {
       @include flex(column, center, center);
       gap: $gap-large;
@@ -35,11 +38,14 @@
       }
       h1 {
         @include fontH1;
-        font-size: calc($fsBase * 6);
+        font-size: calc($fsBase * 4);
         font-family: $ffHeading;
         span {
           color: $clrRevyPrimary;
           text-shadow: 1px 1px 2px maroon, 0 0 1em orange, 0 0 0.2em orange;
+        }
+        @media screen and (min-width: $breakpointTablet) {
+          font-size: calc($fsBase * 6);
         }
       }
       h2 {
@@ -80,7 +86,7 @@
         grid-template-columns: 100%;
       }
       gap: $gap-large;
-      padding: $padding-large;
+      padding-block: $padding-large;
       &--card {
         @include fixedRatio(calc($base * 20), 1);
         padding: $padding;
