@@ -1,8 +1,21 @@
 @use "@revyn/styles" as *;
+
+/* Hero */
+.hero {
+  height: 50vh;
+  @include bgGroup("../../../../../public/historikHero.jpg", cover, center);
+  position: relative;
+
+  &::before {
+    @include bgOverlay(rgba(0, 0, 0, 0.7));
+  }
+}
 .slick-slider {
+  max-width: 100%;
   padding-block: $padding;
   box-shadow: $shadow;
-  margin-bottom: $gap-huge !important;
+  @include absolute(top, left, 50%, 50%);
+  transform: translate(-50%, -50%);
 }
 .slick-arrow,
 .slick-dots {
@@ -19,41 +32,70 @@
   &__item {
     flex-shrink: 0;
     transition: opacity 0.5s ease;
-    width: 300px;
-    aspect-ratio: 1;
+    @include fixedRatio(calc($base * 20), 1);
     object-fit: contain;
   }
 }
+/* ------- */
 
 .history {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: $base auto;
   @include grid(100%);
+  padding-block: $padding-huge;
 
   &__info {
     --margin: calc(#{$base} * -7);
     @include grid(100%);
-    gap: $gap-huge;
+    gap: calc($gap-huge * 2);
     padding: $padding-huge;
-    box-shadow: $shadow;
     &--item {
-      @include flex(column, center, center);
+      @include flex(column, space-between, center);
       gap: $gap;
-      padding: $padding-huge;
 
       @media screen and (min-width: $breakpointDesktop) {
         flex-direction: row;
       }
       &-image {
-        width: calc($base * 20);
+        width: calc($base * 31);
         height: auto;
         box-shadow: $shadow;
       }
       &-content {
-        @include fontParagraph;
-        line-height: 180%;
-        font-size: calc($fsBase * 1.2);
-        font-family: $ffIngress;
+        padding: calc($padding-huge * 2);
+        height: 100%;
+        @include center;
+        position: relative;
+        @media screen and (max-width: $breakpointDesktop) {
+          padding: $padding-large;
+        }
+        &_title {
+          @include fontH2;
+          font-family: $ffHeading;
+          color: $clrRevyPrimary;
+          letter-spacing: 1.4px;
+          @media screen and (max-width: $breakpointDesktop) {
+            text-align: center;
+          }
+
+          &::before {
+            content: attr(data-attribute);
+            @include absolute(top, left, -10%, 0%);
+            color: $grayscaleDark;
+            font-size: calc($fsBase * 8);
+            opacity: 0.8;
+            z-index: -1;
+            @media screen and (max-width: $breakpointDesktop) {
+              top: -4%;
+            }
+          }
+        }
+        &_text {
+          @include fontParagraph;
+          line-height: 200%;
+          font-size: $fsBase;
+          font-family: $ffParagraph;
+        }
 
         &.highlight {
           @include fontH2;
@@ -69,21 +111,8 @@
       &:nth-child(even) {
         @media screen and (min-width: $breakpointDesktop) {
           flex-direction: row-reverse;
-          img {
-            margin-right: var(--margin);
-          }
         }
       }
-      &:nth-child(odd) {
-        @media screen and (min-width: $breakpointDesktop) {
-          img {
-            margin-left: var(--margin);
-          }
-        }
-      }
-    }
-    &--item:not(:last-of-type) {
-      border: 1px solid $grayscaleGray;
     }
     &--item:last-of-type {
       padding: unset;

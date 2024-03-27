@@ -8,7 +8,7 @@ export const PosterSlider = () => {
   const { posterQuery, posterImages } = usePosterData();
   const settings = {
     children: SliderItem,
-    dots: true,
+    dots: false,
     infinite: true,
     slidesToShow: 7,
     slidesToScroll: 1,
@@ -19,7 +19,7 @@ export const PosterSlider = () => {
   };
 
   return (
-    <>
+    <section className="hero">
       {posterQuery.isLoading ? (
         <div>Loading...</div>
       ) : posterQuery.isError ? (
@@ -32,6 +32,6 @@ export const PosterSlider = () => {
             ))}
         </Slider>
       )}
-    </>
+    </section>
   );
 };

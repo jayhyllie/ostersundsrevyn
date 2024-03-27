@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { NavContainer } from "@revyn/navcontainer";
 import { useRef } from "react";
 import { useSendEmail } from "../data";
 import { FormContent } from "./feature/FormContent";
@@ -10,7 +9,6 @@ export const ContactPage = () => {
   const form = useRef<HTMLFormElement>(null);
   return (
     <>
-      <NavContainer />
       <main className="contact container">
         <section className="contact__info">
           <h1>Kontakta oss</h1>

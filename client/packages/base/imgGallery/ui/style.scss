@@ -1,11 +1,17 @@
 @use "@revyn/styles" as *;
 
 .gallery__items {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  @include grid(100%);
   gap: $gap;
 
+  @media screen and (min-width: $breakpointDesktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   &--item {
+    cursor: pointer;
+    min-width: calc($base * 12);
+    min-height: calc($base * 20);
     width: 100%;
     height: 100%;
     object-fit: cover;

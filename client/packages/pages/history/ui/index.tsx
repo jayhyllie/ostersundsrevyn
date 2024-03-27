@@ -1,8 +1,7 @@
-import { NavContainer } from "@revyn/navcontainer";
-import "./style.scss";
-import { useHistoryData } from "../data";
 import { History } from "@revyn/types";
+import { useHistoryData } from "../data";
 import { PosterSlider } from "./feature/PosterSlider";
+import "./style.scss";
 
 export const HistoryPage = () => {
   const imgUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
@@ -10,7 +9,6 @@ export const HistoryPage = () => {
   const { historyQuery, data, sortedImages, imageQuery } = useHistoryData();
   return (
     <>
-      <NavContainer />
       {screenWidth > 768 ? <PosterSlider /> : null}
       <main className="history">
         <section className="history__info">
@@ -40,7 +38,18 @@ export const HistoryPage = () => {
                     ))}
                   </section>
                 ) : (
-                  <p className="history__info--item-content">{item.content}</p>
+                  <section className="history__info--item-content">
+                    <h2
+                      className="history__info--item-content_title"
+                      data-attribute={i + 1 < 10 ? "0" + (i + 1) : i + 1}
+                    >
+                      {item.title.charAt(0).toUpperCase() +
+                        item.title.slice(1).toLowerCase().split("_").join(" ")}
+                    </h2>
+                    <p className="history__info--item-content_text">
+                      {item.content}
+                    </p>
+                  </section>
                 )}
               </section>
             ))

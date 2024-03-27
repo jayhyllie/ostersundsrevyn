@@ -57,11 +57,17 @@
   @include absolute(top, right, 0, 0);
   bottom: 0;
   width: calc($base * 20);
+  &__list {
+    height: 0%;
+  }
 }
 .menu.active {
   height: 100vh;
   z-index: 1000;
   overflow: hidden;
+  .menu__list {
+    height: 100%;
+  }
 }
 
 .refresh {

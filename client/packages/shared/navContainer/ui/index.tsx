@@ -7,6 +7,7 @@ import "./style.scss";
 
 export const NavContainer = () => {
   const screenWidth = window.innerWidth;
+  const location = window.location.pathname;
 
   return (
     <>
@@ -23,17 +24,19 @@ export const NavContainer = () => {
           <NavMobile />
         </header>
       ) : (
-        <header className="nav">
-          <LogoComponent />
-          <NavbarGlass />
-          <Button
-            type={Btn.SOLID}
-            style={Style.DEFAULT}
-            onClick={() => console.log("biljetter")}
-          >
-            Biljetter
-          </Button>
-        </header>
+        location !== "/" && (
+          <header className="nav">
+            <LogoComponent />
+            <NavbarGlass />
+            <Button
+              type={Btn.SOLID}
+              style={Style.DEFAULT}
+              onClick={() => console.log("biljetter")}
+            >
+              Biljetter
+            </Button>
+          </header>
+        )
       )}
     </>
   );

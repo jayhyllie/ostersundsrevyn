@@ -5,8 +5,10 @@ import { variants } from "../data";
 
 export const ModalContainer = ({
   children,
+  style,
 }: {
   children: React.ReactNode | React.ReactNode[];
+  style?: React.CSSProperties;
 }) => {
   return (
     <motion.section
@@ -14,6 +16,7 @@ export const ModalContainer = ({
       initial="hidden"
       animate="visible"
       className="modalContainer"
+      style={style}
     >
       {children}
     </motion.section>

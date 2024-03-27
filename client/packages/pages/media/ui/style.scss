@@ -25,10 +25,14 @@
     &--link {
       @include fontIngress;
       font-family: $ffIngress;
-      &.active {
+      &[data-status="active"] {
         border-bottom: 1px dotted $clrRevyPrimary;
       }
     }
+  }
+  .gallery {
+    max-width: 80vw;
+    margin: 0 auto;
   }
 }
 
@@ -36,6 +40,7 @@
   .media {
     max-width: 100%;
     .gallery {
+      width: 100%;
       max-width: 100%;
       overflow-x: scroll;
       &__tabs {

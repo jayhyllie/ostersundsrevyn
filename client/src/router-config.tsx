@@ -18,11 +18,13 @@ import { ImageContainer } from "@revyn/imagecontainer";
 import { VideoContainer } from "@revyn/videocontainer";
 import { HistoryPage } from "@revyn/historypage";
 import { AnimatedOutletWrapper } from "@revyn/animatedoutlet";
+import { NavContainer } from "@revyn/navcontainer";
 
 const rootRoute = createRootRoute({
   component: () => (
     <>
       <ScrollRestoration />
+      <NavContainer />
       <AnimatedOutletWrapper>
         <Outlet />
       </AnimatedOutletWrapper>
