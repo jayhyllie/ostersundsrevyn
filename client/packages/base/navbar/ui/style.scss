@@ -1,1 +1,50 @@
 @use "@revyn/styles" as *;
+
+.menu__list {
+  @include grid(100%);
+  gap: $gap;
+  padding: $padding-large;
+  &--item {
+    @include flex(row, center, center);
+    list-style: none;
+    position: relative;
+    display: flex;
+    border: 2px solid #ff6f00;
+    text-align: center;
+    padding: $padding;
+    transition: all 0.5s;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all 0.5s;
+      background: $gradientPrimary;
+    }
+    &:hover::before {
+      width: 100%;
+    }
+    &:hover {
+      font-weight: 700;
+    }
+
+    .first {
+      height: --var(--radius);
+      margin: auto;
+    }
+    .icon {
+      @include fixedRatio(calc($base * 2.5), 1);
+      border-radius: --var(--radius);
+      flex: calc($base * 2.5) 0;
+      margin-right: $padding-large;
+    }
+    .text {
+      border-radius: calc($base / 4);
+      width: calc($base * 12.5);
+      flex: 1;
+    }
+  }
+}

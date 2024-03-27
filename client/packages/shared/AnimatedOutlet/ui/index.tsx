@@ -67,11 +67,13 @@ export const AnimatedOutletWrapper = ({
 }) => {
   const matches = useMatches();
   const match = useMatch({ strict: false });
-  const nextMatchIndex = matches.findIndex((d) => d.id === match.id) + 1;
-  const nextMatch = matches[nextMatchIndex];
+  const nextMatchIndex = match?.id
+    ? matches.findIndex((d) => d.id === match.id) + 1
+    : null;
+  const nextMatch = nextMatchIndex !== null ? matches[nextMatchIndex] : null;
   return (
     <AnimatePresence mode="popLayout">
-      <AnimatedOutlet key={nextMatch.id}>{children}</AnimatedOutlet>
+      <AnimatedOutlet key={nextMatch?.id}>{children}</AnimatedOutlet>
     </AnimatePresence>
   );
 };
