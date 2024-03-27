@@ -5,7 +5,6 @@ import {
   createRouter,
   Outlet,
 } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { LandingPage } from "@revyn/landingpage";
 import { TeamPage } from "@revyn/teampage";
 import { SplashPage } from "@revyn/splash";
@@ -28,7 +27,6 @@ const rootRoute = createRootRoute({
       <AnimatedOutletWrapper>
         <Outlet />
       </AnimatedOutletWrapper>
-      <TanStackRouterDevtools />
     </>
   ),
 });

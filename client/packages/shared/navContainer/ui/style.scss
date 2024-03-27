@@ -9,38 +9,6 @@
   &__background {
     background: $gradientDark;
   }
-  &__list,
-  &__list--item {
-    margin: 0;
-    padding: 0;
-  }
-  &__list {
-    padding: $padding-large;
-
-    &--item {
-      list-style: none;
-      margin-bottom: $base;
-      @include flex(row, center, center);
-      cursor: pointer;
-      transition: all 0.5s;
-
-      .first {
-        height: --var(--radius);
-        margin: auto;
-      }
-      .icon {
-        @include fixedRatio(calc($base * 2.5), 1);
-        border-radius: --var(--radius);
-        flex: calc($base * 2.5) 0;
-        margin-right: $padding-large;
-      }
-      .text {
-        border-radius: calc($base / 4);
-        width: calc($base * 12.5);
-        flex: 1;
-      }
-    }
-  }
   &__toggle {
     outline: none;
     border: none;

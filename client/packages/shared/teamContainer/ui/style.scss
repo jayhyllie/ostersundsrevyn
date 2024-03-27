@@ -1,15 +1,9 @@
 @use "@revyn/styles" as *;
 
 .team {
-  max-width: 1200px;
+  max-width: $breakpointLarge !important;
   margin: auto;
   padding: $padding-large 0;
-  .outlet {
-    width: 100%;
-    & > * {
-      width: 100%;
-    }
-  }
   &__tabs {
     position: relative;
     @include flex(row, center, center);
