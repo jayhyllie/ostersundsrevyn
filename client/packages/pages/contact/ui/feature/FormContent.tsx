@@ -20,8 +20,8 @@ export const FormContent = () => {
         placeholder="Skriv ditt meddelande här..."
       />
       <Button
-        type={Btn.SUBMIT}
-        style={Style.DEFAULT}
+        type={Btn.SOLID}
+        style={Style.SECONDARY}
         onClick={() => console.log("Email submitted")}
       >
         Skicka

@@ -132,11 +132,11 @@ $gap-nano: calc($base / 4);
 }
 
 @mixin bgOverlay($background) {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: $background;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $background;
 }
