@@ -21,27 +21,25 @@ const variants: Variants = {
 
 export default function NavItem({ id, text }: { id: number; text: string }) {
   return (
-    <motion.li
-      variants={variants}
-      whileHover={{ scale: 1.09 }}
-      whileTap={{ scale: 0.8 }}
-      className="menu__list--item"
+    <a
+      href={
+        text === "Revygänget"
+          ? `/${text
+              .toLowerCase()
+              .replace(/å|ä/, "a")
+              .replace("ö", "o")}/ensemble`
+          : `/${text.toLowerCase()}`
+      }
     >
-      <div className={`first icon-${id}`}></div>
-      <div className="text">
-        <a
-          href={
-            text === "Revygänget"
-              ? `/${text
-                  .toLowerCase()
-                  .replace(/å|ä/, "a")
-                  .replace("ö", "o")}/ensemble`
-              : `/${text.toLowerCase()}`
-          }
-        >
-          {text}
-        </a>
-      </div>
-    </motion.li>
+      <motion.li
+        variants={variants}
+        whileHover={{ scale: 1.09 }}
+        whileTap={{ scale: 0.8 }}
+        className="menu__list--item"
+      >
+        <div className={`first icon-${id}`}></div>
+        <div className="text">{text}</div>
+      </motion.li>
+    </a>
   );
 }

@@ -45,6 +45,8 @@
   padding-block: $padding-huge;
 
   &__info {
+    max-width: 1400px;
+    margin: $base auto;
     --margin: calc(#{$base} * -7);
     @include grid(100%);
     gap: calc($gap-huge * 2);

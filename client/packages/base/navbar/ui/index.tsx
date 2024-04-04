@@ -19,12 +19,21 @@ const itemIds = [
   "Kontakt",
 ];
 
-export const Navbar = () => {
+export const Navbar = ({ isOpen }: { isOpen: boolean }) => {
   return (
-    <motion.ul variants={variants} className="menu__list">
-      {itemIds.map((text, i) => (
-        <NavItem id={i} text={text} key={i} />
-      ))}
+    <motion.ul
+      variants={variants}
+      initial="closed"
+      animate={isOpen ? "open" : "closed"}
+      className="menu__list"
+    >
+      {isOpen ? (
+        <>
+          {itemIds.map((text, i) => (
+            <NavItem id={i} text={text} key={i} />
+          ))}
+        </>
+      ) : null}
     </motion.ul>
   );
 };
