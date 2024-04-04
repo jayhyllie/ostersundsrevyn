@@ -6,7 +6,7 @@ import { useDimensions } from "./useDimensions";
 import { sidebar } from "../../data";
 
 export const NavMobile = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
   return (
@@ -20,7 +20,7 @@ export const NavMobile = () => {
         className={"menu " + (isOpen ? "active" : "")}
       >
         <motion.div className="menu__background" variants={sidebar} />
-        <Navbar />
+        <Navbar isOpen={isOpen} />
       </motion.nav>
     </>
   );
