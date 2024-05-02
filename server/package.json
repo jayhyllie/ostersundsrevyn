@@ -17,7 +17,9 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.134",
+    "bcryptjs": "^2.4.3",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "nanoid": "^5.0.7",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3"
   }

@@ -23,11 +23,23 @@
   }
   &__videos {
     margin: $margin-large;
-    max-width: 1200px;
+    max-width: 1400px !important;
     @include grid(100%);
     gap: $gap;
 
-    article {
+    & > a {
+      --border-width: 4px;
+      padding: $padding-nano;
+      background: $gradientDark;
+      border-radius: $radius;
+      transition: all 1s ease-in-out;
+      &:hover {
+        background: $gradientPrimary;
+      }
+    }
+
+    article.card__band {
+      background: $gradientDark;
       justify-items: center !important;
       color: $grayscaleLight;
       @media screen and (min-width: $breakpointDesktop) {
@@ -47,5 +59,11 @@
     @media screen and (min-width: $breakpointDesktop) {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
+  }
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
   }
 }

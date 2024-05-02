@@ -29,6 +29,24 @@ functions:
       - httpApi:
           path: /images
           method: GET
+  addUser:
+    handler: functions/userFunctions/addUser/index.handler
+    events:
+      - httpApi:
+          path: /user
+          method: POST
+  updateUser:
+    handler: functions/userFunctions/updateUser/index.handler
+    events:
+      - httpApi:
+          path: /user/{id}
+          method: PUT
+  deleteUser:
+    handler: functions/userFunctions/deleteUser/index.handler
+    events:
+      - httpApi:
+          path: /user/{id}
+          method: DELETE
 
 resources:
   Resources:

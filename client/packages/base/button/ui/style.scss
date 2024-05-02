@@ -7,7 +7,7 @@
   color: $color;
   width: fit-content;
   border: 1px solid transparent;
-  @if style == secondary {
+  @if $style == secondary {
     box-shadow: $shadow;
   } @else {
     box-shadow: $shadowHover;
@@ -47,7 +47,7 @@ button {
         @include buttonStyles(round, $grayscaleLight);
       }
       &--secondary {
-        @include buttonStyles(secondary, $grayscaleLight, $grayscaleDark);
+        @include buttonStyles(secondary, $grayscaleLight, $gradientPrimary);
       }
     }
   }
