@@ -8,7 +8,7 @@ export const ShowCounter = ({
   seconds,
 }: CountDownProps) => {
   return (
-    <section className="show-counter">
+    <section className="construction__counter">
       <DateTimeDisplay value={days} type={"Dagar"} isDanger={days <= 3} />
       <DateTimeDisplay value={hours} type={"Tim"} isDanger={false} />
       <DateTimeDisplay value={minutes} type={"Min"} isDanger={false} />

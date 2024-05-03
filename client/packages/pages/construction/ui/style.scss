@@ -18,6 +18,34 @@ body:has(.construction) {
     text-transform: uppercase;
     font-weight: $fwBold;
   }
+
+  &__counter {
+    @include flex(row, center, center);
+    gap: $gap-huge;
+    @include fontH2;
+    padding: $padding;
+    color: $grayscaleLight;
+
+    .countdown {
+      @include flex(column, center, center);
+      gap: $gap;
+
+      &.danger {
+        color: #ff0000;
+      }
+
+      p,
+      span {
+        text-shadow: 2px 2px 30px rgba(255, 255, 255, 0.5);
+      }
+
+      span {
+        text-transform: uppercase;
+        font-size: $fsBase;
+      }
+    }
+  }
+
   &__info {
     @include center;
     justify-items: center;
@@ -26,33 +54,6 @@ body:has(.construction) {
     @include fontParagraph;
     font-family: "Salsa", sans-serif;
     color: $grayscaleLight;
-  }
-}
-
-.show-counter {
-  @include flex(row, center, center);
-  gap: $gap-huge;
-  @include fontH2;
-  padding: $padding;
-  color: $grayscaleLight;
-
-  .countdown {
-    @include flex(column, center, center);
-    gap: $gap;
-
-    &.danger {
-      color: #ff0000;
-    }
-
-    p,
-    span {
-      text-shadow: 2px 2px 30px rgba(255, 255, 255, 0.5);
-    }
-
-    span {
-      text-transform: uppercase;
-      font-size: $fsBase;
-    }
   }
 }
 
