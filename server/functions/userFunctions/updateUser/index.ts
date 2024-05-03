@@ -81,6 +81,8 @@ module.exports.handler = async (event) => {
       ReturnValues: "ALL_NEW",
     };
 
+    console.log(updateUserParams);
+
     await new DynamoDB.DocumentClient().update(updateUserParams).promise();
 
     return sendResponse(200, {

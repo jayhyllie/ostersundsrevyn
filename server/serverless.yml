@@ -29,6 +29,18 @@ functions:
       - httpApi:
           path: /images
           method: GET
+  getTeamImages:
+    handler: functions/imageFunctions/getTeamImages/index.handler
+    events:
+      - httpApi:
+          path: /images/team
+          method: GET
+  updateImage:
+    handler: functions/imageFunctions/updateImage/index.handler
+    events:
+      - httpApi:
+          path: /images/{imageName}
+          method: PUT
   addUser:
     handler: functions/userFunctions/addUser/index.handler
     events:
