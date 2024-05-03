@@ -1,33 +1,22 @@
 @use "@revyn/styles" as *;
 
 body:has(.construction) {
-  @include bgGroup("./opening.jpg", cover, center);
-  background-color: #0000ff;
-  background-blend-mode: darken;
-  padding-block: $padding-huge;
+  @include center;
 }
 
 .construction {
-  height: 100vh;
   @include center;
   gap: $gap-huge;
   justify-items: center;
+  position: relative;
+  &__image {
+    @include fixedRatio(calc($base * 60), 2 / 1);
+    @include bgGroup("./construction.png", cover, center);
+  }
   &__headline {
-    text-align: center;
-    @include fontH1;
-    font-size: calc($fsBase * 5);
-    font-family: $ffHeading;
-    color: $grayscaleLight;
-    position: relative;
-    &::before {
-      content: "";
-      @include fixedRatio(calc($base * 20), 1);
-      @include absolute(top, left, -4.5em, 50%);
-      transform: translateX(-50%);
-      background-image: url("./logo.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-    }
+    font-size: calc($fsBase * 2);
+    text-transform: uppercase;
+    font-weight: $fwBold;
   }
   &__info {
     @include center;
@@ -40,14 +29,41 @@ body:has(.construction) {
   }
 }
 
+.show-counter {
+  @include flex(row, center, center);
+  gap: $gap-huge;
+  @include fontH2;
+  padding: $padding;
+  color: $grayscaleLight;
+
+  .countdown {
+    @include flex(column, center, center);
+    gap: $gap;
+
+    &.danger {
+      color: #ff0000;
+    }
+
+    p,
+    span {
+      text-shadow: 2px 2px 30px rgba(255, 255, 255, 0.5);
+    }
+
+    span {
+      text-transform: uppercase;
+      font-size: $fsBase;
+    }
+  }
+}
+
 @media screen and (max-width: $breakpointLarge) {
   .construction {
+    &__image {
+      @include fixedRatio(calc($base * 25), 2 / 1);
+    }
     padding: $padding;
     &__headline {
-      font-size: calc($fsBase * 4);
-      &::before {
-        width: calc($base * 15);
-      }
+      font-size: calc($fsBase * 1.6);
     }
   }
 }

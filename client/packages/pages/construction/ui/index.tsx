@@ -1,17 +1,21 @@
 import { Btn, Style } from "@revyn/types";
 import "./style.scss";
 import { Button } from "@revyn/button";
-import React from "react";
+import { CountDown } from "./feature/CountDown";
 
 export const ConstructionPage = () => {
+  const DAYS_UNTIL_OCTOBER =
+    new Date(new Date().getFullYear(), 9, 1).getTime() - new Date().getTime();
+  const NOW = new Date().getTime();
+  const targetDate = NOW + DAYS_UNTIL_OCTOBER;
+
   return (
     <main className="construction">
-      <h1 className="construction__headline">Vi är snart tillbaka!</h1>
+      <figure className="construction__image"></figure>
+      <h1 className="construction__headline">Nedräkning till ny hemsida</h1>
+      <CountDown targetDate={targetDate} />
       <section className="construction__info">
-        <p>
-          Vi jobbar för fullt med att lansera en ny hemsida. Tills dess, kika
-          gärna på våra nummer från tidigare år
-        </p>
+        <p>Tills dess, kika gärna på våra nummer från föregående år</p>
         <a
           href="https://www.youtube.com/@Ostersundsrevyn/videos"
           target="_blank"
