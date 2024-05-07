@@ -14,6 +14,7 @@ module.exports.handler = async (event) => {
     city,
     memberIn,
     sortPosition,
+    years,
   } = JSON.parse(event.body);
 
   console.log(event.body);
@@ -53,7 +54,7 @@ module.exports.handler = async (event) => {
         id,
       },
       UpdateExpression:
-        "set #r = :r, #n = :n, #p = :p, #pw = :pw, #e = :e, #b = :b, #a = :a, #c = :c, #m = :m, #s = :s",
+        "set #r = :r, #n = :n, #p = :p, #pw = :pw, #e = :e, #b = :b, #a = :a, #c = :c, #m = :m, #s = :s, #y = :y",
       ExpressionAttributeNames: {
         "#r": "role",
         "#n": "name",
@@ -65,6 +66,7 @@ module.exports.handler = async (event) => {
         "#c": "city",
         "#m": "memberIn",
         "#s": "sortPosition",
+        "#y": "years",
       },
       ExpressionAttributeValues: {
         ":r": role || "",
@@ -77,6 +79,7 @@ module.exports.handler = async (event) => {
         ":c": city || "",
         ":m": memberIn || "",
         ":s": sortPosition || 100,
+        ":y": years || 0,
       },
       ReturnValues: "ALL_NEW",
     };
