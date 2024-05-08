@@ -19,4 +19,10 @@ export type User = {
   role: string;
   sortPosition: number;
   years: number;
+  images: Images;
+};
+
+export type Images = {
+  main: string;
+  hover: string;
 };

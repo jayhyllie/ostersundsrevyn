@@ -16,6 +16,7 @@ module.exports.handler = async (event: any) => {
     role,
     sortPosition,
     years,
+    images,
   }: User = JSON.parse(event.body);
 
   try {
@@ -57,6 +58,7 @@ module.exports.handler = async (event: any) => {
       role: role || "",
       sortPosition: sortPosition || 100,
       years: years || 0,
+      images: images || {},
     },
   };
   try {

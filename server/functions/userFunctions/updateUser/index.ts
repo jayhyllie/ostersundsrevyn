@@ -1,5 +1,6 @@
 import { DynamoDB } from "aws-sdk";
 import { sendResponse } from "../../../responses";
+import { User } from "../../../types";
 
 module.exports.handler = async (event) => {
   const {
@@ -15,7 +16,8 @@ module.exports.handler = async (event) => {
     memberIn,
     sortPosition,
     years,
-  } = JSON.parse(event.body);
+    images,
+  }: User = JSON.parse(event.body);
 
   try {
     // Check if the user exists
@@ -52,7 +54,7 @@ module.exports.handler = async (event) => {
         id,
       },
       UpdateExpression:
-        "set #r = :r, #n = :n, #p = :p, #pw = :pw, #e = :e, #b = :b, #a = :a, #c = :c, #m = :m, #s = :s, #y = :y",
+        "set #r = :r, #n = :n, #p = :p, #pw = :pw, #e = :e, #b = :b, #a = :a, #c = :c, #m = :m, #s = :s, #y = :y, #i = :i",
       ExpressionAttributeNames: {
         "#r": "role",
         "#n": "name",
@@ -65,6 +67,7 @@ module.exports.handler = async (event) => {
         "#m": "memberIn",
         "#s": "sortPosition",
         "#y": "years",
+        "#i": "images",
       },
       ExpressionAttributeValues: {
         ":r": role || "",
@@ -78,6 +81,10 @@ module.exports.handler = async (event) => {
         ":m": memberIn || "",
         ":s": sortPosition || 100,
         ":y": years || 0,
+        ":i": {
+          main: images.main || "",
+          hover: images.hover || "",
+        },
       },
       ReturnValues: "ALL_NEW",
     };

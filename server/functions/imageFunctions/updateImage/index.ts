@@ -5,15 +5,21 @@ import { HTTPResponse } from "../../../types";
 
 module.exports.handler = async (event: any): Promise<APIGatewayProxyResult> => {
   try {
-    const { imageName, imageData } = JSON.parse(event.body);
+    const { imageName } = event.pathParameters;
 
     const s3Client = new S3Client();
     const bucketName = "ostersundsrevyn-images";
+    const group = imageName.includes("Prod")
+      ? "Produktion"
+      : imageName.includes("husband" || "blås")
+      ? "Orkester"
+      : "Ensemble";
 
     const params = {
       Bucket: bucketName,
+      Prefix: group,
       Key: imageName,
-      Body: imageData,
+      Body: event.body,
       ContentType: "image/png",
     };
 
