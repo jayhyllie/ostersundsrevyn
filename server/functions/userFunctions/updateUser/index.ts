@@ -17,8 +17,6 @@ module.exports.handler = async (event) => {
     years,
   } = JSON.parse(event.body);
 
-  console.log(event.body);
-
   try {
     // Check if the user exists
     const getUserParams = {
@@ -83,8 +81,6 @@ module.exports.handler = async (event) => {
       },
       ReturnValues: "ALL_NEW",
     };
-
-    console.log(updateUserParams);
 
     await new DynamoDB.DocumentClient().update(updateUserParams).promise();
 

@@ -17,8 +17,6 @@ module.exports.handler = async (event: any): Promise<APIGatewayProxyResult> => {
       ContentType: "image/png",
     };
 
-    console.log(params);
-
     await s3Client.send(new PutObjectCommand(params));
 
     return sendResponse(200, {

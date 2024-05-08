@@ -1,17 +1,28 @@
 import { DynamoDB } from "aws-sdk";
 import { sendResponse } from "../../../responses";
-const { bcrypt } = require("bcryptjs");
-const { nanoid } = require("nanoid");
+import { User } from "../../../types";
 
 module.exports.handler = async (event: any) => {
-  const { email, role, name, password, phone, memberIn } = JSON.parse(
-    event.body
-  );
+  const {
+    id,
+    age,
+    bio,
+    city,
+    email,
+    memberIn,
+    name,
+    password,
+    phone,
+    role,
+    sortPosition,
+    years,
+  }: User = JSON.parse(event.body);
+
   try {
     const params: DynamoDB.DocumentClient.GetItemInput = {
       TableName: "Team",
       Key: {
-        email: email,
+        id,
       },
     };
     const { Item } = await new DynamoDB.DocumentClient().get(params).promise();
@@ -31,20 +42,21 @@ module.exports.handler = async (event: any) => {
     });
   }
 
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  const id = nanoid();
-
   const params = {
-    TableName: "userDb",
+    TableName: "Team",
     Item: {
-      id,
-      email,
-      role,
-      name,
-      password: hashedPassword,
-      phone,
-      memberIn,
+      id: id,
+      age: age || 0,
+      bio: bio || "",
+      city: city || "",
+      email: email || "",
+      memberIn: memberIn || "",
+      name: name,
+      password: password || "",
+      phone: phone || "",
+      role: role || "",
+      sortPosition: sortPosition || 100,
+      years: years || 0,
     },
   };
   try {
