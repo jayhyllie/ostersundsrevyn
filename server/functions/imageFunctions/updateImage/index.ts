@@ -18,7 +18,7 @@ module.exports.handler = async (event: any): Promise<APIGatewayProxyResult> => {
     const params = {
       Bucket: bucketName,
       Prefix: group,
-      Key: imageName,
+      Key: `${group}/${imageName}.png`,
       Body: event.body,
       ContentType: "image/png",
     };

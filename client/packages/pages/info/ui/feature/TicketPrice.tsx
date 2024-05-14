@@ -1,9 +1,17 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { tickets } from "../../data";
-import { Ticket } from "@revyn/types";
 
-const AnimatedTicket = (ticket: Ticket) => {
+interface TicketProps {
+  M: {
+    id: { S: string };
+    content: { S: string };
+    price: { N: number };
+    title: { S: string };
+    subtitle?: { S: string };
+  };
+}
+
+const AnimatedTicket = ({ ticket }: { ticket: TicketProps }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -18,19 +26,19 @@ const AnimatedTicket = (ticket: Ticket) => {
       ref={ref}
       style={{ scale, opacity }}
     >
-      <h3 className="info__tickets--card-type">{ticket.type}</h3>
-      <p className="info__tickets--card-limit">{ticket.limit}</p>
-      <p className="info__tickets--card-price">{ticket.price} kr</p>
-      <p className="info__tickets--card-service">{ticket.service}</p>
+      <h3 className="info__tickets--card-type">{ticket.M.title.S}</h3>
+      <p className="info__tickets--card-limit">{ticket.M.subtitle?.S}</p>
+      <p className="info__tickets--card-price">{ticket.M.price.N} kr</p>
+      <p className="info__tickets--card-service">{ticket.M.content.S}</p>
     </motion.article>
   );
 };
 
-export const TicketPrice = () => {
+export const TicketPrice = ({ tickets }: { tickets: TicketProps[] | null }) => {
   return (
     <section className="info__tickets">
-      {tickets.map((ticket, index) => (
-        <AnimatedTicket key={index} {...ticket} />
+      {tickets?.map((ticket) => (
+        <AnimatedTicket ticket={ticket} key={ticket.M.id.S} />
       ))}
     </section>
   );

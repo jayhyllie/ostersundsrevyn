@@ -26,6 +26,16 @@ export type Ticket = {
   service: string;
 };
 
+export type Info = {
+  title: string;
+  subtitle?: string;
+  content: string;
+  buttonLink?: string;
+  buttonText?: string;
+  text?: string;
+  price?: number;
+};
+
 export type Video = {
   id: string;
   snippet: {

@@ -4,6 +4,7 @@ export type HTTPResponse = {
   team?: Record<string, any>[];
   error?: boolean | string;
   images?: string | string[];
+  info?: Record<string, any>[];
 };
 
 export type User = {
@@ -25,4 +26,22 @@ export type User = {
 export type Images = {
   main: string;
   hover: string;
+};
+
+export type Info = {
+  id: string;
+  title: string;
+  subtitle?: string;
+  content: string;
+  buttonLink?: string;
+  buttonText?: string;
+  text?: string;
+  price?: number;
+};
+
+export type InfoSections = {
+  id: string;
+  top?: Info[];
+  tickets?: Info[];
+  bottom?: Info[];
 };

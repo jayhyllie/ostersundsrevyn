@@ -60,12 +60,48 @@ functions:
           path: /user/{id}
           method: DELETE
 
+  addInfo:
+    handler: functions/infoFunctions/addInfo/index.handler
+    events:
+      - httpApi:
+          path: /info
+          method: POST
+  updateInfo:
+    handler: functions/infoFunctions/updateInfo/index.handler
+    events:
+      - httpApi:
+          path: /info/{id}
+          method: PUT
+  getInfo:
+    handler: functions/infoFunctions/getInfo/index.handler
+    events:
+      - httpApi:
+          path: /info
+          method: GET
+  deleteInfo:
+    handler: functions/infoFunctions/deleteInfo/index.handler
+    events:
+      - httpApi:
+          path: /info/{id}
+          method: DELETE
+
 resources:
   Resources:
     TeamTable:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: Team
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+    InfoTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: infoDb
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S

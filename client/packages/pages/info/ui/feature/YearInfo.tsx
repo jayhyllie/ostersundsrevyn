@@ -1,13 +1,28 @@
 import { Button } from "@revyn/button";
 import { Btn, Style } from "@revyn/types";
 import { Variants, motion } from "framer-motion";
+import DOMPurify from "dompurify";
 
-export const YearInfo = () => {
+export interface TopProps {
+  title: { S: string };
+  subtitle?: { S: string };
+  content: { S: string };
+  buttonLink?: { S: string };
+  buttonText?: { S: string };
+  text?: { S: string };
+  id: { S: string };
+}
+
+export const YearInfo = ({ topData }: { topData: TopProps }) => {
   const variants: Variants = {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: -100 },
   };
+
+  const topInfo = topData ? topData : null;
+  const sanitizedContent = DOMPurify.sanitize(topInfo?.content?.S as string);
+  const sanitizedText = DOMPurify.sanitize(topInfo?.text?.S as string);
   return (
     <>
       <section className="info__top">
@@ -19,8 +34,12 @@ export const YearInfo = () => {
             exit="exit"
             transition={{ duration: 1, delay: 1 }}
           >
-            <span className="info__first--highlight">Publiksuccén</span> är
-            tillbaka!
+            <span className="info__first--highlight">
+              {topInfo?.title?.S.split(" ")[0]}
+            </span>{" "}
+            {topInfo?.title?.S.split(" ")[1] +
+              " " +
+              topInfo?.title?.S.split(" ")[2]}
           </motion.h1>
           <motion.h2
             variants={variants}
@@ -29,8 +48,7 @@ export const YearInfo = () => {
             exit="exit"
             transition={{ duration: 1, delay: 1.5 }}
           >
-            ÖSTERSUNDSREVYN HAR RÖTTERNA I 50- TALET OCH LOCKAR VARJE VINTER
-            RUNT BESÖKARE TILL STORSJÖTEATERN.
+            {topInfo?.subtitle?.S}
           </motion.h2>
         </section>
         <section className="info__second">
@@ -40,21 +58,8 @@ export const YearInfo = () => {
             animate="animate"
             exit="exit"
             transition={{ duration: 1, delay: 2 }}
-          >
-            Revyn har byggt upp ett gott renommé och har genom åren bland annat
-            fått LT:s Kulturpris 2017 och prisats ett flertal gånger i Revy-SM.
-            Utöver detta har Östersundsrevyn även uppmärksammats av SVT, som
-            sänt delar av tidigare föreställningar vid ett flertal tillfällen.
-            <br />
-            Revymakarnas texter är populära och spelas inte bara på hemmaplan,
-            utan även av andra revyer i landet. Östersundrevyn försöker varje år
-            att förnya och utveckla revykonsten, men är också måna om att ha ett
-            rejält ben kvar i den klassiska revytraditionen. Revyn erbjuder allt
-            från buskis till sitcom. Från glad sång och dans till stillsam
-            eftertänksamhet. <br /> Den innehåller en del lokala nummer, men de
-            flesta av texterna berör ämnen av nationell och globala karaktär som
-            kan ses av såväl jämtar, stockholmare som glada trönder.
-          </motion.p>
+            dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+          ></motion.p>
         </section>
       </section>
       <motion.section
@@ -65,20 +70,16 @@ export const YearInfo = () => {
         exit="exit"
         transition={{ duration: 1, delay: 2.5 }}
       >
-        <a href="#">
+        <a href={topInfo?.buttonLink?.S}>
           <Button
             type={Btn.SOLID}
             style={Style.DEFAULT}
             onClick={() => console.log("clicked")}
           >
-            Köp biljetter här
+            {topInfo?.buttonText?.S}
           </Button>
         </a>
-        <p>
-          eller hos VISIT ÖSTERSUND (Turistbyrån) tel. 063-701 1700, Mån-Fre
-          10.00-15.00 eller info@visitostersund.se <br />
-          <br /> (VISIT STÄNGT 24 DEC-2 JAN / 5-9 JAN)
-        </p>
+        <p dangerouslySetInnerHTML={{ __html: sanitizedText }}></p>
       </motion.section>
     </>
   );

@@ -1,9 +1,16 @@
-import { GeneralInfo, GeneralInfoType } from "@revyn/generalinfo";
+import { GeneralInfo } from "@revyn/generalinfo";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { generalInfo } from "../../data";
 
-const AnimatedGeneralInfo = (info: GeneralInfoType) => {
+export interface GeneralInfoProps {
+  M: {
+    title: { S: string };
+    content: { S: string };
+    id: { S: string };
+  };
+}
+
+const AnimatedGeneralInfo = ({ info }: { info: GeneralInfoProps }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -15,16 +22,20 @@ const AnimatedGeneralInfo = (info: GeneralInfoType) => {
 
   return (
     <motion.div className="animation" style={{ scale, opacity }} ref={ref}>
-      <GeneralInfo {...info} />
+      <GeneralInfo info={info} />
     </motion.div>
   );
 };
 
-export const GeneralInfoWrapper = () => {
+export const GeneralInfoWrapper = ({
+  generalInfo,
+}: {
+  generalInfo: GeneralInfoProps[];
+}) => {
   return (
     <section className="info__general general">
-      {generalInfo.map((info, i) => (
-        <AnimatedGeneralInfo key={i} {...info} />
+      {generalInfo.map((info) => (
+        <AnimatedGeneralInfo key={info.M.id.S} info={info} />
       ))}
     </section>
   );

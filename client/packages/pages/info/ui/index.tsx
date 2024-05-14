@@ -1,10 +1,12 @@
-import { YearInfo } from "./feature/YearInfo";
+import { TopProps, YearInfo } from "./feature/YearInfo";
 import { TicketPrice } from "./feature/TicketPrice";
-import { GeneralInfoWrapper } from "./feature/GeneralInfo";
+import { GeneralInfoProps, GeneralInfoWrapper } from "./feature/GeneralInfo";
 import { Variants, motion } from "framer-motion";
 import "./style.scss";
+import { useInfoData } from "../data";
 
 export const InfoPage = () => {
+  const { infoData } = useInfoData();
   const screenWidth = window.innerWidth;
   const images = ["./Allakvinnor.jpg", "./Pojkarna.jpg"];
   const imageVariants: Variants = {
@@ -12,15 +14,23 @@ export const InfoPage = () => {
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 50 },
   };
+
+  const ticketData = infoData?.[0]?.tickets?.L ?? [];
+  const topData = infoData?.[1];
+  const generalInfo = infoData?.[2]?.bottom?.L ?? [];
   return (
     <>
       <div className="wrapper">
         <main className="info container">
-          <YearInfo />
+          {topData && <YearInfo topData={topData as unknown as TopProps} />}
           <hr />
-          <TicketPrice />
+          <TicketPrice tickets={ticketData} />
           <hr />
-          <GeneralInfoWrapper />
+          {generalInfo && (
+            <GeneralInfoWrapper
+              generalInfo={generalInfo as unknown as GeneralInfoProps[]}
+            />
+          )}
         </main>
         {screenWidth > 768 &&
           images.map((image, index) => (

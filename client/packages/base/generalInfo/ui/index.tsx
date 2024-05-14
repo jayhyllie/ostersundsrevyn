@@ -1,16 +1,11 @@
-import { FC } from "react";
 import "./style.scss";
+import { GeneralInfoProps } from "@revyn/infopage/ui/feature/GeneralInfo";
 
-export type GeneralInfoType = {
-  title: string;
-  text: string;
-};
-
-export const GeneralInfo: FC<GeneralInfoType> = ({ title, text }) => {
+export const GeneralInfo = ({ info }: { info: GeneralInfoProps }) => {
   return (
     <article className="general__card">
-      <h2 className="general__card--title">{title}</h2>
-      <p className="general__card--text">{text}</p>
+      <h2 className="general__card--title">{info.M.title.S}</h2>
+      <p className="general__card--text">{info.M.content.S}</p>
     </article>
   );
 };
