@@ -37,6 +37,7 @@ export type Info = {
   buttonText?: string;
   text?: string;
   price?: number;
+  area?: string;
 };
 
 export type InfoSections = {

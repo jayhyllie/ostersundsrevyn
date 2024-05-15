@@ -1,9 +1,10 @@
-import { TopProps, YearInfo } from "./feature/YearInfo";
+import { YearInfo } from "./feature/YearInfo";
 import { TicketPrice } from "./feature/TicketPrice";
-import { GeneralInfoProps, GeneralInfoWrapper } from "./feature/GeneralInfo";
+import { GeneralInfoWrapper } from "./feature/GeneralInfo";
 import { Variants, motion } from "framer-motion";
 import "./style.scss";
 import { useInfoData } from "../data";
+import { Info } from "@revyn/types";
 
 export const InfoPage = () => {
   const { infoData } = useInfoData();
@@ -15,20 +16,20 @@ export const InfoPage = () => {
     exit: { opacity: 0, y: 50 },
   };
 
-  const ticketData = infoData?.[0]?.tickets?.L ?? [];
+  const ticketData = infoData?.filter((info) => info.area === "middle") ?? [];
   const topData = infoData?.[1];
-  const generalInfo = infoData?.[2]?.bottom?.L ?? [];
+  const generalInfo = infoData?.filter((info) => info.area === "bottom") ?? [];
   return (
     <>
       <div className="wrapper">
         <main className="info container">
-          {topData && <YearInfo topData={topData as unknown as TopProps} />}
+          {topData && <YearInfo topData={topData as unknown as Info} />}
           <hr />
-          <TicketPrice tickets={ticketData} />
+          <TicketPrice tickets={ticketData as unknown as Info[]} />
           <hr />
           {generalInfo && (
             <GeneralInfoWrapper
-              generalInfo={generalInfo as unknown as GeneralInfoProps[]}
+              generalInfo={generalInfo as unknown as Info[]}
             />
           )}
         </main>

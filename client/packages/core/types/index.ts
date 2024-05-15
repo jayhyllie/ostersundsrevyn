@@ -27,6 +27,7 @@ export type Ticket = {
 };
 
 export type Info = {
+  id: string;
   title: string;
   subtitle?: string;
   content: string;
@@ -34,6 +35,7 @@ export type Info = {
   buttonText?: string;
   text?: string;
   price?: number;
+  area?: string;
 };
 
 export type Video = {

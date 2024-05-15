@@ -4,20 +4,29 @@ import { Info } from "../../../types";
 import { randomUUID } from "crypto";
 
 module.exports.handler = async (event: any) => {
-  const { title, subtitle, content, buttonLink, buttonText, text }: Info =
-    JSON.parse(event.body);
+  const {
+    id,
+    title,
+    subtitle,
+    content,
+    buttonLink,
+    buttonText,
+    text,
+    area,
+  }: Info = JSON.parse(event.body);
 
   try {
     const params = {
       TableName: "infoDb",
       Item: {
-        id: randomUUID(),
+        id,
         title,
         subtitle: subtitle || "",
         content,
         buttonLink: buttonLink || "",
         buttonText: buttonText || "",
         text: text || "",
+        area: area || "",
       },
     };
     await new DynamoDB.DocumentClient().put(params).promise();

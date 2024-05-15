@@ -1,11 +1,11 @@
+import { Info } from "@revyn/types";
 import "./style.scss";
-import { GeneralInfoProps } from "@revyn/infopage/ui/feature/GeneralInfo";
 
-export const GeneralInfo = ({ info }: { info: GeneralInfoProps }) => {
+export const GeneralInfo = ({ info }: { info: Info }) => {
   return (
     <article className="general__card">
-      <h2 className="general__card--title">{info.M.title.S}</h2>
-      <p className="general__card--text">{info.M.content.S}</p>
+      <h2 className="general__card--title">{info.title}</h2>
+      <p className="general__card--text">{info.content}</p>
     </article>
   );
 };

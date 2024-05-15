@@ -1,19 +1,9 @@
 import { Button } from "@revyn/button";
-import { Btn, Style } from "@revyn/types";
+import { Btn, Info, Style } from "@revyn/types";
 import { Variants, motion } from "framer-motion";
 import DOMPurify from "dompurify";
 
-export interface TopProps {
-  title: { S: string };
-  subtitle?: { S: string };
-  content: { S: string };
-  buttonLink?: { S: string };
-  buttonText?: { S: string };
-  text?: { S: string };
-  id: { S: string };
-}
-
-export const YearInfo = ({ topData }: { topData: TopProps }) => {
+export const YearInfo = ({ topData }: { topData: Info }) => {
   const variants: Variants = {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0 },
@@ -21,8 +11,8 @@ export const YearInfo = ({ topData }: { topData: TopProps }) => {
   };
 
   const topInfo = topData ? topData : null;
-  const sanitizedContent = DOMPurify.sanitize(topInfo?.content?.S as string);
-  const sanitizedText = DOMPurify.sanitize(topInfo?.text?.S as string);
+  const sanitizedContent = DOMPurify.sanitize(topInfo?.content as string);
+  const sanitizedText = DOMPurify.sanitize(topInfo?.text as string);
   return (
     <>
       <section className="info__top">
@@ -35,11 +25,9 @@ export const YearInfo = ({ topData }: { topData: TopProps }) => {
             transition={{ duration: 1, delay: 1 }}
           >
             <span className="info__first--highlight">
-              {topInfo?.title?.S.split(" ")[0]}
+              {topInfo?.title.split(" ")[0]}
             </span>{" "}
-            {topInfo?.title?.S.split(" ")[1] +
-              " " +
-              topInfo?.title?.S.split(" ")[2]}
+            {topInfo?.title.split(" ")[1] + " " + topInfo?.title.split(" ")[2]}
           </motion.h1>
           <motion.h2
             variants={variants}
@@ -48,7 +36,7 @@ export const YearInfo = ({ topData }: { topData: TopProps }) => {
             exit="exit"
             transition={{ duration: 1, delay: 1.5 }}
           >
-            {topInfo?.subtitle?.S}
+            {topInfo?.subtitle}
           </motion.h2>
         </section>
         <section className="info__second">
@@ -70,13 +58,13 @@ export const YearInfo = ({ topData }: { topData: TopProps }) => {
         exit="exit"
         transition={{ duration: 1, delay: 2.5 }}
       >
-        <a href={topInfo?.buttonLink?.S}>
+        <a href={topInfo?.buttonLink}>
           <Button
             type={Btn.SOLID}
             style={Style.DEFAULT}
             onClick={() => console.log("clicked")}
           >
-            {topInfo?.buttonText?.S}
+            {topInfo?.buttonText}
           </Button>
         </a>
         <p dangerouslySetInnerHTML={{ __html: sanitizedText }}></p>

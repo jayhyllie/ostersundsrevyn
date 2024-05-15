@@ -3,8 +3,17 @@ import { Info } from "../../../types";
 import { sendResponse } from "../../../responses";
 
 module.exports.handler = async (event) => {
-  const { id, title, subtitle, content, buttonLink, buttonText, text }: Info =
-    JSON.parse(event.body);
+  const {
+    id,
+    title,
+    subtitle,
+    content,
+    buttonLink,
+    buttonText,
+    text,
+    area,
+    price,
+  }: Info = JSON.parse(event.body);
 
   try {
     const getInfoParams = {
@@ -38,7 +47,7 @@ module.exports.handler = async (event) => {
         id,
       },
       UpdateExpression:
-        "set #t = :t, #s = :s, #c = :c, #bl = :bl, #bt = :bt, #tx = :tx",
+        "set #t = :t, #s = :s, #c = :c, #bl = :bl, #bt = :bt, #tx = :tx, #a = :a, #p = :p",
       ExpressionAttributeNames: {
         "#t": "title",
         "#s": "subtitle",
@@ -46,6 +55,8 @@ module.exports.handler = async (event) => {
         "#bl": "buttonLink",
         "#bt": "buttonText",
         "#tx": "text",
+        "#a": "area",
+        "#p": "price",
       },
       ExpressionAttributeValues: {
         ":t": title,
@@ -54,6 +65,8 @@ module.exports.handler = async (event) => {
         ":bl": buttonLink || "",
         ":bt": buttonText || "",
         ":tx": text || "",
+        ":a": area || "",
+        ":p": price || 0,
       },
       ReturnValues: "ALL_NEW",
     };
