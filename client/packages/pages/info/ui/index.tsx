@@ -7,7 +7,7 @@ import { useInfoData } from "../data";
 import { Info } from "@revyn/types";
 
 export const InfoPage = () => {
-  const { infoData } = useInfoData();
+  const { infoData, infoQuery } = useInfoData();
   const screenWidth = window.innerWidth;
   const images = ["./Allakvinnor.jpg", "./Pojkarna.jpg"];
   const imageVariants: Variants = {
@@ -16,23 +16,35 @@ export const InfoPage = () => {
     exit: { opacity: 0, y: 50 },
   };
 
+  console.log(infoData);
+
+  const topData = infoData?.filter((info) => info.area === "top") ?? [];
   const ticketData = infoData?.filter((info) => info.area === "middle") ?? [];
-  const topData = infoData?.[1];
   const generalInfo = infoData?.filter((info) => info.area === "bottom") ?? [];
+
+  console.log(topData);
   return (
     <>
       <div className="wrapper">
-        <main className="info container">
-          {topData && <YearInfo topData={topData as unknown as Info} />}
-          <hr />
-          <TicketPrice tickets={ticketData as unknown as Info[]} />
-          <hr />
-          {generalInfo && (
-            <GeneralInfoWrapper
-              generalInfo={generalInfo as unknown as Info[]}
-            />
-          )}
-        </main>
+        {infoQuery.isLoading ? (
+          <div>Loading...</div>
+        ) : infoQuery.isError ? (
+          <div>Error</div>
+        ) : (
+          <main className="info container">
+            {topData.length > 0 && <YearInfo {...topData[0]} />}
+            <hr />
+            {ticketData && (
+              <TicketPrice tickets={ticketData as unknown as Info[]} />
+            )}
+            <hr />
+            {generalInfo && (
+              <GeneralInfoWrapper
+                generalInfo={generalInfo as unknown as Info[]}
+              />
+            )}
+          </main>
+        )}
         {screenWidth > 768 &&
           images.map((image, index) => (
             <motion.figure

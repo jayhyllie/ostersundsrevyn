@@ -2,17 +2,24 @@ import { Button } from "@revyn/button";
 import { Btn, Info, Style } from "@revyn/types";
 import { Variants, motion } from "framer-motion";
 import DOMPurify from "dompurify";
+import { FC } from "react";
 
-export const YearInfo = ({ topData }: { topData: Info }) => {
+export const YearInfo: FC<Info> = ({
+  title,
+  subtitle,
+  content,
+  text,
+  buttonLink,
+  buttonText,
+}) => {
   const variants: Variants = {
     initial: { opacity: 0, y: 100 },
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: -100 },
   };
 
-  const topInfo = topData ? topData : null;
-  const sanitizedContent = DOMPurify.sanitize(topInfo?.content as string);
-  const sanitizedText = DOMPurify.sanitize(topInfo?.text as string);
+  const sanitizedContent = DOMPurify.sanitize(content as string);
+  const sanitizedText = DOMPurify.sanitize(text as string);
   return (
     <>
       <section className="info__top">
@@ -25,9 +32,9 @@ export const YearInfo = ({ topData }: { topData: Info }) => {
             transition={{ duration: 1, delay: 1 }}
           >
             <span className="info__first--highlight">
-              {topInfo?.title.split(" ")[0]}
+              {title?.split(" ")[0]}
             </span>{" "}
-            {topInfo?.title.split(" ")[1] + " " + topInfo?.title.split(" ")[2]}
+            {title?.split(" ")[1] + " " + title?.split(" ")[2]}
           </motion.h1>
           <motion.h2
             variants={variants}
@@ -36,7 +43,7 @@ export const YearInfo = ({ topData }: { topData: Info }) => {
             exit="exit"
             transition={{ duration: 1, delay: 1.5 }}
           >
-            {topInfo?.subtitle}
+            {subtitle}
           </motion.h2>
         </section>
         <section className="info__second">
@@ -58,13 +65,13 @@ export const YearInfo = ({ topData }: { topData: Info }) => {
         exit="exit"
         transition={{ duration: 1, delay: 2.5 }}
       >
-        <a href={topInfo?.buttonLink}>
+        <a href={buttonLink}>
           <Button
             type={Btn.SOLID}
             style={Style.DEFAULT}
             onClick={() => console.log("clicked")}
           >
-            {topInfo?.buttonText}
+            {buttonText}
           </Button>
         </a>
         <p dangerouslySetInnerHTML={{ __html: sanitizedText }}></p>
