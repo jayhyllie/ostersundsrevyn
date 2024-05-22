@@ -11,7 +11,7 @@ body:has(.construction) {
   position: relative;
   &__image {
     @include fixedRatio(calc($base * 60), 2 / 1);
-    @include bgGroup("./construction.png", cover, center);
+    @include bgGroup("/construction.png", cover, center);
   }
   &__headline {
     font-size: calc($fsBase * 2);
