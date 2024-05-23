@@ -84,6 +84,30 @@ functions:
       - httpApi:
           path: /info/{id}
           method: DELETE
+  addHistory:
+    handler: functions/historyFunctions/addHistory/index.handler
+    events:
+      - httpApi:
+          path: /history
+          method: POST
+  updateHistory:
+    handler: functions/historyFunctions/updateHistory/index.handler
+    events:
+      - httpApi:
+          path: /history/{id}
+          method: PUT
+  getHistory:
+    handler: functions/historyFunctions/getHistory/index.handler
+    events:
+      - httpApi:
+          path: /history
+          method: GET
+  deleteHistory:
+    handler: functions/historyFunctions/deleteHistory/index.handler
+    events:
+      - httpApi:
+          path: /history/{id}
+          method: DELETE
 
 resources:
   Resources:
@@ -102,6 +126,17 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: infoDb
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+    HistoryTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: historyDb
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S

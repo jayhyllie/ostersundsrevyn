@@ -1,7 +1,6 @@
 import { DynamoDB } from "aws-sdk";
 import { sendResponse } from "../../../responses";
 import { Info } from "../../../types";
-import { randomUUID } from "crypto";
 
 module.exports.handler = async (event: any) => {
   const {

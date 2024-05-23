@@ -5,6 +5,7 @@ export type HTTPResponse = {
   error?: boolean | string;
   images?: string | string[];
   info?: Record<string, any>[];
+  history?: Record<string, any>[];
 };
 
 export type User = {
@@ -45,4 +46,10 @@ export type InfoSections = {
   top?: Info[];
   tickets?: Info[];
   bottom?: Info[];
+};
+
+export type HistoryItem = {
+  id: string;
+  title: string;
+  content: string;
 };
