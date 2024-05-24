@@ -5,12 +5,13 @@ export const SliderItem = ({
   image: string;
   className?: string;
 }) => {
+  const imageUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
   return (
     <>
       {image !== undefined && (
         <figure className={className}>
           <img
-            src={`https://ostersundsrevyn-images.s3.eu-north-1.amazonaws.com/${image}`}
+            src={`${imageUrl}${image}`}
             alt={image}
             className="slider__item"
           />

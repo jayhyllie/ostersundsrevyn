@@ -54,6 +54,7 @@ export type Video = {
 };
 
 export type History = {
+  id: string;
   title: string;
   content: string;
 };

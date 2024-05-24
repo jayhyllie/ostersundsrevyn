@@ -4,6 +4,7 @@ import { Ensemble } from "./feature/ensemble/Ensemble";
 import { Band } from "./feature/Band";
 import { Production } from "./feature/Production";
 import "./style.scss";
+import { Spinner } from "@revyn/spinner";
 
 export const TeamPage = () => {
   const imageUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
@@ -17,7 +18,7 @@ export const TeamPage = () => {
     images?.filter((image: string) => image.includes(roleKeyword)) || [];
 
   const renderComponent = () => {
-    if (teamQuery.isLoading) return <div>Loading...</div>;
+    if (teamQuery.isLoading) return <Spinner size={50} />;
     if (teamQuery.isError) return <div>Error</div>;
 
     switch (location) {

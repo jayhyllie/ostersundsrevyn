@@ -1,50 +1,42 @@
 import { YearInfo } from "./feature/YearInfo";
 import { TicketPrice } from "./feature/TicketPrice";
 import { GeneralInfoWrapper } from "./feature/GeneralInfo";
-import { Variants, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import "./style.scss";
-import { useInfoData } from "../data";
+import { imageVariants, useInfoData } from "../data";
 import { Info } from "@revyn/types";
+import { Spinner } from "@revyn/spinner";
 
 export const InfoPage = () => {
-  const { infoData, infoQuery } = useInfoData();
+  const { infoQuery, topData, ticketData, generalInfo } = useInfoData();
   const screenWidth = window.innerWidth;
   const images = ["./Allakvinnor.jpg", "./Pojkarna.jpg"];
-  const imageVariants: Variants = {
-    initial: { opacity: 0, y: 50 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 50 },
-  };
 
-  console.log(infoData);
-
-  const topData = infoData?.filter((info) => info.area === "top") ?? [];
-  const ticketData = infoData?.filter((info) => info.area === "middle") ?? [];
-  const generalInfo = infoData?.filter((info) => info.area === "bottom") ?? [];
-
-  console.log(topData);
   return (
     <>
       <div className="wrapper">
-        {infoQuery.isLoading ? (
-          <div>Loading...</div>
-        ) : infoQuery.isError ? (
-          <div>Error</div>
-        ) : (
-          <main className="info container">
-            {topData.length > 0 && <YearInfo {...topData[0]} />}
-            <hr />
-            {ticketData && (
-              <TicketPrice tickets={ticketData as unknown as Info[]} />
-            )}
-            <hr />
-            {generalInfo && (
-              <GeneralInfoWrapper
-                generalInfo={generalInfo as unknown as Info[]}
-              />
-            )}
-          </main>
-        )}
+        <main className="info container">
+          {infoQuery.isLoading ? (
+            <Spinner size={50} />
+          ) : infoQuery.isError ? (
+            <div>Error</div>
+          ) : (
+            <>
+              {" "}
+              {topData.length > 0 && <YearInfo {...topData[0]} />}
+              <hr />
+              {ticketData && (
+                <TicketPrice tickets={ticketData as unknown as Info[]} />
+              )}
+              <hr />
+              {generalInfo && (
+                <GeneralInfoWrapper
+                  generalInfo={generalInfo as unknown as Info[]}
+                />
+              )}
+            </>
+          )}
+        </main>
         {screenWidth > 768 &&
           images.map((image, index) => (
             <motion.figure

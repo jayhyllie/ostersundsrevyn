@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { usePosterData } from "../../data";
+import { Spinner } from "@revyn/spinner";
 
 export const PosterSlider = () => {
   const { posterQuery, posterImages } = usePosterData();
@@ -21,7 +22,7 @@ export const PosterSlider = () => {
   return (
     <section className="hero">
       {posterQuery.isLoading ? (
-        <div>Loading...</div>
+        <Spinner size={50} />
       ) : posterQuery.isError ? (
         <div>Error</div>
       ) : (

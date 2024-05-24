@@ -2,22 +2,24 @@ import { History } from "@revyn/types";
 import { useHistoryData } from "../data";
 import { PosterSlider } from "./feature/PosterSlider";
 import "./style.scss";
+import { Spinner } from "@revyn/spinner";
 
 export const HistoryPage = () => {
   const imgUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
   const screenWidth = window.innerWidth;
-  const { historyQuery, data, sortedImages, imageQuery } = useHistoryData();
+  const { historyQuery, sortedHistoryData, sortedImages, imageQuery } =
+    useHistoryData();
   return (
     <>
       {screenWidth > 768 ? <PosterSlider /> : null}
       <main className="history">
         <section className="history__info">
           {historyQuery.isLoading && imageQuery.isLoading ? (
-            <p>Loading...</p>
+            <Spinner size={50} />
           ) : historyQuery.isError && imageQuery.isError ? (
             <p>Något gick fel...</p>
           ) : (
-            data.map((item: History, i: number) => (
+            sortedHistoryData.map((item: History, i: number) => (
               <section key={i} className="history__info--item">
                 {sortedImages && (
                   <img
@@ -26,7 +28,7 @@ export const HistoryPage = () => {
                     className="history__info--item-image"
                   />
                 )}
-                {i === data.length - 1 ? (
+                {i === sortedHistoryData.length - 1 ? (
                   <section>
                     {item.content.split("/").map((content, index) => (
                       <p
@@ -41,10 +43,9 @@ export const HistoryPage = () => {
                   <section className="history__info--item-content">
                     <h2
                       className="history__info--item-content_title"
-                      data-attribute={i + 1 < 10 ? "0" + (i + 1) : i + 1}
+                      data-attribute={item.id}
                     >
-                      {item.title.charAt(0).toUpperCase() +
-                        item.title.slice(1).toLowerCase().split("_").join(" ")}
+                      {item.title.split("_").join(" ")}
                     </h2>
                     <p className="history__info--item-content_text">
                       {item.content}

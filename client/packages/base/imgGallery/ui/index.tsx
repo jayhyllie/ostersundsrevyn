@@ -3,11 +3,12 @@ import { useGalleryQuery } from "..";
 import "./style.scss";
 import { useState } from "react";
 import { ModalContainer } from "@revyn/modalcontainer";
+import { Spinner } from "@revyn/spinner";
 
 export const ImageGallery = () => {
+  const imageUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
   const { year }: { year: string } = useParams({ strict: false });
   const { galleryQuery, galleryImages } = useGalleryQuery(year);
-  const imageUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [modalPosition, setModalPosition] = useState({ x: 0, y: 0 });
 
@@ -27,7 +28,7 @@ export const ImageGallery = () => {
   return (
     <>
       {galleryQuery.isLoading && galleryQuery.isFetching ? (
-        <div>Loading...</div>
+        <Spinner size={50} />
       ) : galleryQuery.isError ? (
         <div>Error</div>
       ) : (
@@ -48,7 +49,7 @@ export const ImageGallery = () => {
           style={{
             top: modalPosition.y,
             left: modalPosition.x,
-            translate: "50%",
+            translate: "25% 0%",
           }}
         >
           <img

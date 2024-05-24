@@ -2,6 +2,7 @@ import { Video } from "@revyn/types";
 import { useVideoQuery } from "../data";
 import { RenderVideo } from "./feature/RenderVideo";
 import "./style.scss";
+import { Spinner } from "@revyn/spinner";
 
 export const VideoContainer = () => {
   const { videoQuery, videos } = useVideoQuery();
@@ -9,7 +10,7 @@ export const VideoContainer = () => {
   return (
     <>
       {videoQuery.isLoading ? (
-        <div>Loading...</div>
+        <Spinner size={50} />
       ) : videoQuery.isError ? (
         <div>Error</div>
       ) : (

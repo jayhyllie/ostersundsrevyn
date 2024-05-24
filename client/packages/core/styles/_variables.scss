@@ -110,7 +110,7 @@ $gap-nano: calc($base / 4);
   $placementX,
   $valueY: 50%,
   $valueX: 50%,
-  $translate: -50% -50%
+  $translate: -50% -25%
 ) {
   position: fixed;
   #{$placementY}: $valueY;

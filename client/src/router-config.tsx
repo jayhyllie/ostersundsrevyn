@@ -18,6 +18,7 @@ import { VideoContainer } from "@revyn/videocontainer";
 import { HistoryPage } from "@revyn/historypage";
 import { AnimatedOutletWrapper } from "@revyn/animatedoutlet";
 import { NavContainer } from "@revyn/navcontainer";
+import { Spinner } from "@revyn/spinner";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -124,7 +125,7 @@ const routeTree = rootRoute.addChildren([
 
 export const router = createRouter({
   routeTree,
-  defaultPendingComponent: () => <div>Loading...</div>,
+  defaultPendingComponent: () => <Spinner size={50} />,
   defaultErrorComponent: ({ error }) => <div>Error: {error.message}</div>,
   defaultPreload: "intent",
 });

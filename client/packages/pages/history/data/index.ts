@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const url_images = import.meta.env.VITE_API_URL + "/images";
+const url_history = import.meta.env.VITE_API_URL + "history";
+const url_images = import.meta.env.VITE_API_URL + "images";
 
 async function getHistoryData() {
-  return await axios.get("./data.json").then((res) => res.data);
+  return await axios.get(url_history).then((res) => res.data);
 }
 
 async function getImages() {
@@ -22,7 +23,12 @@ export const useHistoryData = () => {
     queryFn: getImages,
   });
 
-  const data = historyQuery.data;
+  const historyData = historyQuery.data?.history;
+
+  const sortedHistoryData = historyData?.sort(
+    (a: { id: string }, b: { id: string }) => a.id?.localeCompare(b.id)
+  );
+
   const historyImages: string[] = imageQuery.data?.images?.filter(
     (image: string) => image.includes("History")
   );
@@ -30,18 +36,19 @@ export const useHistoryData = () => {
     ? historyImages.sort((a, b) => {
         const matchA = a.match(/\d+/);
         const matchB = b.match(/\d+/);
-        const numA = matchA ? parseInt(matchA[0]) : 0; // Extract numeric part
-        const numB = matchB ? parseInt(matchB[0]) : 0; // Extract numeric part
+        const numA = matchA ? parseInt(matchA[0]) : 0;
+        const numB = matchB ? parseInt(matchB[0]) : 0;
         return numA - numB;
       })
     : [];
 
   return {
     historyQuery,
-    data,
+    historyData,
     historyImages,
     imageQuery,
     sortedImages,
+    sortedHistoryData,
   };
 };
 
