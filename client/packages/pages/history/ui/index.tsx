@@ -9,6 +9,7 @@ export const HistoryPage = () => {
   const screenWidth = window.innerWidth;
   const { historyQuery, sortedHistoryData, sortedImages, imageQuery } =
     useHistoryData();
+
   return (
     <>
       {screenWidth > 768 ? <PosterSlider /> : null}
