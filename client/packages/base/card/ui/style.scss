@@ -30,17 +30,14 @@
   }
   @if $type == "band" {
     background: $background;
-  } @else if $type == "ensemble" {
-    @media screen and (min-width: $breakpointDesktop) {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
 }
 
 article {
   border-radius: $radius;
   &.card {
-    &__ensemble {
+    &__ensemble,
+    &__band {
       @include cardStyles(ensemble, $gradientPrimary, $grayscaleLight);
       button {
         @include fontIngress;
@@ -51,10 +48,20 @@ article {
         @include absolute(bottom, right);
         padding: $padding-sml;
         z-index: 1000;
+        cursor: pointer;
       }
-    }
-    &__band {
-      @include cardStyles(band, $gradientPrimary, $grayscaleDark);
+
+      @media screen and (min-width: $breakpointDesktop) {
+        &:nth-child(n + 1) {
+          grid-column: span 2;
+        }
+        &:nth-child(n + 4) {
+          grid-column: 2 / 4;
+        }
+        &:nth-child(n + 5) {
+          grid-column: 4 / 6;
+        }
+      }
     }
   }
 }

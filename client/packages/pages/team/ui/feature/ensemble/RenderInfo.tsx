@@ -5,8 +5,8 @@ type RenderInfoProps = {
   props: {
     imageMap: Map<string, string>;
     member: Team;
-    isHovered: boolean;
-    hoveredId: string | null;
+    isHovered?: boolean;
+    hoveredId?: string | null;
     imageUrl: string;
   };
   openModalWithID: (value: string) => void;
@@ -18,7 +18,10 @@ export const RenderInfo = ({ props, openModalWithID }: RenderInfoProps) => {
     <>
       {imageMap.has(member.id) && (
         <img
-          src={`${imageUrl}Ensemble/${
+          src={`${imageUrl}${
+            member.memberIn.charAt(0).toUpperCase() +
+            member.memberIn.slice(1).toLowerCase()
+          }/${
             isHovered && hoveredId === member.id
               ? `${member.id}__hover.png`
               : `${member.id}.png`
