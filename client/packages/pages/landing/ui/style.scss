@@ -56,4 +56,62 @@
     text-transform: uppercase;
     text-align: center;
   }
+
+  .info__tickets {
+    @include grid(repeat(3, 1fr));
+    gap: $gap-large;
+    padding-block: $padding-large;
+
+    @media screen and (max-width: $breakpointTablet) {
+      grid-template-columns: 100%;
+      padding-block: 0;
+    }
+    &--card {
+      background: $gradientDark;
+      z-index: 10;
+      @include fixedRatio(calc($base * 20), 2 / 1);
+      padding: $padding;
+      @include flex(column, space-around, center);
+      box-shadow: $shadowHover;
+
+      @media screen and (min-width: $breakpointDesktop) {
+        grid-column: 1 / 2;
+      }
+
+      &-type {
+        @include fontH3;
+        font-size: calc($fsBase * 2);
+        font-family: $ffIngress;
+        color: $clrRevyPrimary;
+        text-shadow: 1px 1px 2px maroon, 0 0 1em orange, 0 0 0.2em orange;
+
+        @media screen and (min-width: $breakpointTablet) {
+          font-size: calc($fsBase * 3);
+        }
+      }
+      &-price {
+        @include fontParagraph;
+        font-size: calc($fsBase * 2.5);
+        font-family: $ffHeading;
+        padding-inline: calc($padding-huge * 2);
+        text-shadow: 1px 1px 2px rgb(255, 255, 255), 0 0 1em rgb(252, 251, 250),
+          0 0 0.1em rgb(254, 254, 253);
+
+        @media screen and (min-width: $breakpointTablet) {
+          font-size: calc($fsBase * 4);
+        }
+      }
+      &-service,
+      &-limit {
+        font-family: $ffIngress;
+      }
+      &-limit {
+        min-height: calc($base * 1);
+
+        @media screen and (min-width: $breakpointTablet) {
+          min-height: calc($base * 2);
+        }
+      }
+    }
+  }
 }
