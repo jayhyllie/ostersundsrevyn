@@ -16,12 +16,12 @@
     inset: 0;
     overflow: hidden;
     z-index: 1;
-    background-image: url("./ensemblePortraitDesktop.png");
+    background-image: url("https://ostersundsrevyn.com/ensemblePortraitDesktop.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     @media screen and (max-width: $breakpointTablet) {
-      background-image: url("/ensembleMobile.png");
+      background-image: url("https://ostersundsrevyn.com/ensembleMobile.png");
     }
   }
 

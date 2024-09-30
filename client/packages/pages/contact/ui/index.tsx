@@ -2,7 +2,7 @@
 import "./style.scss";
 
 export const ContactPage = () => {
-  const contactImage = "./ensembleDesktop.png";
+  const contactImage = "https://ostersundsrevyn.com/ensembleDesktop.png";
   return (
     <>
       <main className="contact container">

@@ -3,7 +3,11 @@
 /* Hero */
 .hero {
   height: 50vh;
-  @include bgGroup("../../../../../public/historikHero.jpg", cover, center);
+  @include bgGroup(
+    "https://ostersundsrevyn.com/historikHero.jpg",
+    cover,
+    center
+  );
   position: relative;
 
   &::before {
