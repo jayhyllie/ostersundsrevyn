@@ -10,7 +10,10 @@ import { Spinner } from "@revyn/spinner";
 export const InfoPage = () => {
   const { infoQuery, topData, ticketData, generalInfo } = useInfoData();
   const screenWidth = window.innerWidth;
-  const images = ["./kvinnorna.jpg", "./pojkarna.jpg"];
+  const images = [
+    "https://ostersundsrevyn.com/kvinnorna.jpg",
+    "https://ostersundsrevyn.com/pojkarna.jpg",
+  ];
 
   return (
     <>
