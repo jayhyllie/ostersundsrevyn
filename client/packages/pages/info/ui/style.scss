@@ -127,6 +127,10 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: $gap;
+
+      @media screen and (max-width: $breakpointTablet) {
+        grid-template-columns: 100%;
+      }
     }
   }
 }
