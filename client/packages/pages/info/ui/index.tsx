@@ -7,13 +7,17 @@ import { imageVariants, useInfoData } from "../data";
 import { Info } from "@revyn/types";
 import { Spinner } from "@revyn/spinner";
 
+const imageUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
+
 export const InfoPage = () => {
-  const { infoQuery, topData, ticketData, generalInfo } = useInfoData();
+  const { infoQuery, topData, ticketData, generalInfo, gallery } =
+    useInfoData();
+  console.log(gallery);
   const screenWidth = window.innerWidth;
-  const images = [
-    "https://ostersundsrevyn.com/kvinnorna.jpg",
-    "https://ostersundsrevyn.com/pojkarna.jpg",
-  ];
+  const image1 = gallery.find((image) => image === "Logos/kvinnorna.jpg");
+  const image2 = gallery.find((image) => image === "Logos/pojkarna.jpg");
+
+  const images = [image1, image2].map((image) => `${imageUrl}${image}`);
 
   return (
     <>
