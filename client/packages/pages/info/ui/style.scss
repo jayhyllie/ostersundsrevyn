@@ -1,0 +1,132 @@
+@use "@revyn/styles" as *;
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: calc($padding * 5);
+  &__image {
+    @include fixedRatio(calc($base * 20), 1);
+    position: absolute;
+    top: calc($base * 4);
+    @media screen and (max-width: $breakpointGigantic) {
+      z-index: -1;
+      opacity: 0.5;
+    }
+    &:nth-of-type(1) {
+      left: calc($base * 4);
+      transform: rotate(-15deg);
+    }
+    &:nth-of-type(2) {
+      right: calc($base * 4);
+      transform: rotate(15deg);
+    }
+  }
+  .info {
+    @include flex(column, center, center);
+    gap: $gap-large;
+    text-align: center;
+    & > * {
+      max-width: 100%;
+      & > * {
+        max-width: 100%;
+      }
+    }
+    &__top {
+      @include flex(column, center, center);
+      gap: $gap-large;
+      @media screen and (min-width: $breakpointTablet) {
+        padding-inline: $padding-huge;
+      }
+      h1 {
+        @include fontH1;
+        font-size: calc($fsBase * 4);
+        font-family: $ffHeading;
+        span {
+          color: $clrRevyPrimary;
+          text-shadow: 1px 1px 2px maroon, 0 0 1em orange, 0 0 0.2em orange;
+        }
+        @media screen and (min-width: $breakpointTablet) {
+          font-size: calc($fsBase * 6);
+        }
+      }
+      h2 {
+        @include fontH2;
+        font-size: calc($fsBase * 2);
+        font-family: $ffHeading;
+        @media screen and (min-width: $breakpointTablet) {
+          padding-inline: calc($padding-huge * 4);
+        }
+      }
+      h3 {
+        @include fontIngress;
+        font-family: $ffHeading;
+        @media screen and (min-width: $breakpointTablet) {
+          padding-inline: calc($padding-huge * 4);
+        }
+      }
+      p {
+        @include fontParagraph;
+        font-size: $fsBase;
+        @media screen and (min-width: $breakpointTablet) {
+          padding-inline: calc($padding-huge * 2);
+        }
+      }
+    }
+
+    &__bottom {
+      @include flex(column, center, center);
+      gap: $gap-large;
+      @media screen and (min-width: $breakpointTablet) {
+        padding-inline: $padding-huge;
+      }
+
+      &--buttons {
+        @include flex(row, center, center);
+        gap: $gap;
+      }
+    }
+
+    &__tickets {
+      @include grid(repeat(3, 1fr));
+      @media screen and (max-width: $breakpointTablet) {
+        grid-template-columns: 100%;
+      }
+      gap: $gap-large;
+      padding-block: $padding-large;
+      &--card {
+        @include fixedRatio(calc($base * 20), 1);
+        padding: $padding;
+        @include flex(column, space-around, center);
+        box-shadow: $shadow;
+
+        &-type {
+          @include fontH3;
+          font-size: calc($fsBase * 3);
+          font-family: $ffIngress;
+          color: $clrRevyPrimary;
+          text-shadow: 1px 1px 2px maroon, 0 0 1em orange, 0 0 0.2em orange;
+        }
+        &-price {
+          @include fontParagraph;
+          font-size: calc($fsBase * 4);
+          font-family: $ffHeading;
+          padding-inline: calc($padding-huge * 2);
+          text-shadow: 1px 1px 2px rgb(255, 255, 255),
+            0 0 1em rgb(252, 251, 250), 0 0 0.1em rgb(254, 254, 253);
+        }
+        &-service,
+        &-limit {
+          font-family: $ffIngress;
+        }
+        &-limit {
+          min-height: calc($base * 2);
+        }
+      }
+    }
+    &__general {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $gap;
+    }
+  }
+}

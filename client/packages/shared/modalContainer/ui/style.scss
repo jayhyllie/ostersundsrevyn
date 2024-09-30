@@ -1,0 +1,15 @@
+@use "@revyn/styles" as *;
+
+.modalContainer {
+  @include fixed(top, left);
+  width: 90%;
+  height: auto;
+  background: $gradientPrimary;
+  box-shadow: $shadow;
+  z-index: 1000;
+  border-radius: $radius;
+  @media screen and (min-width: $breakpointDesktop) {
+    width: 50%;
+    padding: $padding-large;
+  }
+}

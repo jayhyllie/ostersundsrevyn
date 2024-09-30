@@ -1,0 +1,232 @@
+service: ostersundsrevyn-server
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  profile: revydev
+  region: eu-north-1
+  iam:
+    role: arn:aws:iam::851725656891:role/revyRole
+  deploymentMethod: direct
+  environment:
+    SES_SENDER_EMAIL: "info@ostersundsrevyn.com"
+
+plugins:
+  - serverless-webpack
+
+package:
+  individually: true
+
+functions:
+  getMembers:
+    handler: functions/getTeam/index.handler
+    events:
+      - httpApi:
+          path: /team
+          method: GET
+  getImages:
+    handler: functions/getImages/index.handler
+    events:
+      - httpApi:
+          path: /images
+          method: GET
+  getTeamImages:
+    handler: functions/imageFunctions/getTeamImages/index.handler
+    events:
+      - httpApi:
+          path: /images/team
+          method: GET
+  updateImage:
+    handler: functions/imageFunctions/updateImage/index.handler
+    events:
+      - httpApi:
+          path: /images/{imageName}
+          method: PUT
+  addUser:
+    handler: functions/userFunctions/addUser/index.handler
+    events:
+      - httpApi:
+          path: /user
+          method: POST
+  updateUser:
+    handler: functions/userFunctions/updateUser/index.handler
+    events:
+      - httpApi:
+          path: /user/{id}
+          method: PUT
+  deleteUser:
+    handler: functions/userFunctions/deleteUser/index.handler
+    events:
+      - httpApi:
+          path: /user/{id}
+          method: DELETE
+
+  addInfo:
+    handler: functions/infoFunctions/addInfo/index.handler
+    events:
+      - httpApi:
+          path: /info
+          method: POST
+  updateInfo:
+    handler: functions/infoFunctions/updateInfo/index.handler
+    events:
+      - httpApi:
+          path: /info/{id}
+          method: PUT
+  getInfo:
+    handler: functions/infoFunctions/getInfo/index.handler
+    events:
+      - httpApi:
+          path: /info
+          method: GET
+  deleteInfo:
+    handler: functions/infoFunctions/deleteInfo/index.handler
+    events:
+      - httpApi:
+          path: /info/{id}
+          method: DELETE
+  addHistory:
+    handler: functions/historyFunctions/addHistory/index.handler
+    events:
+      - httpApi:
+          path: /history
+          method: POST
+  updateHistory:
+    handler: functions/historyFunctions/updateHistory/index.handler
+    events:
+      - httpApi:
+          path: /history/{id}
+          method: PUT
+  getHistory:
+    handler: functions/historyFunctions/getHistory/index.handler
+    events:
+      - httpApi:
+          path: /history
+          method: GET
+  deleteHistory:
+    handler: functions/historyFunctions/deleteHistory/index.handler
+    events:
+      - httpApi:
+          path: /history/{id}
+          method: DELETE
+  inviteUser:
+    handler: functions/userFunctions/inviteUser/index.handler
+    events:
+      - httpApi:
+          path: /user/invite
+          method: POST
+  signUp:
+    handler: functions/auth/signUp/index.handler
+    events:
+      - httpApi:
+          path: /auth/signup
+          method: POST
+  signIn:
+    handler: functions/auth/signIn/index.handler
+    events:
+      - httpApi:
+          path: /auth/signin
+          method: POST
+  forgotPassword:
+    handler: functions/auth/forgotPw/index.handler
+    events:
+      - httpApi:
+          path: /auth/forgot-password
+          method: POST
+  confirmForgotPassword:
+    handler: functions/auth/confirmForgotPw/index.handler
+    events:
+      - httpApi:
+          path: /auth/confirm-forgot-pw
+          method: POST
+  signOut:
+    handler: functions/auth/signOut/index.handler
+    events:
+      - httpApi:
+          path: /auth/signout
+          method: POST
+
+resources:
+  Resources:
+    TeamTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Team
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+    InfoTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: infoDb
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+    HistoryTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: historyDb
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+    ImageBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ostersundsrevyn-images
+        CorsConfiguration:
+          CorsRules:
+            - AllowedOrigins:
+                - "*"
+              AllowedHeaders:
+                - "*"
+              AllowedMethods:
+                - GET
+    CognitoUserPool:
+      Type: AWS::Cognito::UserPool
+      Properties:
+        UserPoolName: UserPool
+        Schema:
+          - Name: id,
+            AttributeDataType: String
+            Required: true
+            Mutable: false
+          - Name: email
+            AttributeDataType: String
+            Required: true
+            Mutable: true
+          - Name: name
+            AttributeDataType: String
+            Required: true
+            Mutable: true
+          - Name: role
+            AttributeDataType: String
+            Required: true
+            Mutable: true
+        Policies:
+          PasswordPolicy:
+            MinimumLength: 8
+            RequireUppercase: true
+            RequireLowercase: true
+            RequireNumbers: true
+            RequireSymbols: true
+
+    CognitoUserPoolClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        ClientName: UserPoolClient
+        UserPoolId:
+          Ref: CognitoUserPool
+        GenerateSecret: false

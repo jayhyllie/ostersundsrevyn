@@ -1,0 +1,24 @@
+@use "@revyn/styles" as *;
+
+.personalInfo {
+  @include absolute(top, right, $gap-sml, $gap-sml);
+  inset: 0;
+  background: $gradientPrimary;
+  z-index: 10000;
+  min-height: 100%;
+  height: fit-content;
+
+  p {
+    line-height: 1.2;
+  }
+
+  &__inner {
+    position: relative;
+    padding: $padding;
+
+    & > #close {
+      @include absolute(top, right, $gap-sml, $gap-sml);
+      cursor: pointer;
+    }
+  }
+}

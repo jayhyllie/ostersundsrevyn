@@ -1,0 +1,26 @@
+@use "@revyn/styles" as *;
+
+.modal {
+  position: relative;
+  padding: $padding calc($padding-huge * 2);
+  text-align: center;
+  @media screen and (max-width: $breakpointTablet) {
+    padding: $padding $padding-large;
+  }
+
+  h2 {
+    @include fontH2;
+  }
+  p {
+    @include fontParagraph;
+    font-size: $fsBase;
+    @media screen and (min-width: $breakpointDesktop) {
+      line-height: 170%;
+    }
+  }
+
+  #close {
+    @include absolute(top, right, $gap-sml, $gap-sml);
+    cursor: pointer;
+  }
+}

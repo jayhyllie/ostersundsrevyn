@@ -1,0 +1,54 @@
+@use "@revyn/styles" as *;
+
+@mixin buttonStyles($style, $color, $bg: white) {
+  position: relative;
+  transition: all 0.2s ease;
+  padding: $padding $padding-large;
+  color: $color;
+  width: fit-content;
+  border: 1px solid transparent;
+  @if $style == secondary {
+    box-shadow: $shadow;
+  } @else {
+    box-shadow: $shadowHover;
+  }
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $bg;
+    z-index: -1;
+    border-radius: $radius;
+    transition: all 0.5s ease;
+  }
+  &:hover,
+  &:focus-visible {
+    box-shadow: unset;
+    color: $color;
+    border-color: $color;
+    &::before {
+      width: 0;
+    }
+  }
+}
+
+button {
+  border-radius: $radius;
+  &.button {
+    &__solid {
+      &--default {
+        @include buttonStyles(default, $grayscaleLight, $gradientPrimary);
+      }
+      &--round {
+        @include buttonStyles(round, $grayscaleLight);
+      }
+      &--secondary {
+        @include buttonStyles(secondary, $grayscaleLight, $gradientPrimary);
+      }
+    }
+  }
+}
