@@ -14,6 +14,17 @@ export const Band = ({
 }) => {
   const [infoOpen, setInfoOpen] = useState<boolean>(false);
   const [selectedMember, setSelectedMember] = useState<Team | null>(null);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  const handleMouseEnter = (id: string) => {
+    setIsHovered(true);
+    setHoveredId(id);
+  };
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setHoveredId(null);
+  };
 
   const handleOpenInfo = (id: string) => {
     setInfoOpen(true);
@@ -36,12 +47,19 @@ export const Band = ({
   return (
     <section className="band">
       {sortedRole.map((member) => (
-        <CardItem key={member.id} type={Card.BAND}>
+        <CardItem
+          key={member.id}
+          type={Card.BAND}
+          onMouseEnter={() => handleMouseEnter(member.id)}
+          onMouseLeave={handleMouseLeave}
+        >
           <RenderInfo
             props={{
               imageMap,
               member,
               imageUrl,
+              isHovered,
+              hoveredId,
               selectedMember,
               infoOpen,
               handleCloseInfo,

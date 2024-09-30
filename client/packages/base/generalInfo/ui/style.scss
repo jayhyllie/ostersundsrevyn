@@ -2,6 +2,7 @@
 
 .general__card {
   @include flex(column, space-around, center);
+  gap: $gap;
   box-shadow: $shadow;
   padding: $padding-large;
   font-family: $ffParagraph;
@@ -10,6 +11,9 @@
   &--title {
     @include fontH1;
     font-size: calc($fsBase * 2);
+    text-decoration: underline;
+    color: $clrRevyPrimary;
+    text-shadow: 1px 1px 2px maroon, 0 0 1em orange, 0 0 0.2em orange;
     strong {
       text-transform: uppercase;
       font-family: $ffIngress;
