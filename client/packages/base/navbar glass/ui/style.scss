@@ -42,7 +42,8 @@
       color: $clrRevyPrimary;
     }
   }
-  button:not(.menu__toggle) {
+
+  a:has(button:not(.menu__toggle)) {
     grid-column: span 3;
     justify-self: end;
     @media screen and (max-width: $breakpointDesktop) {

@@ -2,9 +2,10 @@
 
 .general__card {
   @include flex(column, space-around, center);
-  box-shadow: $shadowHover;
+  box-shadow: $shadow;
   padding: $padding-large;
   font-family: $ffParagraph;
+  height: 100%;
 
   &--title {
     @include fontH1;

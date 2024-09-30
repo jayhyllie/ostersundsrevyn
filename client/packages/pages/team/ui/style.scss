@@ -82,7 +82,8 @@
     }
   }
 }
-.ensemble {
+.ensemble,
+.band {
   .card__ensemble,
   .card__band {
     @media screen and (max-width: $breakpointDesktop) {
@@ -110,7 +111,7 @@
       &-city {
         display: flex;
         gap: $gap;
-        align-items: flex-start;
+        align-items: center;
       }
     }
   }

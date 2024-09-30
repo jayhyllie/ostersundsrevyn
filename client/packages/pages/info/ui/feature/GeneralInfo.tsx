@@ -25,9 +25,16 @@ export const GeneralInfoWrapper = ({
 }: {
   generalInfo: Info[];
 }) => {
+  // Sort the generalInfo array by sortingPosition
+  const sortedGeneralInfo = [...generalInfo].sort((a, b) => {
+    if (a.sortingPosition === undefined) return 1;
+    if (b.sortingPosition === undefined) return -1;
+    return a.sortingPosition - b.sortingPosition;
+  });
+
   return (
     <section className="info__general general">
-      {generalInfo.map((info) => (
+      {sortedGeneralInfo.map((info) => (
         <AnimatedGeneralInfo key={info.id} info={info} />
       ))}
     </section>

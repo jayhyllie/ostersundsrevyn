@@ -69,7 +69,7 @@
         @include center;
         position: relative;
         @media screen and (max-width: $breakpointDesktop) {
-          padding: $padding-large;
+          padding: $padding-large calc($padding / 2);
         }
         &_title {
           @include fontH2;

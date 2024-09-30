@@ -36,6 +36,7 @@ export type Info = {
   text?: string;
   price?: number;
   area?: string;
+  sortingPosition?: number;
 };
 
 export type Video = {

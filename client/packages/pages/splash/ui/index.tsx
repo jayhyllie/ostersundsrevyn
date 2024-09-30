@@ -1,9 +1,9 @@
 import { useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, Variants, motion } from "framer-motion";
-import Logo from "../../../../public/logo.png";
 import "./style.scss";
 
 export const SplashPage = () => {
+  const Logo = "./logo.png";
   const variants: Variants = {
     initial: { opacity: 0, y: 500, rotateY: 720 },
     animate: { opacity: 1, y: 0, rotateY: 0 },

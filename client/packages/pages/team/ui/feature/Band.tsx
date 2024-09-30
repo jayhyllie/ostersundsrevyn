@@ -2,8 +2,6 @@ import { CardItem } from "@revyn/card";
 import { Card, Team } from "@revyn/types";
 import { RenderInfo } from "./ensemble/RenderInfo";
 import { useState } from "react";
-import { ModalContainer } from "@revyn/modalcontainer";
-import { Modal } from "@revyn/modal";
 
 export const Band = ({
   role,
@@ -14,15 +12,15 @@ export const Band = ({
   images: string[] | undefined;
   imageUrl: string;
 }) => {
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [infoOpen, setInfoOpen] = useState<boolean>(false);
   const [selectedMember, setSelectedMember] = useState<Team | null>(null);
 
-  const handleOpenModal = (id: string) => {
-    setModalOpen(true);
+  const handleOpenInfo = (id: string) => {
+    setInfoOpen(true);
     setSelectedMember(role.find((member) => member.id === id) ?? null);
   };
-  const handleCloseModal = () => {
-    setModalOpen(false);
+  const handleCloseInfo = () => {
+    setInfoOpen(false);
     setSelectedMember(null);
   };
 
@@ -44,16 +42,14 @@ export const Band = ({
               imageMap,
               member,
               imageUrl,
+              selectedMember,
+              infoOpen,
+              handleCloseInfo,
             }}
-            openModalWithID={handleOpenModal}
+            openInfoWithID={handleOpenInfo}
           />
         </CardItem>
       ))}
-      {modalOpen && selectedMember && (
-        <ModalContainer>
-          <Modal prop={selectedMember} closeModal={handleCloseModal} />
-        </ModalContainer>
-      )}
     </section>
   );
 };

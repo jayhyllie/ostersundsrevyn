@@ -14,20 +14,11 @@ export const NavContainer = () => {
       {screenWidth < 1100 ? (
         <header className="nav mobile">
           <LogoComponent />
-          <Button
-            type={Btn.SOLID}
-            style={Style.DEFAULT}
-            onClick={() => console.log("biljetter")}
+          <a
+            href="https://www.nortic.se/ticket/event/61851"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Biljetter
-          </Button>
-          <NavMobile />
-        </header>
-      ) : (
-        location !== "/" && (
-          <header className="nav">
-            <LogoComponent />
-            <NavbarGlass />
             <Button
               type={Btn.SOLID}
               style={Style.DEFAULT}
@@ -35,6 +26,27 @@ export const NavContainer = () => {
             >
               Biljetter
             </Button>
+          </a>
+          <NavMobile />
+        </header>
+      ) : (
+        location !== "/" && (
+          <header className="nav">
+            <LogoComponent />
+            <NavbarGlass />
+            <a
+              href="https://www.nortic.se/ticket/event/61851"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                type={Btn.SOLID}
+                style={Style.DEFAULT}
+                onClick={() => console.log("biljetter")}
+              >
+                Biljetter
+              </Button>
+            </a>
           </header>
         )
       )}

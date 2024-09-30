@@ -3,13 +3,14 @@
 .wrapper {
   min-height: 100vh;
   position: relative;
+  padding-bottom: calc($padding * 5);
   &__image {
     @include fixedRatio(calc($base * 20), 1);
     position: absolute;
     top: calc($base * 4);
     @media screen and (max-width: $breakpointGigantic) {
       z-index: -1;
-      opacity: 0.3;
+      opacity: 0.5;
     }
     &:nth-of-type(1) {
       left: calc($base * 4);
@@ -78,6 +79,11 @@
       @media screen and (min-width: $breakpointTablet) {
         padding-inline: $padding-huge;
       }
+
+      &--buttons {
+        @include flex(row, center, center);
+        gap: $gap;
+      }
     }
 
     &__tickets {
@@ -119,7 +125,7 @@
     }
     &__general {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: $gap;
     }
   }

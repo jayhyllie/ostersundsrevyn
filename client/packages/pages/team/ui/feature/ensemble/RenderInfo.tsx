@@ -1,5 +1,7 @@
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { Team } from "@revyn/types";
+import { Info } from "../info/Info";
+import { useEffect, useRef } from "react";
 
 type RenderInfoProps = {
   props: {
@@ -8,12 +10,45 @@ type RenderInfoProps = {
     isHovered?: boolean;
     hoveredId?: string | null;
     imageUrl: string;
+    selectedMember?: Team | null;
+    handleCloseInfo?: () => void;
+    infoOpen: boolean;
   };
-  openModalWithID: (value: string) => void;
+  openInfoWithID: (value: string) => void;
 };
 
-export const RenderInfo = ({ props, openModalWithID }: RenderInfoProps) => {
-  const { imageMap, member, isHovered, hoveredId, imageUrl } = props;
+export const RenderInfo = ({ props, openInfoWithID }: RenderInfoProps) => {
+  const {
+    imageMap,
+    member,
+    isHovered,
+    hoveredId,
+    imageUrl,
+    selectedMember,
+    infoOpen,
+    handleCloseInfo,
+  } = props;
+
+  const infoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (infoRef.current && !infoRef.current.contains(event.target as Node)) {
+        handleCloseInfo && handleCloseInfo();
+      }
+    };
+
+    if (infoOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [infoOpen, handleCloseInfo]);
+
   return (
     <>
       {imageMap.has(member.id) && (
@@ -41,11 +76,20 @@ export const RenderInfo = ({ props, openModalWithID }: RenderInfoProps) => {
         </p>
       </section>
       <button
-        onClick={() => openModalWithID(member.id)}
+        onClick={() => openInfoWithID(member.id)}
         className="card__ensemble--more"
       >
         Läs mer...
       </button>
+
+      {infoOpen && selectedMember && selectedMember.id === member.id && (
+        <div ref={infoRef}>
+          <Info
+            prop={selectedMember}
+            closeInfo={handleCloseInfo || (() => {})}
+          />
+        </div>
+      )}
     </>
   );
 };

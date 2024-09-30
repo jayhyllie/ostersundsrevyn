@@ -2,8 +2,6 @@ import { Card, Team } from "@revyn/types";
 import { CardItem } from "@revyn/card";
 import { useState } from "react";
 import { RenderInfo } from "./RenderInfo";
-import { Modal } from "@revyn/modal";
-import { ModalContainer } from "@revyn/modalcontainer";
 
 export const Ensemble = ({
   role,
@@ -14,7 +12,7 @@ export const Ensemble = ({
   images: string[] | undefined;
   imageUrl: string;
 }) => {
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [infoOpen, setInfoOpen] = useState<boolean>(false);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedMember, setSelectedMember] = useState<Team | null>(null);
@@ -27,12 +25,12 @@ export const Ensemble = ({
     setIsHovered(false);
     setHoveredId(null);
   };
-  const handleOpenModal = (id: string) => {
-    setModalOpen(true);
+  const handleOpenInfo = (id: string) => {
+    setInfoOpen(true);
     setSelectedMember(role.find((member) => member.id === id) ?? null);
   };
-  const handleCloseModal = () => {
-    setModalOpen(false);
+  const handleCloseInfo = () => {
+    setInfoOpen(false);
     setSelectedMember(null);
   };
 
@@ -61,16 +59,14 @@ export const Ensemble = ({
               isHovered,
               hoveredId,
               imageUrl,
+              selectedMember,
+              handleCloseInfo,
+              infoOpen,
             }}
-            openModalWithID={handleOpenModal}
+            openInfoWithID={handleOpenInfo}
           />
         </CardItem>
       ))}
-      {modalOpen && selectedMember && (
-        <ModalContainer>
-          <Modal prop={selectedMember} closeModal={handleCloseModal} />
-        </ModalContainer>
-      )}
     </section>
   );
 };

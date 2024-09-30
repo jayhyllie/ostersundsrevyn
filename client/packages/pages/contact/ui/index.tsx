@@ -2,7 +2,7 @@
 import "./style.scss";
 
 export const ContactPage = () => {
-  const mapurl = import.meta.env.VITE_MAP_URL;
+  const contactImage = "./ensembleDesktop.png";
   return (
     <>
       <main className="contact container">
@@ -15,11 +15,7 @@ export const ContactPage = () => {
           <a href="mailto:info@ostersundsrevyn.com">Skicka ett mail &#8594;</a>
           <p>Eller ring 070-270 60 05</p>
         </section>
-        <section className="contact__map">
-          <a href={mapurl} target="_blank" rel="noopener noreferrer">
-            <img src="./map.png" alt="map" className="contact__map--image" />
-          </a>
-        </section>
+        <img src={contactImage} alt="poster" />
       </main>
     </>
   );

@@ -18,6 +18,8 @@ export const YearInfo: FC<Info> = ({
     exit: { opacity: 0, y: -100 },
   };
 
+  const giftCardLink = "https://www.nortic.se/voucher/1893";
+
   const sanitizedContent = DOMPurify.sanitize(content as string);
   const sanitizedText = DOMPurify.sanitize(text as string);
   return (
@@ -65,15 +67,26 @@ export const YearInfo: FC<Info> = ({
         exit="exit"
         transition={{ duration: 1, delay: 2.5 }}
       >
-        <a href={buttonLink}>
-          <Button
-            type={Btn.SOLID}
-            style={Style.DEFAULT}
-            onClick={() => console.log("clicked")}
-          >
-            {buttonText}
-          </Button>
-        </a>
+        <section className="info__bottom--buttons">
+          <a href={giftCardLink} target="__blank">
+            <Button
+              type={Btn.SOLID}
+              style={Style.DEFAULT}
+              onClick={() => console.log("Presentkort")}
+            >
+              Presentkort
+            </Button>
+          </a>
+          <a href={buttonLink} target="__blank">
+            <Button
+              type={Btn.SOLID}
+              style={Style.DEFAULT}
+              onClick={() => console.log("clicked")}
+            >
+              {buttonText}
+            </Button>
+          </a>
+        </section>
         <p dangerouslySetInnerHTML={{ __html: sanitizedText }}></p>
       </motion.section>
     </>
