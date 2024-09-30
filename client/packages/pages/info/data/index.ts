@@ -1,3 +1,4 @@
+import { getAllImages } from "@revyn/teampage";
 import { Info } from "@revyn/types";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -15,6 +16,15 @@ async function getInfoData(): Promise<InfoResponse> {
 }
 
 export const useInfoData = () => {
+  const galleryQuery = useQuery({
+    queryKey: ["logos"],
+    queryFn: getAllImages,
+  });
+
+  const images: string[] | undefined =
+    (galleryQuery.data?.images as string[]) ?? [];
+  const gallery = images?.filter((image: string) => image.includes("Logos"));
+
   const infoQuery = useQuery({
     queryKey: ["info"],
     queryFn: getInfoData,
@@ -32,6 +42,8 @@ export const useInfoData = () => {
     topData,
     ticketData,
     generalInfo,
+    galleryQuery,
+    gallery,
   };
 };
 
