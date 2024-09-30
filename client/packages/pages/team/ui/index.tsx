@@ -23,6 +23,7 @@ export const TeamPage = () => {
 
     switch (location) {
       case "/revyganget/ensemble":
+      case "/revyganget/ensemble/":
         return (
           <Ensemble
             role={getMembersByRole("ensemble")}
@@ -31,6 +32,7 @@ export const TeamPage = () => {
           />
         );
       case "/revyganget/band":
+      case "/revyganget/band/":
         return (
           <Band
             role={getMembersByRole("orkester")}
@@ -39,6 +41,7 @@ export const TeamPage = () => {
           />
         );
       case "/revyganget/production":
+      case "/revyganget/production/":
         return (
           <Production
             role={getMembersByRole("produktion")}
