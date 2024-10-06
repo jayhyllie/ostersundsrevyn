@@ -12,7 +12,6 @@ const imageUrl = import.meta.env.VITE_AWS_IMAGEBUCKET_URL;
 export const InfoPage = () => {
   const { infoQuery, topData, ticketData, generalInfo, gallery } =
     useInfoData();
-  console.log(gallery);
   const screenWidth = window.innerWidth;
   const image1 = gallery.find((image) => image === "Logos/kvinnorna.jpg");
   const image2 = gallery.find((image) => image === "Logos/pojkarna.jpg");
@@ -55,7 +54,7 @@ export const InfoPage = () => {
               className={`wrapper__image ${index + 1}`}
               key={index}
             >
-              <img src={image} alt={image} />
+              <img src={image} alt={image} loading="lazy" />
             </motion.figure>
           ))}
       </div>
