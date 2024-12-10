@@ -50,9 +50,9 @@
     }
     @media screen and (min-width: $breakpointDesktop) {
       &:nth-child(n + 1) {
-        grid-column: span 3;
+        grid-column: span 4;
       }
-      &:nth-child(n + 5) {
+      &:nth-child(n + 4) {
         grid-column: span 4;
         aspect-ratio: 1 / 1.2;
       }
