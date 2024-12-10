@@ -14,26 +14,20 @@ export const NavContainer = () => {
       {screenWidth < 1100 ? (
         <header className="nav mobile">
           <LogoComponent />
-          <a
-            href="https://www.nortic.se/ticket/event/61851"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Button
-              type={Btn.SOLID}
-              style={Style.DEFAULT}
-              onClick={() => console.log("biljetter")}
+          <section className="mobile__buttons">
+            <a
+              href="https://www.nortic.se/voucher/1893"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Biljetter
-            </Button>
-          </a>
-          <NavMobile />
-        </header>
-      ) : (
-        location !== "/" && (
-          <header className="nav">
-            <LogoComponent />
-            <NavbarGlass />
+              <Button
+                type={Btn.SOLID}
+                style={Style.DEFAULT}
+                onClick={() => console.log("presentkort")}
+              >
+                Presentkort
+              </Button>
+            </a>
             <a
               href="https://www.nortic.se/ticket/event/61851"
               target="_blank"
@@ -47,6 +41,42 @@ export const NavContainer = () => {
                 Biljetter
               </Button>
             </a>
+          </section>
+          <NavMobile />
+        </header>
+      ) : (
+        location !== "/" && (
+          <header className="nav">
+            <section className="nav__left">
+              <LogoComponent />
+              <a
+                href="https://www.nortic.se/voucher/1893"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  type={Btn.SOLID}
+                  style={Style.DEFAULT}
+                  onClick={() => console.log("presentkort")}
+                >
+                  Presentkort
+                </Button>
+              </a>
+              <a
+                href="https://www.nortic.se/ticket/event/61851"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  type={Btn.SOLID}
+                  style={Style.DEFAULT}
+                  onClick={() => console.log("biljetter")}
+                >
+                  Biljetter
+                </Button>
+              </a>
+            </section>
+            <NavbarGlass />
           </header>
         )
       )}
