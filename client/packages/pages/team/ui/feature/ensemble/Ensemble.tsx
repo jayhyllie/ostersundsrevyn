@@ -44,7 +44,7 @@ export const Ensemble = ({
     (a, b) => (a.sortPosition ?? 0) - (b.sortPosition ?? 0)
   );
   return (
-    <section className="ensemble">
+    <section className={`ensemble ${infoOpen}`}>
       {sortedRole.map((member) => (
         <CardItem
           key={member.id}

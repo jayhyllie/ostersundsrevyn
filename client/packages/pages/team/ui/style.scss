@@ -3,10 +3,16 @@
 .ensemble,
 .band {
   @include grid(100%);
-  gap: $gap;
+  gap: calc($gap-huge);
 
   @media screen and (min-width: $breakpointTablet) {
     @include grid(repeat(6, 1fr));
+    gap: $gap;
+  }
+  &.true {
+    @media screen and (max-width: $breakpointTablet) {
+      gap: calc($gap-huge * 4)
+    } 
   }
 }
 .production {
