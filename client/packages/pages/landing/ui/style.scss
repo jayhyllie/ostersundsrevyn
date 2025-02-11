@@ -10,12 +10,12 @@
     inset: 0;
     overflow: hidden;
     z-index: 1;
-    background-image: url("./tack_2025.png");
+    background-image: url("https://www.ostersundsrevyn.com/tack_2025.png");
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
     @media screen and (max-width: $breakpointTablet) {
-      background-image: url("./tack_2025.png");
+      background-image: url("https://www.ostersundsrevyn.com/tack_2025.png");
       background-size: contain;
       background-position: center center;
     }
