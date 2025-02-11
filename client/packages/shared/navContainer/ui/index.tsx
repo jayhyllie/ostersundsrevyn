@@ -14,7 +14,7 @@ export const NavContainer = () => {
       {screenWidth < 1100 ? (
         <header className="nav mobile">
           <LogoComponent />
-          <section className="mobile__buttons">
+          {/* <section className="mobile__buttons">
             <a
               href="https://www.nortic.se/voucher/1893"
               target="_blank"
@@ -41,7 +41,7 @@ export const NavContainer = () => {
                 Biljetter
               </Button>
             </a>
-          </section>
+          </section> */}
           <NavMobile />
         </header>
       ) : (
@@ -49,7 +49,7 @@ export const NavContainer = () => {
           <header className="nav">
             <section className="nav__left">
               <LogoComponent />
-              <a
+              {/* <a
                 href="https://www.nortic.se/voucher/1893"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -74,7 +74,7 @@ export const NavContainer = () => {
                 >
                   Biljetter
                 </Button>
-              </a>
+              </a> */}
             </section>
             <NavbarGlass />
           </header>

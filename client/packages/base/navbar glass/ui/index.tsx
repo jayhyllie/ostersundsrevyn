@@ -3,13 +3,7 @@ import "./style.scss";
 export const NavbarGlass = () => {
   const location = window.location.pathname.split("/")[1];
   const absoluteLocation = "historik" || "hem";
-  const navItems = [
-    "Revygänget",
-    "Information",
-    "Media",
-    "Historik",
-    "Kontakt",
-  ];
+  const navItems = ["Revygänget", "Media", "Historik", "Kontakt"];
   return (
     <ul
       className={

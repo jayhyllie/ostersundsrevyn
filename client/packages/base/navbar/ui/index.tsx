@@ -10,14 +10,7 @@ const variants = {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
   },
 };
-const itemIds = [
-  "Hem",
-  "Revygänget",
-  "Information",
-  "Media",
-  "Historik",
-  "Kontakt",
-];
+const itemIds = ["Hem", "Revygänget", "Media", "Historik", "Kontakt"];
 
 export const Navbar = ({ isOpen }: { isOpen: boolean }) => {
   return (
