@@ -7,7 +7,7 @@ export const ImageContainer = () => {
   const navigate = useNavigate();
   const { galleryQuery, folders } = useImageGallery();
   const [year, setYear] = useState<string>(
-    localStorage.getItem("year") ?? "2024"
+    localStorage.getItem("year") ?? "2025"
   );
 
   const handleSetYear = (year: string) => {
