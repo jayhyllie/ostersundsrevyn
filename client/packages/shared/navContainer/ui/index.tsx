@@ -1,7 +1,7 @@
-import { Button } from "@revyn/button";
+/* import { Button } from "@revyn/button"; */
 import { LogoComponent } from "@revyn/logo";
 import { NavbarGlass } from "@revyn/navbarglass";
-import { Btn, Style } from "@revyn/types";
+/* import { Btn, Style } from "@revyn/types"; */
 import { NavMobile } from "./feature/NavMobile";
 import "./style.scss";
 
