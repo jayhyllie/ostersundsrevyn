@@ -7,6 +7,14 @@ import { Spinner } from "@revyn/spinner";
 export const VideoContainer = () => {
   const { videoQuery, videos } = useVideoQuery();
   const playListURL = import.meta.env.VITE_YOUTUBE_PLAYLIST_URL;
+  
+  // Filter out deleted videos and videos without proper data
+  const validVideos = videos?.filter((video: Video) => 
+    video?.snippet?.title && 
+    video.snippet.title !== "Deleted video" &&
+    video?.snippet?.resourceId?.videoId
+  ) || [];
+  
   return (
     <>
       {videoQuery.isLoading ? (
@@ -16,9 +24,13 @@ export const VideoContainer = () => {
       ) : (
         <>
           <section className="media__videos">
-            {videos.map((video: Video, i: number) => (
-              <RenderVideo key={i} {...video} />
-            ))}
+            {validVideos.length > 0 ? (
+              validVideos.map((video: Video, i: number) => (
+                <RenderVideo key={i} {...video} />
+              ))
+            ) : (
+              <div>No videos available</div>
+            )}
           </section>
           <a href={playListURL} className="media__link" target="_blank">
             <h2>

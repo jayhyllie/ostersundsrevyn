@@ -44,6 +44,12 @@ export type Video = {
   snippet: {
     title: string;
     thumbnails: {
+      default: {
+        url: string;
+      };
+      high: {
+        url: string;
+      };
       medium: {
         url: string;
       };
