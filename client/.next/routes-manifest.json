@@ -1,1 +1,122 @@
-{"version":3,"caseSensitive":false,"basePath":"","rewrites":{"beforeFiles":[],"afterFiles":[],"fallback":[]},"redirects":[{"source":"/:path+/","destination":"/:path+","permanent":true,"internal":true,"regex":"^(?:\\/((?:[^\\/]+?)(?:\\/(?:[^\\/]+?))*))\\/$"}],"headers":[]}
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/media/images/[year]",
+      "regex": "^/media/images/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPyear": "nxtPyear"
+      },
+      "namedRegex": "^/media/images/(?<nxtPyear>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/hem",
+      "regex": "^/hem(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/hem(?:/)?$"
+    },
+    {
+      "page": "/historik",
+      "regex": "^/historik(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/historik(?:/)?$"
+    },
+    {
+      "page": "/information",
+      "regex": "^/information(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/information(?:/)?$"
+    },
+    {
+      "page": "/kontakt",
+      "regex": "^/kontakt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/kontakt(?:/)?$"
+    },
+    {
+      "page": "/media",
+      "regex": "^/media(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/media(?:/)?$"
+    },
+    {
+      "page": "/media/images",
+      "regex": "^/media/images(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/media/images(?:/)?$"
+    },
+    {
+      "page": "/media/videos",
+      "regex": "^/media/videos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/media/videos(?:/)?$"
+    },
+    {
+      "page": "/revyganget/band",
+      "regex": "^/revyganget/band(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/revyganget/band(?:/)?$"
+    },
+    {
+      "page": "/revyganget/ensemble",
+      "regex": "^/revyganget/ensemble(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/revyganget/ensemble(?:/)?$"
+    },
+    {
+      "page": "/revyganget/production",
+      "regex": "^/revyganget/production(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/revyganget/production(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

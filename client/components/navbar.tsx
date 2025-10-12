@@ -5,7 +5,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
 const navItems = [

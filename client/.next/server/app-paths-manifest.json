@@ -1,7 +1,15 @@
 {
-  "/page": "app/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/historik/page": "app/historik/page.js",
+  "/information/page": "app/information/page.js",
+  "/kontakt/page": "app/kontakt/page.js",
   "/hem/page": "app/hem/page.js",
-  "/revyganget/ensemble/page": "app/revyganget/ensemble/page.js",
+  "/page": "app/page.js",
+  "/media/images/[year]/page": "app/media/images/[year]/page.js",
+  "/media/images/page": "app/media/images/page.js",
+  "/media/page": "app/media/page.js",
+  "/media/videos/page": "app/media/videos/page.js",
   "/revyganget/band/page": "app/revyganget/band/page.js",
-  "/revyganget/production/page": "app/revyganget/production/page.js"
+  "/revyganget/production/page": "app/revyganget/production/page.js",
+  "/revyganget/ensemble/page": "app/revyganget/ensemble/page.js"
 }

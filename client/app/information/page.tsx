@@ -7,7 +7,6 @@ import DOMPurify from "dompurify";
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 
 const imageVariants: Variants = {
   initial: { opacity: 0, y: 50 },
@@ -45,8 +44,7 @@ export default function InformationPage() {
   const image1 = "kvinnorna.jpg";
   const image2 = "pojkarna.jpg";
 
-  /* const images = [image1, image2].map((image) => `${imageUrl}${image}`); */
-  const images = [image1, image2];
+  const images = [image1, image2].map((image) => `${imageUrl}${image}`);
 
   return (
     <main className="mx-auto px-4 py-8 relative">
