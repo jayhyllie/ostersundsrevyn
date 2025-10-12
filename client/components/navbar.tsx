@@ -94,7 +94,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       <div className={cn(
-        "lg:hidden bg-[var(--brown)] absolute right-0 top-16 min-w-40 z-10 transition-transform duration-300 ease-in-out",
+        "lg:hidden bg-[var(--brown)] fixed right-0 top-16 w-48 z-10 transition-transform duration-300 ease-in-out",
         isOpen ? "translate-x-0" : "translate-x-full"
       )}>
         <div className="py-4 px-4 space-y-4 bg-black/50">
