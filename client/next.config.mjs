@@ -17,9 +17,6 @@ const nextConfig = {
     domains: [],
     path: '/_next/image',
   },
-  experimental: {
-    optimizeCss: true,
-  },
 };
 
 export default nextConfig;
