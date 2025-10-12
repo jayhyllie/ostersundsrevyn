@@ -43,7 +43,7 @@ export default function BandPage() {
             src={img_url + bandImage}
             alt="Orkester"
             fill
-            className="object-cover"
+            className="object-contain"
             quality={80}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 70vw, 50vw"
             priority
