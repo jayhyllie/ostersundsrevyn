@@ -9,8 +9,6 @@ provider:
   iam:
     role: arn:aws:iam::851725656891:role/revyRole
   deploymentMethod: direct
-  environment:
-    SES_SENDER_EMAIL: "info@ostersundsrevyn.com"
 
 plugins:
   - serverless-webpack
@@ -30,6 +28,12 @@ functions:
     events:
       - httpApi:
           path: /images
+          method: GET
+  getPosters:
+    handler: functions/getPosters/index.handler
+    events:
+      - httpApi:
+          path: /posters
           method: GET
   getTeamImages:
     handler: functions/imageFunctions/getTeamImages/index.handler
@@ -110,42 +114,6 @@ functions:
       - httpApi:
           path: /history/{id}
           method: DELETE
-  inviteUser:
-    handler: functions/userFunctions/inviteUser/index.handler
-    events:
-      - httpApi:
-          path: /user/invite
-          method: POST
-  signUp:
-    handler: functions/auth/signUp/index.handler
-    events:
-      - httpApi:
-          path: /auth/signup
-          method: POST
-  signIn:
-    handler: functions/auth/signIn/index.handler
-    events:
-      - httpApi:
-          path: /auth/signin
-          method: POST
-  forgotPassword:
-    handler: functions/auth/forgotPw/index.handler
-    events:
-      - httpApi:
-          path: /auth/forgot-password
-          method: POST
-  confirmForgotPassword:
-    handler: functions/auth/confirmForgotPw/index.handler
-    events:
-      - httpApi:
-          path: /auth/confirm-forgot-pw
-          method: POST
-  signOut:
-    handler: functions/auth/signOut/index.handler
-    events:
-      - httpApi:
-          path: /auth/signout
-          method: POST
 
 resources:
   Resources:
@@ -194,39 +162,3 @@ resources:
                 - "*"
               AllowedMethods:
                 - GET
-    CognitoUserPool:
-      Type: AWS::Cognito::UserPool
-      Properties:
-        UserPoolName: UserPool
-        Schema:
-          - Name: id,
-            AttributeDataType: String
-            Required: true
-            Mutable: false
-          - Name: email
-            AttributeDataType: String
-            Required: true
-            Mutable: true
-          - Name: name
-            AttributeDataType: String
-            Required: true
-            Mutable: true
-          - Name: role
-            AttributeDataType: String
-            Required: true
-            Mutable: true
-        Policies:
-          PasswordPolicy:
-            MinimumLength: 8
-            RequireUppercase: true
-            RequireLowercase: true
-            RequireNumbers: true
-            RequireSymbols: true
-
-    CognitoUserPoolClient:
-      Type: AWS::Cognito::UserPoolClient
-      Properties:
-        ClientName: UserPoolClient
-        UserPoolId:
-          Ref: CognitoUserPool
-        GenerateSecret: false

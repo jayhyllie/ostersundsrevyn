@@ -1,0 +1,7 @@
+{
+  "/page": "app/page.js",
+  "/hem/page": "app/hem/page.js",
+  "/revyganget/ensemble/page": "app/revyganget/ensemble/page.js",
+  "/revyganget/band/page": "app/revyganget/band/page.js",
+  "/revyganget/production/page": "app/revyganget/production/page.js"
+}

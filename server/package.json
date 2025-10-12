@@ -15,6 +15,9 @@
     "@aws-sdk/lib-dynamodb": "^3.518.0",
     "@aws-sdk/util-dynamodb": "^3.576.0",
     "@middy/core": "^5.4.7",
+    "@middy/http-error-handler": "^5.4.7",
+    "@middy/http-json-body-parser": "^5.4.7",
+    "@middy/validator": "^5.4.7",
     "serverless-webpack": "^5.13.0"
   },
   "devDependencies": {
@@ -26,6 +29,7 @@
     "lambda-multipart-parser": "^1.0.1",
     "middy": "^0.36.0",
     "nanoid": "^5.0.7",
+    "serverless": "^3.38.0",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3"
   }
