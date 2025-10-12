@@ -41,8 +41,8 @@ export default function InformationPage() {
   };
 
   const imageUrl = process.env.NEXT_PUBLIC_AWS_IMAGEBUCKET_URL + "Logos/" || "";
-  const image1 = "kvinnorna.jpg";
-  const image2 = "pojkarna.jpg";
+  const image1 = "kvinnorna.png";
+  const image2 = "Pojkarna.png";
 
   const images = [image1, image2].map((image) => `${imageUrl}${image}`);
 
