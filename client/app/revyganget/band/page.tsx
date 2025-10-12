@@ -44,7 +44,7 @@ export default function BandPage() {
             alt="Orkester"
             fill
             className="object-cover"
-            quality={95}
+            quality={80}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 70vw, 50vw"
             priority
           />

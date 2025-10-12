@@ -48,9 +48,9 @@ export default function EnsemblePage() {
                       alt={member.name}
                       fill
                       className="object-cover"
-                      quality={95}
+                      quality={75}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      priority
+                      loading="lazy"
                     />
                   </div>
                 )}
@@ -78,9 +78,9 @@ export default function EnsemblePage() {
                               alt={member.name}
                               fill
                               className="object-cover"
-                              quality={95}
+                              quality={75}
                               sizes="(max-width: 768px) 100vw, 50vw"
-                              priority
+                              loading="lazy"
                             />
                           </div>
                         )}

@@ -8,7 +8,6 @@ import Image from "next/image";
 export default function SplashPage() {
   const router = useRouter();
   const [isExiting, setIsExiting] = useState(false);
-  const img_url = process.env.NEXT_PUBLIC_AWS_IMAGEBUCKET_URL || "";
 
   useEffect(() => {
     // Start exit animation after entrance completes
@@ -43,7 +42,7 @@ export default function SplashPage() {
         }}
       >
         <Image
-          src={`${img_url}/logo.png`}
+          src={`https://ostersundsrevyn.com/logo.png`}
           alt="Östersunds Revyn Logo"
           width={310}
           height={310}
