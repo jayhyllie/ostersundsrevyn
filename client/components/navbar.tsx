@@ -36,7 +36,7 @@ export function Navbar() {
               priority
             />
           </Link>
-          <div className="flex items-center md:gap-2 gap-20">
+          <div className="flex items-center md:gap-2 gap-16">
             <Button asChild size="default">
               <a
                 href="https://www.nortic.se/voucher/2081"
