@@ -7,6 +7,7 @@ import DOMPurify from "dompurify";
 import { motion, Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const imageVariants: Variants = {
   initial: { opacity: 0, y: 50 },
@@ -62,21 +63,18 @@ export default function InformationPage() {
                 className="whitespace-pre-wrap"
                 dangerouslySetInnerHTML={{ __html: sanitizeHtml(topData[0].content) }}
               />
-              <div className="text-primary font-bold text-lg uppercase bg-white/80 px-4 py-6 rounded-md mt-4">
-              Biljettsläpp 20/10
-            </div>
-              {/* {topData[0].buttonLink && topData[0].buttonText && (
+              {topData[0].buttonLink && topData[0].buttonText && (
                 <Button asChild size="xl"> 
                   <a
-                    href={topData[0].buttonLink}
+                    href="https://www.nortic.se/ticket/event/74378"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+                    className="inline-block mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 w-full md:w-80"
                   >
                     {topData[0].buttonText}
                   </a>
                 </Button>
-              )} */}
+              )}
             </CardContent>
           </Card>
         )}

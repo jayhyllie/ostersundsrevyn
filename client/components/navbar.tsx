@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 const navItems = [
   { text: "Revygänget", href: "/revyganget/ensemble" },
@@ -24,7 +25,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-transparent">
       <nav className="flex h-16 items-center justify-between px-4 w-full">
-        <div className="flex items-center md:gap-6">
+        <div className="flex items-center gap-6">
           <Link href="/hem" className="flex items-center space-x-2">
             <Image
               src="/logo.png"
@@ -36,12 +37,9 @@ export function Navbar() {
             />
           </Link>
           <div className="flex items-center md:gap-2 gap-20">
-            <div className="text-primary font-bold text-lg animate-pulse uppercase bg-white/80 px-4 py-2 rounded-md hidden md:block">
-              Biljettsläpp 20/10
-            </div>
-            {/* <Button asChild size="default">
+            <Button asChild size="default">
               <a
-                href="https://www.nortic.se/voucher/1893"
+                href="https://www.nortic.se/voucher/2081"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -50,13 +48,13 @@ export function Navbar() {
             </Button>
             <Button asChild size="default">
               <a
-                href="https://www.nortic.se/ticket/event/61851"
+                href="https://www.nortic.se/ticket/event/74378"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Biljetter
               </a>
-            </Button> */}
+            </Button>
           </div>
         </div>
 
@@ -76,10 +74,6 @@ export function Navbar() {
               {item.text}
             </Link>
           ))}
-        </div>
-
-        <div className="text-primary font-bold text-lg animate-pulse uppercase bg-white/80 px-4 py-2 rounded-md block md:hidden">
-              Biljettsläpp 20/10
         </div>
 
         {/* Mobile Navigation */}

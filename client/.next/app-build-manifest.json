@@ -20,6 +20,21 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/information/page.js"
+    ],
+    "/revyganget/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/revyganget/layout.js"
+    ],
+    "/revyganget/ensemble/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/revyganget/ensemble/page.js"
+    ],
+    "/historik/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/historik/page.js"
     ]
   }
 }
