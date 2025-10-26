@@ -46,7 +46,9 @@ export default function BandPage() {
 
   // Format years with Swedish suffix
   const formatYears = (years: number) => {
-    return years === 1 || years === 2 ? `${years}:a` : `${years}:e`;
+    // Convert to number in case it's coming as string from API
+    const numYears = Number(years);
+    return numYears === 1 || numYears === 2 ? `${numYears}:a` : `${numYears}:e`;
   };
 
   return (
