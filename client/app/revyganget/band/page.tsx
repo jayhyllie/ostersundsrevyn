@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { Team } from "@/types";
 import Image from "next/image";
+import DOMPurify from "dompurify";
 
 export default function BandPage() {
   const { data: team, isLoading: teamQuery } = useTeam();
@@ -34,6 +35,14 @@ export default function BandPage() {
   const sortedBand = band.sort(
     (a, b) => (a.sortPosition ?? 0) - (b.sortPosition ?? 0)
   );
+
+  // Sanitize HTML content
+  const sanitizeHtml = (html: string) => {
+    return DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: ['em', 'strong', 'b', 'i', 'u', 'br', 'a', 'p', 'span', 'div'],
+      ALLOWED_ATTR: ['href', 'style', 'target', 'rel'],
+    });
+  };
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -77,7 +86,10 @@ export default function BandPage() {
                       </DialogHeader>
                       <div className="grid md:grid-cols-1 gap-6">
                         <div className="flex flex-col gap-4">
-                          <div className="whitespace-pre-wrap">{member.bio}</div>
+                          <div 
+                            className="whitespace-pre-wrap"
+                            dangerouslySetInnerHTML={{ __html: sanitizeHtml(member.bio) }}
+                          />
                         </div>
                       </div>
                     </DialogContent>
