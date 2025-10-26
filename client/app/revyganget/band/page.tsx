@@ -44,6 +44,11 @@ export default function BandPage() {
     });
   };
 
+  // Format years with Swedish suffix
+  const formatYears = (years: number) => {
+    return years === 1 || years === 2 ? `${years}:a` : `${years}:e`;
+  };
+
   return (
     <main className="container mx-auto px-4 py-8">
       {bandImage && (
@@ -70,7 +75,7 @@ export default function BandPage() {
                 <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                 {member.age && member.age > 0 ? <p className="text-white/30">Ålder: {member.age}</p> : null}
                 {member.city && <p className="text-white/30">Bor: {member.city}</p>}
-                {member.years && <p className="text-white/30">År i revyn: {member.years}</p>}
+                {member.years && <p className="text-white/30">År i revyn: {formatYears(member.years)}</p>}
                 {member.role && <p className="text-white/30">Instrument: {member.role}</p>}
                 
                 {member.bio && (

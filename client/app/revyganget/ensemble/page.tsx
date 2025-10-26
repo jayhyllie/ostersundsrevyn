@@ -41,6 +41,11 @@ export default function EnsemblePage() {
     });
   };
 
+  // Format years with Swedish suffix
+  const formatYears = (years: number) => {
+    return years === 1 || years === 2 ? `${years}:a` : `${years}:e`;
+  };
+
   return (
     <main className="container mx-auto px-4 py-8">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -68,7 +73,7 @@ export default function EnsemblePage() {
                 <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                 {member.age && <p className="text-white/30">Ålder: {member.age}</p>}
                 {member.city && <p className="text-white/30">Bor: {member.city}</p>}
-                {member.years && <p className="text-white/30">År i revyn: {member.years}</p>}
+                {member.years && <p className="text-white/30">År i revyn: {formatYears(member.years)}</p>}
                 
                 {member.bio && (
                   <Dialog>
