@@ -1,7 +1,4 @@
 {
   "/page": "app/page.js",
-  "/historik/page": "app/historik/page.js",
-  "/hem/page": "app/hem/page.js",
-  "/information/page": "app/information/page.js",
-  "/revyganget/ensemble/page": "app/revyganget/ensemble/page.js"
+  "/hem/page": "app/hem/page.js"
 }
