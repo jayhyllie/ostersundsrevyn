@@ -16,7 +16,7 @@ export default function HomePage() {
   console.log(img_url + mobile_image);
 
   return (
-    <main id="home" className="h-screen w-full md:pb-16">
+    <main id="home" className="h-screen w-full md:mb-16">
       <figure className="absolute inset-0 overflow-hidden z-[1]">
         <Image
           src={`${img_url}${desktop_image}`}
@@ -32,10 +32,13 @@ export default function HomePage() {
           className="object-cover object-[top_25%_center] md:hidden"
           priority
         />
-        <section className="absolute bottom-12 left-0 w-full flex flex-col items-center justify-center gap-4 md:flex-row md:mb-6 md:bottom-0">
-          <Image src="/sponsor1.png" alt="sponsorbild" width={300} height={300} />
-          <Image src="/sponsor2.png" alt="sponsorbild" width={200} height={200} />
-          <Image src="/sponsor3.png" alt="sponsorbild" width={200} height={200} />
+        <section className="absolute bottom-4 left-0 w-full flex flex-col items-center justify-center gap-4 sm:flex-row sm:mb-4 sm:pb-0 sm:bottom-0">
+          <Image src="/sponsor1.png" alt="sponsorbild" width={200} height={200} className="sm:hidden" />
+          <Image src="/sponsor2.png" alt="sponsorbild" width={150} height={150} className="sm:hidden" />
+          <Image src="/sponsor3.png" alt="sponsorbild" width={100} height={100} className="sm:hidden" />
+          <Image src="/sponsor1.png" alt="sponsorbild" width={300} height={300} className="hidden sm:block" />
+          <Image src="/sponsor2.png" alt="sponsorbild" width={200} height={200} className="hidden sm:block" />
+          <Image src="/sponsor3.png" alt="sponsorbild" width={150} height={150} className="hidden sm:block" />
         </section>
       </figure>
 
