@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { usePosters } from "@/hooks/queries/use-history";
 import { Spinner } from "@/components/ui/spinner";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 
@@ -23,8 +23,6 @@ export default function PosterSlider() {
   }
 
   const images = posterImages.map((p: string) => BUCKET + p);
-  // Triple the images for seamless infinite loop
-  const loop = [...images, ...images];
 
   return (
     <section className="hero relative hidden md:block">
