@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"app/historik/page.tsx -> @/components/historyClient\":{\"id\":\"app/historik/page.tsx -> @/components/historyClient\",\"files\":[\"static/chunks/_app-pages-browser_components_historyClient_tsx.js\"]}}"

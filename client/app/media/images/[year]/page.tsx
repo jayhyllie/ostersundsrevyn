@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import { useGalleryImages } from "@/hooks/queries";
 import { Spinner } from "@/components/ui/spinner";
+import Gallery from "@/components/ui/gallery";
 
 export default function GalleryYearPage() {
   const params = useParams();
@@ -31,7 +32,15 @@ export default function GalleryYearPage() {
     <main className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8">{year}</h1>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {galleryImages?.map((image: string, index: number) => (
+        <Gallery sections={
+          [{ type: "grid", 
+            images: galleryImages.map((image: string, index: number) => ({ 
+              src: `${imageUrl}Galleri/${year}/${image}`, alt: `Gallery image ${index + 1}` 
+            })) 
+          }]
+        } 
+        />
+        {/* {galleryImages?.map((image: string, index: number) => (
           <div key={index} className="relative aspect-square overflow-hidden rounded-lg">
             <img
               src={`${imageUrl}Galleri/${year}/${image}`}
@@ -39,9 +48,8 @@ export default function GalleryYearPage() {
               className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
             />
           </div>
-        ))}
+        ))} */}
       </div>
     </main>
   );
 }
-
