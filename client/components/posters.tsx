@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { usePosters } from "@/hooks/queries/use-history";
 import { Spinner } from "@/components/ui/spinner";
-import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 
@@ -48,6 +48,8 @@ export default function PosterSlider() {
               </CarouselItem>
             ))}
           </CarouselContent>
+          <CarouselPrevious className="text-orange-500" />
+          <CarouselNext className="text-orange-500" />
         </Carousel>
       </div>
     </section>
