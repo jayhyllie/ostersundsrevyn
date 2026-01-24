@@ -729,8 +729,14 @@ video {
 .-left-6 {
   left: -1.5rem;
 }
+.-left-8 {
+  left: -2rem;
+}
 .-right-12 {
   right: -3rem;
+}
+.-right-8 {
+  right: -2rem;
 }
 .-top-12 {
   top: -3rem;
@@ -782,6 +788,12 @@ video {
 }
 .top-\[50\%\] {
   top: 50%;
+}
+.-left-0 {
+  left: -0px;
+}
+.-right-0 {
+  right: -0px;
 }
 .-z-10 {
   z-index: -10;
@@ -1337,6 +1349,10 @@ video {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -1441,6 +1457,10 @@ video {
 .text-muted-foreground {
   color: hsl(var(--muted-foreground));
 }
+.text-orange-500 {
+  --tw-text-opacity: 1;
+  color: rgb(249 115 22 / var(--tw-text-opacity, 1));
+}
 .text-popover-foreground {
   color: hsl(var(--popover-foreground));
 }
@@ -1468,10 +1488,6 @@ video {
 }
 .text-white\/80 {
   color: rgb(255 255 255 / 0.8);
-}
-.text-orange-500 {
-  --tw-text-opacity: 1;
-  color: rgb(249 115 22 / var(--tw-text-opacity, 1));
 }
 .underline-offset-4 {
   text-underline-offset: 4px;
@@ -1565,9 +1581,6 @@ video {
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.will-change-transform {
-  will-change: transform;
-}
 @keyframes enter {
 
   from {
@@ -1591,9 +1604,6 @@ video {
 .ease-in-out {
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.animate-scroll-seamless { 
-        animation: scroll-seamless 80s linear infinite; 
-      }
 
 .placeholder\:text-muted-foreground::-moz-placeholder {
   color: hsl(var(--muted-foreground));

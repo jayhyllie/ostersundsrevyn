@@ -6,15 +6,15 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/media/layout": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/media/layout.js"
+      "static/chunks/app/page.js"
     ],
-    "/media/images/page": [
+    "/hem/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/media/images/page.js"
+      "static/chunks/app/hem/page.js"
     ],
     "/historik/page": [
       "static/chunks/webpack.js",

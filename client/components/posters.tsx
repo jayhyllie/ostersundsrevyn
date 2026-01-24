@@ -3,15 +3,10 @@ import Image from "next/image";
 import { usePosters } from "@/hooks/queries/use-history";
 import { Spinner } from "@/components/ui/spinner";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
 
 const BUCKET = process.env.NEXT_PUBLIC_AWS_IMAGEBUCKET_URL ?? "";
 
 export default function PosterSlider() {
-  const autoplay = useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true, jump: false, active: true })
-  )
   const { posterQuery, posterImages } = usePosters();
 
   if (posterQuery.isLoading) {
@@ -33,13 +28,8 @@ export default function PosterSlider() {
           opts={{
             align: "start",
             loop: true,
-            duration: Infinity,
-            skipSnaps: false,
           }}
           className="w-full md:max-w-full"
-          plugins={[autoplay.current]}
-          onMouseEnter={() => autoplay.current.stop()}
-          onMouseLeave={() => autoplay.current.play()}
         >
           <CarouselContent>
             {images.map((src: string, i: number) => (
@@ -48,8 +38,8 @@ export default function PosterSlider() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="text-orange-500" />
-          <CarouselNext className="text-orange-500" />
+          <CarouselPrevious className="text-orange-500 -left-0 px-1" />
+          <CarouselNext className="text-orange-500 -right-0 px-1" />
         </Carousel>
       </div>
     </section>
