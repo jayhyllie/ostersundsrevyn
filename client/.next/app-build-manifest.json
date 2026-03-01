@@ -16,10 +16,50 @@
       "static/chunks/main-app.js",
       "static/chunks/app/hem/page.js"
     ],
+    "/revyganget/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/revyganget/layout.js"
+    ],
+    "/revyganget/ensemble/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/revyganget/ensemble/page.js"
+    ],
+    "/revyganget/band/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/revyganget/band/page.js"
+    ],
+    "/revyganget/production/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/revyganget/production/page.js"
+    ],
+    "/media/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/media/layout.js"
+    ],
+    "/media/images/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/media/images/page.js"
+    ],
     "/historik/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/historik/page.js"
+    ],
+    "/kontakt/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/kontakt/page.js"
+    ],
+    "/media/videos/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/media/videos/page.js"
     ]
   }
 }

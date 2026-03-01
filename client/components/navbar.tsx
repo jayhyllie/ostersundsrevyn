@@ -10,7 +10,6 @@ import { Button } from "./ui/button";
 
 const navItems = [
   { text: "Revygänget", href: "/revyganget/ensemble" },
-  { text: "Information", href: "/information" },
   { text: "Media", href: "/media/images" },
   { text: "Historik", href: "/historik" },
   { text: "Kontakt", href: "/kontakt" },
@@ -36,7 +35,7 @@ export function Navbar() {
               priority
             />
           </Link>
-          <div className="flex items-center md:gap-2 gap-16">
+          {/* <div className="flex items-center md:gap-2 gap-16">
             <Button asChild size="default">
               <a
                 href="https://www.nortic.se/voucher/2081"
@@ -55,7 +54,7 @@ export function Navbar() {
                 Biljetter
               </a>
             </Button>
-          </div>
+          </div> */}
         </div>
 
         {/* Desktop Navigation */}
